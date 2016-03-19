@@ -7,4 +7,7 @@ public class GUI {
 
     private JPanel panel1;
     private JTabbedPane tabbedPane1;
+    private JTextArea welcomeToThePCBuilderTextArea;
+    private JTextField textField1;
+    private JTextArea textArea1;
 }
