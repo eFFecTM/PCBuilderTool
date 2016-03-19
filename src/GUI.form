@@ -93,7 +93,16 @@
           <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="50"/>
           </grid>
-          <gridbag weightx="0.0" weighty="0.0"/>
+          <gridbag weightx="50.0" weighty="0.0"/>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="3629c" class="javax.swing.JList" binding="list1" default-binding="true">
+        <constraints>
+          <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="2" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="50"/>
+          </grid>
+          <gridbag weightx="0.0" weighty="50.0"/>
         </constraints>
         <properties/>
       </component>

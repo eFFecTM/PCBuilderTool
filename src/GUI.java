@@ -10,4 +10,5 @@ public class GUI {
     private JTextArea welcomeToThePCBuilderTextArea;
     private JTextField textField1;
     private JTextArea textArea1;
+    private JList list1;
 }
