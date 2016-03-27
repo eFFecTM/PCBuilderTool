@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/src/PCBuilderEngine.java" line="10" mnemonic="5" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="aa3d717d-ea67-4846-b449-cbc858b9a4cc" name="Default" comment="Basic GUI almost completed.&#10;                                      &#10; Still needs refinement of the details.&#10; &#10; ^Emre for you ;)">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/CPU.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Catalogue.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Component.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Drive.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GPU.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PC.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PCBuilderEngine.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PSU.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/RAM.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/PCBuilder.java" />
+    <list default="true" id="aa3d717d-ea67-4846-b449-cbc858b9a4cc" name="Default" comment="Basic GUI almost completed.&#10;&#10;Making all classes&#10; &#10; ^Jan for you ;)">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Catalogue.java" afterPath="$PROJECT_DIR$/src/Catalogue.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Component.java" afterPath="$PROJECT_DIR$/src/Component.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Motherboard.java" afterPath="$PROJECT_DIR$/src/Motherboard.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PC.java" afterPath="$PROJECT_DIR$/src/PC.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PCBuilder.java" afterPath="$PROJECT_DIR$/src/PCBuilder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PCBuilderEngine.java" afterPath="$PROJECT_DIR$/src/PCBuilderEngine.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PSU.java" afterPath="$PROJECT_DIR$/src/PSU.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/RAM.java" afterPath="$PROJECT_DIR$/src/RAM.java" />
     </list>
     <ignored path="PCBuilderTool.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,11 +35,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="PCBuilder.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/PCBuilder.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="PCBuilderEngine.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/PCBuilderEngine.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="28" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
+            <state relative-caret-position="306">
+              <caret line="18" column="16" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -47,9 +58,12 @@
       <file leaf-file-name="PC.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/PC.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="425">
+              <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+              <folding>
+                <element signature="e#252#253#0" expanded="true" />
+                <element signature="e#284#285#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -57,9 +71,14 @@
       <file leaf-file-name="Catalogue.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Catalogue.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="22" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
-              <folding />
+            <state relative-caret-position="102">
+              <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+              <folding>
+                <element signature="e#150#161#0" expanded="true" />
+                <element signature="e#219#230#0" expanded="true" />
+                <element signature="e#285#296#0" expanded="true" />
+                <element signature="e#352#363#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -67,19 +86,12 @@
       <file leaf-file-name="Component.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Component.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="22" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CPU.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/CPU.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="16" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
-              <folding />
+            <state relative-caret-position="255">
+              <caret line="15" column="29" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+                <element signature="e#150#158#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -87,8 +99,8 @@
       <file leaf-file-name="RAM.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/RAM.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="16" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
+            <state relative-caret-position="85">
+              <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -107,28 +119,18 @@
       <file leaf-file-name="PSU.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/PSU.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="16" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
+            <state relative-caret-position="68">
+              <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Drive.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Drive.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Motherboard.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Motherboard.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Motherboard.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="24" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
+            <state relative-caret-position="136">
+              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -158,6 +160,13 @@
         <option value="$PROJECT_DIR$/src/GUI.java" />
         <option value="$PROJECT_DIR$/src/GUI.form" />
         <option value="$PROJECT_DIR$/src/Main.java" />
+        <option value="$PROJECT_DIR$/src/PCBuilderEngine.java" />
+        <option value="$PROJECT_DIR$/src/Catalogue.java" />
+        <option value="$PROJECT_DIR$/src/PC.java" />
+        <option value="$PROJECT_DIR$/src/RAM.java" />
+        <option value="$PROJECT_DIR$/src/PSU.java" />
+        <option value="$PROJECT_DIR$/src/Component.java" />
+        <option value="$PROJECT_DIR$/src/PCBuilder.java" />
         <option value="$PROJECT_DIR$/src/Motherboard.java" />
       </list>
     </option>
@@ -411,26 +420,34 @@
       <option name="presentableId" value="Default" />
       <updated>1459075762326</updated>
     </task>
+    <task id="LOCAL-00001" summary="Basic GUI almost completed.&#10;&#10;Making all classes&#10; &#10; ^Jan for you ;)">
+      <created>1459076461835</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1459076461835</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="1174" y="0" width="1393" height="1407" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15177923" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32922128" sideWeight="0.49310094" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3299923" sideWeight="0.5025418" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299923" sideWeight="0.49745825" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3299923" sideWeight="0.50689906" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980973" sideWeight="0.49791667" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15177923" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299923" sideWeight="0.49745825" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32980973" sideWeight="0.49583334" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -457,7 +474,8 @@
     <MESSAGE value="test with intellij plugin" />
     <MESSAGE value="another test" />
     <MESSAGE value="Basic GUI almost completed.&#10;                                      &#10; Still needs refinement of the details.&#10; &#10; ^Emre for you ;)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Basic GUI almost completed.&#10;                                      &#10; Still needs refinement of the details.&#10; &#10; ^Emre for you ;)" />
+    <MESSAGE value="Basic GUI almost completed.&#10;&#10;Making all classes&#10; &#10; ^Jan for you ;)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Basic GUI almost completed.&#10;&#10;Making all classes&#10; &#10; ^Jan for you ;)" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -587,71 +605,7 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PCBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PCBuilderEngine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="28" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PC.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Catalogue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="22" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Component.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="22" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/CPU.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="16" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/RAM.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="16" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GPU.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="16" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PSU.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" column="16" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
@@ -669,8 +623,83 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Motherboard.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PSU.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GPU.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
-          <caret line="3" column="24" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
+          <caret line="3" column="16" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/RAM.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Component.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="29" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#150#158#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Catalogue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding>
+            <element signature="e#150#161#0" expanded="true" />
+            <element signature="e#219#230#0" expanded="true" />
+            <element signature="e#285#296#0" expanded="true" />
+            <element signature="e#352#363#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PC.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding>
+            <element signature="e#252#253#0" expanded="true" />
+            <element signature="e#284#285#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PCBuilderEngine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="16" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PCBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
           <folding />
         </state>
       </provider>

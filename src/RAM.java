@@ -2,4 +2,6 @@
  * Created by IMac-Windows on 27/03/2016.
  */
 public class RAM {
+    String type;
+    String amountGB;
 }
