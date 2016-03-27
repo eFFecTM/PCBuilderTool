@@ -6,12 +6,19 @@ import java.util.ArrayList;
 
 
 public class Component {
-    ArrayList<String> details = new ArrayList<String>();
 
-    String groupComponent;
-    String brandComponent;
-    String nameComponent;
-    String otherDetails;
+    private String groupComponent;
+    private String brandComponent;
+    private String nameComponent;
+    private String otherDetails;
+
+    public Component() {
+        ArrayList<String> details = new ArrayList<String>();
+        this.groupComponent = groupComponent;
+        this.brandComponent = brandComponent;
+        this.nameComponent = nameComponent;
+        this.otherDetails = otherDetails;
+    }
 
 
     public void makeComponent() {

@@ -5,7 +5,7 @@ import javax.swing.*;
  */
 
 public class PCBuilder {
-    String loginName;
+    private String loginName;
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("PCBuilder Tool");
@@ -14,6 +14,5 @@ public class PCBuilder {
         frame.pack();
         frame.setVisible(true);
     }
-
 
 }

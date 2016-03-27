@@ -2,5 +2,9 @@
  * Created by IMac-Windows on 27/03/2016.
  */
 public class PSU {
-    String maxWattage;
+    private String maxWattage;
+
+    public PSU() {
+        this.maxWattage = maxWattage;
+    }
 }

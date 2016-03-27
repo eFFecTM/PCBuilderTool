@@ -2,6 +2,11 @@
  * Created by IMac-Windows on 27/03/2016.
  */
 public class RAM {
-    String type;
-    String amountGB;
+    private String type;
+    private String amountGB;
+
+    public RAM() {
+        this.type = type;
+        this.amountGB = amountGB;
+    }
 }
