@@ -4,7 +4,7 @@ import javax.swing.*;
  * Created by students UA:FTI-EI De Laet Jan & Yigit Yunus Emre on 17/03/2016.
  */
 
-public class Main {
+public class PCBuilder {
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("PCBuilder Tool");
@@ -13,4 +13,6 @@ public class Main {
         frame.pack();
         frame.setVisible(true);
     }
+
+
 }
