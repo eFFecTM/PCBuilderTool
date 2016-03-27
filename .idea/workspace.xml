@@ -4,16 +4,9 @@
     <bookmark url="file://$PROJECT_DIR$/src/PCBuilderEngine.java" line="10" mnemonic="5" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aa3d717d-ea67-4846-b449-cbc858b9a4cc" name="Default" comment="Basic GUI almost completed.&#10;&#10;Making all classes&#10; &#10; ^Jan for you ;)">
+    <list default="true" id="aa3d717d-ea67-4846-b449-cbc858b9a4cc" name="Default" comment="Basic GUI almost completed.&#10;&#10;Making all classes with methods.&#10; &#10; ^Jan for you ;)">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Catalogue.java" afterPath="$PROJECT_DIR$/src/Catalogue.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Component.java" afterPath="$PROJECT_DIR$/src/Component.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Motherboard.java" afterPath="$PROJECT_DIR$/src/Motherboard.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PC.java" afterPath="$PROJECT_DIR$/src/PC.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PCBuilder.java" afterPath="$PROJECT_DIR$/src/PCBuilder.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PCBuilderEngine.java" afterPath="$PROJECT_DIR$/src/PCBuilderEngine.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PSU.java" afterPath="$PROJECT_DIR$/src/PSU.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/RAM.java" afterPath="$PROJECT_DIR$/src/RAM.java" />
     </list>
     <ignored path="PCBuilderTool.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,21 +28,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="PCBuilder.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PCBuilder.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/PCBuilder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+            <state relative-caret-position="255">
+              <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PCBuilderEngine.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="PCBuilderEngine.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/PCBuilderEngine.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="16" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+            <state relative-caret-position="170">
+              <caret line="10" column="40" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -61,8 +54,8 @@
             <state relative-caret-position="425">
               <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
               <folding>
-                <element signature="e#252#253#0" expanded="true" />
-                <element signature="e#284#285#0" expanded="true" />
+                <element signature="e#256#257#0" expanded="true" />
+                <element signature="e#288#289#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -87,10 +80,10 @@
         <entry file="file://$PROJECT_DIR$/src/Component.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="255">
-              <caret line="15" column="29" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
+              <caret line="16" column="29" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
-                <element signature="e#150#158#0" expanded="true" />
+                <element signature="e#151#159#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -160,7 +153,6 @@
         <option value="$PROJECT_DIR$/src/GUI.java" />
         <option value="$PROJECT_DIR$/src/GUI.form" />
         <option value="$PROJECT_DIR$/src/Main.java" />
-        <option value="$PROJECT_DIR$/src/PCBuilderEngine.java" />
         <option value="$PROJECT_DIR$/src/Catalogue.java" />
         <option value="$PROJECT_DIR$/src/PC.java" />
         <option value="$PROJECT_DIR$/src/RAM.java" />
@@ -168,6 +160,7 @@
         <option value="$PROJECT_DIR$/src/Component.java" />
         <option value="$PROJECT_DIR$/src/PCBuilder.java" />
         <option value="$PROJECT_DIR$/src/Motherboard.java" />
+        <option value="$PROJECT_DIR$/src/PCBuilderEngine.java" />
       </list>
     </option>
   </component>
@@ -427,7 +420,14 @@
       <option name="project" value="LOCAL" />
       <updated>1459076461835</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Basic GUI almost completed.&#10;&#10;Making all classes with methods.&#10; &#10; ^Jan for you ;)">
+      <created>1459078083381</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1459078083381</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -475,7 +475,8 @@
     <MESSAGE value="another test" />
     <MESSAGE value="Basic GUI almost completed.&#10;                                      &#10; Still needs refinement of the details.&#10; &#10; ^Emre for you ;)" />
     <MESSAGE value="Basic GUI almost completed.&#10;&#10;Making all classes&#10; &#10; ^Jan for you ;)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Basic GUI almost completed.&#10;&#10;Making all classes&#10; &#10; ^Jan for you ;)" />
+    <MESSAGE value="Basic GUI almost completed.&#10;&#10;Making all classes with methods.&#10; &#10; ^Jan for you ;)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Basic GUI almost completed.&#10;&#10;Making all classes with methods.&#10; &#10; ^Jan for you ;)" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -656,10 +657,10 @@
     <entry file="file://$PROJECT_DIR$/src/Component.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
-          <caret line="15" column="29" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
+          <caret line="16" column="29" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#150#158#0" expanded="true" />
+            <element signature="e#151#159#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -682,24 +683,24 @@
         <state relative-caret-position="425">
           <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
           <folding>
-            <element signature="e#252#253#0" expanded="true" />
-            <element signature="e#284#285#0" expanded="true" />
+            <element signature="e#256#257#0" expanded="true" />
+            <element signature="e#288#289#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PCBuilderEngine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="16" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/PCBuilder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+        <state relative-caret-position="255">
+          <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PCBuilderEngine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="40" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="40" />
           <folding />
         </state>
       </provider>

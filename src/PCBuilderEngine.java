@@ -8,7 +8,7 @@ public class PCBuilderEngine {
     }
 
 
-    public void selectcomponentGroup() {
+    public void selectComponentGroup() {
 
     }
 
