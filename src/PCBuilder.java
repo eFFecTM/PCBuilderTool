@@ -9,7 +9,7 @@ public class PCBuilder
     private String loginName;
     private Component component;
 
-    public void main(String[] args) throws IOException
+    public static void main(String[] args) throws IOException
     {
         Component component = new Component("", "", "", "");
         int x = component.getDetails(0, 0);
