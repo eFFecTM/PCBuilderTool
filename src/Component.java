@@ -4,15 +4,16 @@
 
 import java.util.ArrayList;
 
-
-public class Component {
+public class Component
+{
 
     private String groupComponent;
     private String brandComponent;
     private String nameComponent;
     private String otherDetails;
 
-    public Component() {
+    public Component()
+    {
         ArrayList<String> details = new ArrayList<String>();
         this.groupComponent = groupComponent;
         this.brandComponent = brandComponent;
@@ -21,11 +22,13 @@ public class Component {
     }
 
 
-    public void makeComponent() {
+    public void makeComponent()
+    {
 
     }
 
-    public void getDetails() {
+    public void getDetails()
+    {
 
     }
 }
