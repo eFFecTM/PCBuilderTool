@@ -88,27 +88,35 @@ public class Component
                             } else if (sheetNr == 1)
                             {
                                 CPU.changeSocket(cell.getStringCellValue());
-                            } else
+                            } else if (sheetNr == 2)
                             {
-                                type = cell.getStringCellValue();
+                                RAM.changeType(cell.getStringCellValue());
+                            }
+                            else{
+                                PSU.changeWatt(cell.getStringCellValue());
                             }
 
                             break;
                         case 4:
                             if (sheetNr == 0)
                             {
-
-                                ramSlots = cell.getStringCellValue();
+                                Motherboard.ramSlots(cell.getStringCellValue());
                             } else
                             {
                                 RAM.changeAmount() = cell.getStringCellValue();
                             }
                             break;
                         case 5:
-                            brandComponent = cell.getStringCellValue();
+                            if(sheetNr == 0)
+                            {
+                                Motherboard.changeMaxRAM(cell.getStringCellValue());
+                            } else
+                            {
+                                RAM.changeAmountSt(cell.getStringCellValue());
+                            }
                             break;
                         case 6:
-                            brandComponent = cell.getStringCellValue();
+                            Motherboard.changeRAMType(cell.getStringCellValue());
                             break;
 
                     }
