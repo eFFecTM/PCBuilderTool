@@ -17,31 +17,34 @@ import java.util.Iterator;
 public class Component
 {
 
+    private ArrayList details;
     private String groupComponent;
     private String brandComponent;
     private String nameComponent;
     private String otherDetails;
+    private int sheetNr;
 
     //read from Excel file
     private int rowIndex;
 
-    public Component()
+    public Component(String groupComponent, String brandComponent, String nameComponent, String otherDetails)
     {
         ArrayList<String> details = new ArrayList<String>();
         this.groupComponent = groupComponent;
         this.brandComponent = brandComponent;
         this.nameComponent = nameComponent;
         this.otherDetails = otherDetails;
+        this.sheetNr = sheetNr;
         rowIndex = 0;
     }
 
 
-    public void makeComponent()
+    public void makeComponent(String groupComponent, String brandComponent, String nameComponent, String otherDetails)
     {
 
     }
 
-    public int getDetails(int rowIndex)
+    public int getDetails(int rowIndex, int sheetNr)
     {
         try
         {
@@ -51,34 +54,66 @@ public class Component
             XSSFWorkbook workbook = new XSSFWorkbook(file);
 
             //Get first/desired sheet from the workbook
-            XSSFSheet sheetMotherboard = workbook.getSheetAt(0);
-            XSSFSheet sheetCPU = workbook.getSheetAt(1);
-            XSSFSheet sheetRAM = workbook.getSheetAt(2);
+            XSSFSheet sheet = workbook.getSheetAt(sheetNr);
 
             //Iterate through each rows one by one
-            Iterator<Row> rowIterator = sheetMotherboard.iterator();
+            Iterator<Row> rowIterator = sheet.iterator();
 
-            while (rowIterator.hasNext())
-            {
+
                 Row row = rowIterator.next();
+            //for()    xcfgnh,j;khdgsdhgf
                 //For each row, iterate through all the columns
                 Iterator<Cell> cellIterator = row.cellIterator();
 
                 while (cellIterator.hasNext())
                 {
                     Cell cell = cellIterator.next();
-                    //Check the cell type and format accordingly
-                    switch (cell.getCellType())
+
+                    switch (cell.getColumnIndex())
                     {
-                        case Cell.CELL_TYPE_NUMERIC:
-                            System.out.print(cell.getNumericCellValue() + " ");
+                        case 0:
+                            nameComponent = cell.getStringCellValue();
                             break;
-                        case Cell.CELL_TYPE_STRING:
-                            System.out.print(cell.getStringCellValue() + " ");
+                        case 1:
+                            brandComponent = cell.getStringCellValue();
                             break;
+                        case 2:
+                            otherDetails = cell.getStringCellValue();
+                            break;
+                        case 3:
+                            if (sheetNr == 0)
+                            {
+
+                                Motherboard.changeSocket(cell.getStringCellValue());
+                            } else if (sheetNr == 1)
+                            {
+                                CPU.changeSocket(cell.getStringCellValue());
+                            } else
+                            {
+                                type = cell.getStringCellValue();
+                            }
+
+                            break;
+                        case 4:
+                            if (sheetNr == 0)
+                            {
+
+                                ramSlots = cell.getStringCellValue();
+                            } else
+                            {
+                                RAM.changeAmount() = cell.getStringCellValue();
+                            }
+                            break;
+                        case 5:
+                            brandComponent = cell.getStringCellValue();
+                            break;
+                        case 6:
+                            brandComponent = cell.getStringCellValue();
+                            break;
+
                     }
-                }
-                System.out.println("\n");
+
+                    System.out.println("\n");
             }
             file.close();
 

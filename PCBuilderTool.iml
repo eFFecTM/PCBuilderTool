@@ -17,5 +17,15 @@
         <jarDirectory url="file://$MODULE_DIR$/Apache POI" recursive="false" />
       </library>
     </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="file://$USER_HOME$/Google Drive/Jan-Emre/Software Design/Apache POI" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://$USER_HOME$/Google Drive/Jan-Emre/Software Design/Apache POI" recursive="false" />
+      </library>
+    </orderEntry>
   </component>
 </module>

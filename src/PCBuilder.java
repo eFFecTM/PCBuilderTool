@@ -9,10 +9,10 @@ public class PCBuilder
     private String loginName;
     private Component component;
 
-    public static void main(String[] args) throws IOException
+    public void main(String[] args) throws IOException
     {
-        Component component = new Component();
-        int x = component.getDetails(0);
+        Component component = new Component("", "", "", "");
+        int x = component.getDetails(0, 0);
 /*
         JFrame frame = new JFrame("PCBuilder Tool");
         frame.setContentPane(new GUI().mainPanel);
