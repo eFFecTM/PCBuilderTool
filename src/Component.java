@@ -68,16 +68,17 @@ public class Component
         return null;
     }
 
-    public void getDetails(int sheetNr)
+    public Component getDetails(int sheetNr,int rij)
     {
-        String socket ="";
-        String type="";
-        String maxWattage="";
-        String ramSlots="";
-        String amountGB="";
-        String maxRam="";
-        String amountSticks="";
-        String ramType="";
+        String socket = "";
+        String type = "";
+        String maxWattage = "";
+        String ramSlots = "";
+        String amountGB = "";
+        String maxRam = "";
+        String amountSticks = "";
+        String ramType = "";
+
         try
         {
             FileInputStream file = new FileInputStream(new File("Catalogue.xlsx"));
@@ -91,70 +92,74 @@ public class Component
             //Iterate through each rows one by one
             Iterator<Row> rowIterator = sheet.iterator();
 
+            Row row = rowIterator.next();
 
-                Row row = rowIterator.next();
-            //for()    xcfgnh,j;khdgsdhgf
-                //For each row, iterate through all the columns
-                Iterator<Cell> cellIterator = row.cellIterator();
-
-                while (cellIterator.hasNext())
-                {
-                    Cell cell = cellIterator.next();
-
-                    switch (cell.getColumnIndex())
-                    {
-                        case 0:
-                            nameComponent = cell.getStringCellValue();
-                            break;
-                        case 1:
-                            brandComponent = cell.getStringCellValue();
-                            break;
-                        case 2:
-                            otherDetails = cell.getStringCellValue();
-                            break;
-                        case 3:
-                            if (sheetNr == 0)
-                            {
-                                socket = cell.getStringCellValue();
-                            } else if (sheetNr == 1)
-                            {
-                                socket = cell.getStringCellValue();
-                            } else if (sheetNr == 2)
-                            {
-                                type = cell.getStringCellValue();
-                            }
-                            else{
-                                maxWattage = cell.getStringCellValue();
-                            }
-
-                            break;
-                        case 4:
-                            if (sheetNr == 0)
-                            {
-                                ramSlots = cell.getStringCellValue();
-                            } else
-                            {
-                                amountGB = cell.getStringCellValue();
-                            }
-                            break;
-                        case 5:
-                            if(sheetNr == 0)
-                            {
-                                maxRam = cell.getStringCellValue();
-                            } else
-                            {
-                                amountSticks = cell.getStringCellValue();
-                            }
-                            break;
-                        case 6:
-                                ramType = cell.getStringCellValue();
-                            break;
-
-                    }
-                    Component comp = makeComponent(groupComponent,brandComponent,nameComponent,otherDetails,sheetNr,socket,type,maxWattage,ramSlots,amountGB,maxRam,amountSticks,ramType);
-                    catalogue.addComponent(comp);
-                    System.out.println("\n");
+            for (int i = 0; i < rij; i++)
+            {
+                row = rowIterator.next();
             }
+
+            //For each row, iterate through all the columns
+            Iterator<Cell> cellIterator = row.cellIterator();
+
+            while (cellIterator.hasNext())
+            {
+                Cell cell = cellIterator.next();
+
+                switch (cell.getColumnIndex())
+                {
+                    case 0:
+                        nameComponent = cell.getStringCellValue();
+                        break;
+                    case 1:
+                        brandComponent = cell.getStringCellValue();
+                        break;
+                    case 2:
+                        otherDetails = cell.getStringCellValue();
+                        break;
+                    case 3:
+                        if (sheetNr == 0)
+                        {
+                            socket = cell.getStringCellValue();
+                        } else if (sheetNr == 1)
+                        {
+                            socket = cell.getStringCellValue();
+                        } else if (sheetNr == 2)
+                        {
+                            type = cell.getStringCellValue();
+                        } else
+                        {
+                            maxWattage = cell.getStringCellValue();
+                        }
+
+                        break;
+                    case 4:
+                        if (sheetNr == 0)
+                        {
+                            ramSlots = cell.getStringCellValue();
+                        } else
+                        {
+                            amountGB = cell.getStringCellValue();
+                        }
+                        break;
+                    case 5:
+                        if (sheetNr == 0)
+                        {
+                            maxRam = cell.getStringCellValue();
+                        } else
+                        {
+                            amountSticks = cell.getStringCellValue();
+                        }
+                        break;
+                    case 6:
+                        ramType = cell.getStringCellValue();
+                        break;
+
+                }
+
+
+            }
+
             file.close();
 
 
@@ -167,5 +172,7 @@ public class Component
             e.printStackTrace();
         }
 
+        Component comp = makeComponent(groupComponent, brandComponent, nameComponent, otherDetails, sheetNr, socket, type, maxWattage, ramSlots, amountGB, maxRam, amountSticks, ramType);
+        return comp;
     }
 }

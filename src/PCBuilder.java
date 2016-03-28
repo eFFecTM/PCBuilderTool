@@ -13,8 +13,6 @@ public class PCBuilder
     public static void main(String[] args) throws IOException
     {
         Catalogue catalogue = new Catalogue();
-        Component component = new Component("", "", "", "",0);
-        component.getDetails(0, 0);
 
 /*
         JFrame frame = new JFrame("PCBuilder Tool");
