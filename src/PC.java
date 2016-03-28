@@ -5,14 +5,14 @@ import java.util.ArrayList;
  */
 public class PC
 {
-    private ArrayList userCfg;
+    private ArrayList<Component> userCfg;
     private int wattUsage;
     private boolean check;
     private int amount;
 
     public PC()
     {
-        ArrayList<Component> userCfg = new ArrayList<Component>();
+        userCfg = new ArrayList<>();
         this.wattUsage = wattUsage;
         this.check = check;
         this.amount = amount;
@@ -37,6 +37,8 @@ public class PC
 
     public int calculateWattUsage()
     {
+
+
         return wattUsage;
     }
 

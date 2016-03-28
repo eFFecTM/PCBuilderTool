@@ -1,40 +1,46 @@
 import java.util.ArrayList;
 
 /**
- * Created by IMac-Windows on 27/03/2016.
+ * Created by students UA:FTI-EI De Laet Jan & Yigit Yunus Emre.
  */
+
 public class Catalogue
 {
 
     private ArrayList<Component> list;
-    private ArrayList componentList;
-    private ArrayList searchList;
-    private ArrayList compareList;
+    private ArrayList<Component> componentList;
+    private ArrayList<Component> searchList;
+    private ArrayList<Component> compareList;
 
     public Catalogue()
     {
-        list = new ArrayList<Component>();
-        ArrayList<Component> componentList = new ArrayList<Component>();
-        ArrayList<Component> searchList = new ArrayList<Component>();
-        ArrayList<Component> compareList = new ArrayList<Component>();
+        list = new ArrayList<>();
+        componentList = new ArrayList<>();
+        searchList = new ArrayList<>();
+        compareList = new ArrayList<>();
         for(int sheetNr=0;sheetNr<6;sheetNr++)
         {
             for(int i=0;i<2;i++)
             {
-                Component component = new Component("", "", "", "", sheetNr);
+                Component component = new Component("", "", "", "");
                 component.getDetails(sheetNr,i);
                 addComponent(component);
             }
 
         }
+        show();
+    }
+
+    public void addComponent(Component component)
+    {
+        list.add(component);
     }
 
     public void show()
     {
         for(Component component: list)
         {
-            component.display();
-            System.out.println();
+            System.out.println("\nGroup: " + component.getGroupComponent() + "\nName: " + component.getNameComponent() + "\nBrand: " + component.getBrandComponent() + "\nDetails: " + component.getOtherDetails() + "\n");
         }
     }
 
@@ -51,11 +57,6 @@ public class Catalogue
     public void search()
     {
 
-    }
-
-    public void addComponent(Component component)
-    {
-        list.add(component);
     }
 
 }

@@ -1,18 +1,16 @@
 import java.io.IOException;
 
 /**
- * Created by students UA:FTI-EI De Laet Jan & Yigit Yunus Emre on 17/03/2016.
+ * Created by students UA:FTI-EI De Laet Jan & Yigit Yunus Emre.
  */
 
 public class PCBuilder
 {
     private String loginName;
-    private Component component;
-    public Catalogue catalogue;
 
     public static void main(String[] args) throws IOException
     {
-        Catalogue catalogue = new Catalogue();
+        new PCBuilderEngine();
 
 /*
         JFrame frame = new JFrame("PCBuilder Tool");
@@ -20,7 +18,7 @@ public class PCBuilder
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
- */
+*/
     }
 
 }

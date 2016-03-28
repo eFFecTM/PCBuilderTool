@@ -3,12 +3,17 @@
  */
 public class PCBuilderEngine
 {
+    public PCBuilderEngine()
+    {
+        new Catalogue();
+        new PC();
+    }
+
 
     public void selectComponent()
     {
 
     }
-
 
     public void selectComponentGroup()
     {

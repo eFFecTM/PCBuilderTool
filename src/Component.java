@@ -1,5 +1,5 @@
 /**
- * Created by IMac-Windows on 27/03/2016.
+ * Created by students UA:FTI-EI De Laet Jan & Yigit Yunus Emre.
  */
 
 import org.apache.poi.ss.usermodel.Cell;
@@ -11,58 +11,46 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Iterator;
 
 public class Component
 {
 
-    private ArrayList details;
     private String groupComponent;
-    private String brandComponent;
     private String nameComponent;
+    private String brandComponent;
     private String otherDetails;
-    private int sheetNr;
 
-    public Component(String groupComponent, String brandComponent, String nameComponent, String otherDetails,int sheetNr)
+    public Component(String groupComponent, String brandComponent, String nameComponent, String otherDetails)
     {
-        ArrayList<String> details = new ArrayList<String>();
         this.groupComponent = groupComponent;
-        this.brandComponent = brandComponent;
         this.nameComponent = nameComponent;
+        this.brandComponent = brandComponent;
         this.otherDetails = otherDetails;
-        this.sheetNr = sheetNr;
     }
 
 
-    public Component makeComponent(String groupComponent, String brandComponent, String nameComponent, String otherDetails, int sheetNr,String socket,String type,String maxWattage,String ramSlots,String amountGB,String maxRam,String amountSticks,String ramType)
+    public Component makeComponent(String groupComponent, String nameComponent, String brandComponent, String otherDetails, int sheetNr, String socket, String type, String maxWattage, String ramSlots, String amountGB, String maxRam, String amountSticks, String ramType)
     {
         switch(sheetNr)
         {
             case 0:
-                Motherboard mb = new Motherboard(groupComponent,brandComponent,nameComponent,otherDetails,sheetNr,socket,ramSlots,maxRam,ramType);
-                return mb;
+                return new Motherboard(groupComponent, nameComponent, brandComponent, otherDetails, socket, ramSlots, maxRam, ramType);
 
             case 1:
-                CPU cpu = new CPU(groupComponent,brandComponent,nameComponent,otherDetails,sheetNr,socket);
-                return cpu;
+                return new CPU(groupComponent, nameComponent, brandComponent, otherDetails, socket);
 
             case 2:
-                RAM ram = new RAM(groupComponent,brandComponent,nameComponent,otherDetails,sheetNr,type,amountGB,amountSticks);
-                return ram;
+                return new RAM(groupComponent, nameComponent, brandComponent, otherDetails, type, amountGB, amountSticks);
 
             case 3:
-                GPU gpu = new GPU(groupComponent,brandComponent,nameComponent,otherDetails,sheetNr);
-                return gpu;
+                return new GPU(groupComponent, nameComponent, brandComponent, otherDetails);
 
             case 4:
-                PSU psu = new PSU(groupComponent,brandComponent,nameComponent,otherDetails,sheetNr,maxWattage);
-                return psu;
+                return new PSU(groupComponent, brandComponent, nameComponent, otherDetails, maxWattage);
 
             case 5:
-                Drive drive = new Drive(groupComponent, brandComponent, nameComponent, otherDetails,sheetNr);
-                return drive;
-
+                return new Drive(groupComponent, brandComponent, nameComponent, otherDetails);
         }
 
         return null;
@@ -94,7 +82,7 @@ public class Component
 
             Row row = rowIterator.next();
 
-            for (int i = 0; i < rij; i++)
+            for (int i = 0; i <= rij; i++)
             {
                 row = rowIterator.next();
             }
@@ -106,6 +94,7 @@ public class Component
             {
                 Cell cell = cellIterator.next();
 
+                groupComponent = sheet.getSheetName();
                 switch (cell.getColumnIndex())
                 {
                     case 0:
@@ -154,14 +143,10 @@ public class Component
                     case 6:
                         ramType = cell.getStringCellValue();
                         break;
-
                 }
-
-
             }
 
             file.close();
-
 
         } catch (FileNotFoundException e)
         {
@@ -172,7 +157,27 @@ public class Component
             e.printStackTrace();
         }
 
-        Component comp = makeComponent(groupComponent, brandComponent, nameComponent, otherDetails, sheetNr, socket, type, maxWattage, ramSlots, amountGB, maxRam, amountSticks, ramType);
+        Component comp = makeComponent(groupComponent, nameComponent, brandComponent, otherDetails, sheetNr, socket, type, maxWattage, ramSlots, amountGB, maxRam, amountSticks, ramType);
         return comp;
+    }
+
+    public String getGroupComponent()
+    {
+        return groupComponent;
+    }
+
+    public String getNameComponent()
+    {
+        return nameComponent;
+    }
+
+    public String getBrandComponent()
+    {
+        return brandComponent;
+    }
+
+    public String getOtherDetails()
+    {
+        return otherDetails;
     }
 }
