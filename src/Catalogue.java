@@ -20,7 +20,7 @@ public class Catalogue
         compareList = new ArrayList<>();
         for(int sheetNr=0;sheetNr<6;sheetNr++)
         {
-            for(int i=0;i<2;i++)
+            for(int i=0;i<5;i++)
             {
                 Component component = new Component("", "", "", "");
                 component.getDetails(sheetNr,i);
