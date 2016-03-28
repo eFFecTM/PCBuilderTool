@@ -39,9 +39,11 @@ public class Component
     }
 
 
-    public void makeComponent(String groupComponent, String brandComponent, String nameComponent, String otherDetails)
+    public Component makeComponent(String groupComponent, String brandComponent, String nameComponent, String otherDetails)
     {
+        Motherboard motherboard = new Motherboard()
 
+        return component;
     }
 
     public int getDetails(int rowIndex, int sheetNr)
@@ -84,10 +86,10 @@ public class Component
                             if (sheetNr == 0)
                             {
 
-                                Motherboard.changeSocket(cell.getStringCellValue());
+                                String socket = cell.getStringCellValue();
                             } else if (sheetNr == 1)
                             {
-                                CPU.changeSocket(cell.getStringCellValue());
+                                CPU.changeSocket(cell.getStringCellValue();
                             } else if (sheetNr == 2)
                             {
                                 RAM.changeType(cell.getStringCellValue());
@@ -134,6 +136,8 @@ public class Component
         {
             e.printStackTrace();
         }
+
+        makeComponent()
 
         return rowIndex++;
     }
