@@ -5,9 +5,9 @@ public class PSU extends Component
 {
     private String maxWattage;
 
-    public PSU(String groupComponent, String brandComponent, String nameComponent, String otherDetails, String maxWattage)
+    public PSU(String groupComponent, String brandComponent, String nameComponent, String otherDetails,int sheetNr, String maxWattage)
     {
-        super(groupComponent, brandComponent, nameComponent, otherDetails);
+        super(groupComponent, brandComponent, nameComponent, otherDetails,sheetNr);
         this.maxWattage = maxWattage;
     }
 }

@@ -17,6 +17,9 @@ public class Catalogue
         ArrayList<Component> componentList = new ArrayList<Component>();
         ArrayList<Component> searchList = new ArrayList<Component>();
         ArrayList<Component> compareList = new ArrayList<Component>();
+
+        Component component = new Component("","","","",0);
+        component.getDetails(0);
     }
 
     public void sort()
@@ -34,9 +37,9 @@ public class Catalogue
 
     }
 
-    public void addComponent()
+    public void addComponent(Component component)
     {
-
+        list.add(component);
     }
 
 }

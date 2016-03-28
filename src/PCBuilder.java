@@ -8,11 +8,14 @@ public class PCBuilder
 {
     private String loginName;
     private Component component;
+    public Catalogue catalogue;
 
     public static void main(String[] args) throws IOException
     {
-        Component component = new Component("", "", "", "");
-        int x = component.getDetails(0, 0);
+        Catalogue catalogue = new Catalogue();
+        Component component = new Component("", "", "", "",0);
+        component.getDetails(0, 0);
+
 /*
         JFrame frame = new JFrame("PCBuilder Tool");
         frame.setContentPane(new GUI().mainPanel);

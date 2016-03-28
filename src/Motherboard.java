@@ -8,9 +8,9 @@ public class Motherboard extends Component
     private String maxRam;
     private String ramType;
 
-    public Motherboard(String groupComponent, String brandComponent, String nameComponent, String otherDetails, String socket, String ramSlots, String maxRam, String ramType)
+    public Motherboard(String groupComponent, String brandComponent, String nameComponent, String otherDetails,int sheetNr, String socket, String ramSlots, String maxRam, String ramType)
     {
-        super(groupComponent, brandComponent, nameComponent, otherDetails);
+        super(groupComponent, brandComponent, nameComponent, otherDetails,sheetNr);
         this.socket = socket;
         this.ramSlots = ramSlots;
         this.maxRam = maxRam;

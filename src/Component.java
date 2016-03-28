@@ -24,10 +24,7 @@ public class Component
     private String otherDetails;
     private int sheetNr;
 
-    //read from Excel file
-    private int rowIndex;
-
-    public Component(String groupComponent, String brandComponent, String nameComponent, String otherDetails)
+    public Component(String groupComponent, String brandComponent, String nameComponent, String otherDetails,int sheetNr)
     {
         ArrayList<String> details = new ArrayList<String>();
         this.groupComponent = groupComponent;
@@ -35,19 +32,52 @@ public class Component
         this.nameComponent = nameComponent;
         this.otherDetails = otherDetails;
         this.sheetNr = sheetNr;
-        rowIndex = 0;
     }
 
 
-    public Component makeComponent(String groupComponent, String brandComponent, String nameComponent, String otherDetails)
+    public Component makeComponent(String groupComponent, String brandComponent, String nameComponent, String otherDetails, int sheetNr,String socket,String type,String maxWattage,String ramSlots,String amountGB,String maxRam,String amountSticks,String ramType)
     {
-        Motherboard motherboard = new Motherboard()
+        switch(sheetNr)
+        {
+            case 0:
+                Motherboard mb = new Motherboard(groupComponent,brandComponent,nameComponent,otherDetails,sheetNr,socket,ramSlots,maxRam,ramType);
+                return mb;
 
-        return component;
+            case 1:
+                CPU cpu = new CPU(groupComponent,brandComponent,nameComponent,otherDetails,sheetNr,socket);
+                return cpu;
+
+            case 2:
+                RAM ram = new RAM(groupComponent,brandComponent,nameComponent,otherDetails,sheetNr,type,amountGB,amountSticks);
+                return ram;
+
+            case 3:
+                GPU gpu = new GPU(groupComponent,brandComponent,nameComponent,otherDetails,sheetNr);
+                return gpu;
+
+            case 4:
+                PSU psu = new PSU(groupComponent,brandComponent,nameComponent,otherDetails,sheetNr,maxWattage);
+                return psu;
+
+            case 5:
+                Drive drive = new Drive(groupComponent, brandComponent, nameComponent, otherDetails,sheetNr);
+                return drive;
+
+        }
+
+        return null;
     }
 
-    public int getDetails(int rowIndex, int sheetNr)
+    public void getDetails(int sheetNr)
     {
+        String socket ="";
+        String type="";
+        String maxWattage="";
+        String ramSlots="";
+        String amountGB="";
+        String maxRam="";
+        String amountSticks="";
+        String ramType="";
         try
         {
             FileInputStream file = new FileInputStream(new File("Catalogue.xlsx"));
@@ -85,44 +115,44 @@ public class Component
                         case 3:
                             if (sheetNr == 0)
                             {
-
-                                String socket = cell.getStringCellValue();
+                                socket = cell.getStringCellValue();
                             } else if (sheetNr == 1)
                             {
-                                CPU.changeSocket(cell.getStringCellValue();
+                                socket = cell.getStringCellValue();
                             } else if (sheetNr == 2)
                             {
-                                RAM.changeType(cell.getStringCellValue());
+                                type = cell.getStringCellValue();
                             }
                             else{
-                                PSU.changeWatt(cell.getStringCellValue());
+                                maxWattage = cell.getStringCellValue();
                             }
 
                             break;
                         case 4:
                             if (sheetNr == 0)
                             {
-                                Motherboard.ramSlots(cell.getStringCellValue());
+                                ramSlots = cell.getStringCellValue();
                             } else
                             {
-                                RAM.changeAmount() = cell.getStringCellValue();
+                                amountGB = cell.getStringCellValue();
                             }
                             break;
                         case 5:
                             if(sheetNr == 0)
                             {
-                                Motherboard.changeMaxRAM(cell.getStringCellValue());
+                                maxRam = cell.getStringCellValue();
                             } else
                             {
-                                RAM.changeAmountSt(cell.getStringCellValue());
+                                amountSticks = cell.getStringCellValue();
                             }
                             break;
                         case 6:
-                            Motherboard.changeRAMType(cell.getStringCellValue());
+                                ramType = cell.getStringCellValue();
                             break;
 
                     }
-
+                    Component comp = makeComponent(groupComponent,brandComponent,nameComponent,otherDetails,sheetNr,socket,type,maxWattage,ramSlots,amountGB,maxRam,amountSticks,ramType);
+                    catalogue.addComponent(comp);
                     System.out.println("\n");
             }
             file.close();
@@ -137,8 +167,5 @@ public class Component
             e.printStackTrace();
         }
 
-        makeComponent()
-
-        return rowIndex++;
     }
 }
