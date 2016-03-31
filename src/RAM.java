@@ -8,9 +8,9 @@ public class RAM extends Component
     private String amountGB;
     private String amountSticks;
 
-    public RAM(String groupComponent, String nameComponent, String brandComponent, String otherDetails, String type, String amountGB, String amountSticks)
+    public RAM(String groupComponent, String nameComponent, String brandComponent, String wattUsage, String otherDetails, String type, String amountGB, String amountSticks)
     {
-        super(groupComponent, nameComponent, brandComponent, otherDetails);
+        super(groupComponent, nameComponent, brandComponent, wattUsage, otherDetails);
         this.type = type;
         this.amountGB = amountGB;
         this.amountSticks = amountSticks;
@@ -29,6 +29,26 @@ public class RAM extends Component
     public String getBrandComponent()
     {
         return super.getBrandComponent();
+    }
+
+    public String getWattUsage()
+    {
+        return super.getWattUsage();
+    }
+
+    public String getTypeRAM()
+    {
+        return type;
+    }
+
+    public String getAmountGB()
+    {
+        return amountGB;
+    }
+
+    public String getAmountSticks()
+    {
+        return amountSticks;
     }
 
     public String getOtherDetails()

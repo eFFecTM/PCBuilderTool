@@ -6,9 +6,9 @@ public class PSU extends Component
 {
     private String maxWattage;
 
-    public PSU(String groupComponent, String nameComponent, String brandComponent, String otherDetails, String maxWattage)
+    public PSU(String groupComponent, String nameComponent, String brandComponent, String wattUsage, String otherDetails, String maxWattage)
     {
-        super(groupComponent, nameComponent, brandComponent, otherDetails);
+        super(groupComponent, nameComponent, brandComponent, wattUsage, otherDetails);
         this.maxWattage = maxWattage;
     }
 
@@ -25,6 +25,16 @@ public class PSU extends Component
     public String getBrandComponent()
     {
         return super.getBrandComponent();
+    }
+
+    public String getWattUsage()
+    {
+        return super.getWattUsage();
+    }
+
+    public String getMaxWattage()
+    {
+        return maxWattage;
     }
 
     public String getOtherDetails()

@@ -5,9 +5,9 @@
 public class GPU extends Component
 {
 
-    public GPU(String groupComponent, String nameComponent, String brandComponent, String otherDetails)
+    public GPU(String groupComponent, String nameComponent, String brandComponent, String wattUsage, String otherDetails)
     {
-        super(groupComponent, nameComponent, brandComponent, otherDetails);
+        super(groupComponent, nameComponent, brandComponent, wattUsage, otherDetails);
     }
 
     public String getGroupComponent()
@@ -23,6 +23,11 @@ public class GPU extends Component
     public String getBrandComponent()
     {
         return super.getBrandComponent();
+    }
+
+    public String getWattUsage()
+    {
+        return super.getWattUsage();
     }
 
     public String getOtherDetails()

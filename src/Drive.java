@@ -4,9 +4,9 @@
 
 public class Drive extends Component
 {
-    public Drive(String groupComponent, String nameComponent, String brandComponent, String otherDetails)
+    public Drive(String groupComponent, String nameComponent, String brandComponent, String wattUsage, String otherDetails)
     {
-        super(groupComponent, nameComponent, brandComponent, otherDetails);
+        super(groupComponent, nameComponent, brandComponent, wattUsage, otherDetails);
     }
 
     public String getGroupComponent()

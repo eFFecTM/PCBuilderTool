@@ -27,31 +27,32 @@ public class Component
         this.groupComponent = groupComponent;
         this.nameComponent = nameComponent;
         this.brandComponent = brandComponent;
+        this.wattUsage = wattUsage;
         this.otherDetails = otherDetails;
     }
 
 
-    public Component makeComponent(String groupComponent, String nameComponent, String brandComponent, String otherDetails, int sheetNr, String socket, String type, String maxWattage, String ramSlots, String amountGB, String maxRam, String amountSticks, String ramType)
+    public Component makeComponent(String groupComponent, String nameComponent, String brandComponent,String wattUsage, String otherDetails, int sheetNr, String socket, String type, String maxWattage, String ramSlots, String amountGB, String maxRam, String amountSticks, String ramType)
     {
         switch(sheetNr)
         {
             case 0:
-                return new Motherboard(groupComponent, nameComponent, brandComponent, otherDetails, socket, ramSlots, maxRam, ramType);
+                return new Motherboard(groupComponent, nameComponent, brandComponent,wattUsage, otherDetails, socket, ramSlots, maxRam, ramType);
 
             case 1:
-                return new CPU(groupComponent, nameComponent, brandComponent, otherDetails, socket);
+                return new CPU(groupComponent, nameComponent, brandComponent, wattUsage, otherDetails, socket);
 
             case 2:
-                return new RAM(groupComponent, nameComponent, brandComponent, otherDetails, type, amountGB, amountSticks);
+                return new RAM(groupComponent, nameComponent, brandComponent, wattUsage, otherDetails, type, amountGB, amountSticks);
 
             case 3:
-                return new GPU(groupComponent, nameComponent, brandComponent, otherDetails);
+                return new GPU(groupComponent, nameComponent, brandComponent, wattUsage, otherDetails);
 
             case 4:
-                return new PSU(groupComponent, brandComponent, nameComponent, otherDetails, maxWattage);
+                return new PSU(groupComponent, nameComponent, brandComponent, wattUsage, otherDetails, maxWattage);
 
             case 5:
-                return new Drive(groupComponent, brandComponent, nameComponent, otherDetails);
+                return new Drive(groupComponent, nameComponent, brandComponent, wattUsage, otherDetails);
         }
 
         return null;
@@ -105,9 +106,12 @@ public class Component
                         brandComponent = cell.getStringCellValue();
                         break;
                     case 2:
-                        otherDetails = cell.getStringCellValue();
+                        wattUsage = cell.getStringCellValue();
                         break;
                     case 3:
+                        otherDetails = cell.getStringCellValue();
+                        break;
+                    case 4:
                         if (sheetNr == 0)
                         {
                             socket = cell.getStringCellValue();
@@ -121,9 +125,8 @@ public class Component
                         {
                             maxWattage = cell.getStringCellValue();
                         }
-
                         break;
-                    case 4:
+                    case 5:
                         if (sheetNr == 0)
                         {
                             ramSlots = cell.getStringCellValue();
@@ -132,7 +135,7 @@ public class Component
                             amountGB = cell.getStringCellValue();
                         }
                         break;
-                    case 5:
+                    case 6:
                         if (sheetNr == 0)
                         {
                             maxRam = cell.getStringCellValue();
@@ -141,7 +144,7 @@ public class Component
                             amountSticks = cell.getStringCellValue();
                         }
                         break;
-                    case 6:
+                    case 7:
                         ramType = cell.getStringCellValue();
                         break;
                 }
@@ -158,7 +161,7 @@ public class Component
             e.printStackTrace();
         }
 
-        Component comp = makeComponent(groupComponent, nameComponent, brandComponent, otherDetails, sheetNr, socket, type, maxWattage, ramSlots, amountGB, maxRam, amountSticks, ramType);
+        Component comp = makeComponent(groupComponent, nameComponent, brandComponent,wattUsage, otherDetails, sheetNr, socket, type, maxWattage, ramSlots, amountGB, maxRam, amountSticks, ramType);
         return comp;
     }
 
@@ -175,6 +178,11 @@ public class Component
     public String getBrandComponent()
     {
         return brandComponent;
+    }
+
+    public String getWattUsage()
+    {
+        return wattUsage;
     }
 
     public String getOtherDetails()
