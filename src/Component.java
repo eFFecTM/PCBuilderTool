@@ -19,9 +19,10 @@ public class Component
     private String groupComponent;
     private String nameComponent;
     private String brandComponent;
+    private String wattUsage;
     private String otherDetails;
 
-    public Component(String groupComponent, String brandComponent, String nameComponent, String otherDetails)
+    public Component(String groupComponent, String brandComponent, String nameComponent, String wattUsage,String otherDetails)
     {
         this.groupComponent = groupComponent;
         this.nameComponent = nameComponent;
