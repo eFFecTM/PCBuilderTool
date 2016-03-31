@@ -17,6 +17,7 @@
           <gridbag weightx="0.0" weighty="0.0"/>
         </constraints>
         <properties>
+          <editable value="false"/>
           <text value="Welcome to the PCBuilder Tool! Please enter your name here:"/>
         </properties>
       </component>
@@ -37,6 +38,7 @@
           <gridbag weightx="20.0" weighty="0.0"/>
         </constraints>
         <properties>
+          <editable value="false"/>
           <text value="Current PC configuration:"/>
         </properties>
       </component>
@@ -76,6 +78,7 @@
                   <gridbag weightx="1.0" weighty="0.0"/>
                 </constraints>
                 <properties>
+                  <editable value="false"/>
                   <text value="Details of &lt;&gt;:"/>
                 </properties>
               </component>
@@ -87,6 +90,7 @@
                   <gridbag weightx="1.0" weighty="0.0"/>
                 </constraints>
                 <properties>
+                  <editable value="false"/>
                   <text value="Select a PC component category:"/>
                 </properties>
               </component>
@@ -104,7 +108,8 @@
                   <gridbag weightx="1.0" weighty="0.0"/>
                 </constraints>
                 <properties>
-                  <text value="Select a PC component category:"/>
+                  <editable value="false"/>
+                  <text value="Select a PC component:"/>
                 </properties>
               </component>
               <vspacer id="a30d8">

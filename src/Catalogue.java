@@ -22,7 +22,7 @@ public class Catalogue
         {
             for(int i=0;i<5;i++)
             {
-                Component component = new Component("", "", "", "");
+                Component component = new Component("", "", "", "", "");
                 component.getDetails(sheetNr,i);
                 addComponent(component);
             }
@@ -40,7 +40,8 @@ public class Catalogue
     {
         for(Component component: list)
         {
-            System.out.println("\nGroup: " + component.getGroupComponent() + "\nName: " + component.getNameComponent() + "\nBrand: " + component.getBrandComponent() + "\nDetails: " + component.getOtherDetails() + "\n");
+            System.out.println("\nGroup: " + component.getGroupComponent() + "\nName: " + component.getNameComponent() + "\nBrand: " + component.getBrandComponent() +
+                    "\nWatt usage: " + component.getWattUsage() + "\nDetails: " + component.getOtherDetails() + "\n");
         }
     }
 

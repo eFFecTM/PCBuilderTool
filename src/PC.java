@@ -5,15 +5,15 @@ import java.util.ArrayList;
  */
 public class PC
 {
-    private ArrayList<Component> userCfg;
-    private int wattUsage;
+    public ArrayList<Component> userCfg;
+    private int totWattUsage;
     private boolean check;
     private int amount;
 
     public PC()
     {
         userCfg = new ArrayList<>();
-        this.wattUsage = wattUsage;
+        this.totWattUsage = totWattUsage;
         this.check = check;
         this.amount = amount;
     }
@@ -27,7 +27,10 @@ public class PC
 
     public void addComponent(Component component)
     {
-        userCfg.add(component);
+        if(userCfg.size() < 6)
+        {
+            userCfg.add(component);
+        }
     }
 
     public void removeComponent(Component component)
@@ -48,11 +51,19 @@ public class PC
         userCfg.remove(removeIndex);
     }
 
-    public int calculateWattUsage()
+    public int calculateWattUsage(ArrayList<Component> userCfg)
     {
+        String usage;
 
-
-        return wattUsage;
+        if(userCfg.size() == 6)
+        {
+            for(Component component : userCfg)
+            {
+                usage = component.getWattUsage();
+                totWattUsage += Integer.parseInt(usage);
+            }
+        }
+        return totWattUsage;
     }
 
 }

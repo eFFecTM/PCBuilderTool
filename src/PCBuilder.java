@@ -1,3 +1,6 @@
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.IOException;
 
 /**
@@ -6,19 +9,23 @@ import java.io.IOException;
 
 public class PCBuilder
 {
-    private String loginName;
-
+    static String loginName;
     public static void main(String[] args) throws IOException
     {
-        new PCBuilderEngine();
 
-/*
-        JFrame frame = new JFrame("PCBuilder Tool");
-        frame.setContentPane(new GUI().mainPanel);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setVisible(true);
-*/
+        PCBuilderEngine PCBE = new PCBuilderEngine();
+        GUI gui = new GUI();
+
+        gui.setLoginActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                loginName = gui.loginText.getText();
+                System.out.println("main: " + loginName);
+                PCBE.getUserCfg(loginName);
+            }
+        });
     }
 
 }

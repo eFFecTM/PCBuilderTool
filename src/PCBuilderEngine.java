@@ -6,7 +6,8 @@ public class PCBuilderEngine
     public PCBuilderEngine()
     {
         new Catalogue();
-        new PC();
+        PC myPc = new PC();
+        //System.out.println("Totale WattUsage: " + myPc.calculateWattUsage(ArrayList<Component> userCfg));
     }
 
 
@@ -25,8 +26,9 @@ public class PCBuilderEngine
 
     }
 
-    public void getUserCfg()
+    public void getUserCfg(String name)
     {
+
 
     }
 
