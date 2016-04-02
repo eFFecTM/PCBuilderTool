@@ -4,9 +4,12 @@
 
 public class Drive extends Component
 {
+    private String wattUsage;
+
     public Drive(String groupComponent, String nameComponent, String brandComponent, String wattUsage, String otherDetails)
     {
-        super(groupComponent, nameComponent, brandComponent, wattUsage, otherDetails);
+        super(groupComponent, nameComponent, brandComponent, otherDetails);
+        this.wattUsage = wattUsage;
     }
 
     public String getGroupComponent()
@@ -24,9 +27,14 @@ public class Drive extends Component
         return super.getBrandComponent();
     }
 
-    public String getOtherDetails()
+    public String getWattUsage()
     {
-        return super.getOtherDetails();
+        return wattUsage;
+    }
+
+    public String toString()
+    {
+        return super.toString() + "\nWatt Usage: " + wattUsage + " Watt\n";
     }
 
 }

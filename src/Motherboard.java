@@ -4,6 +4,7 @@
 
 public class Motherboard extends Component
 {
+    private String wattUsage;
     private String socket;
     private String ramSlots;
     private String maxRam;
@@ -11,7 +12,8 @@ public class Motherboard extends Component
 
     public Motherboard(String groupComponent, String nameComponent, String brandComponent, String wattUsage, String otherDetails, String socket, String ramSlots, String maxRam, String ramType)
     {
-        super(groupComponent, nameComponent, brandComponent,wattUsage, otherDetails);
+        super(groupComponent, nameComponent, brandComponent, otherDetails);
+        this.wattUsage = wattUsage;
         this.socket = socket;
         this.ramSlots = ramSlots;
         this.maxRam = maxRam;
@@ -25,7 +27,6 @@ public class Motherboard extends Component
 
     public String getNameComponent()
     {
-        System.out.println("dshgqer");
         return super.getNameComponent();
     }
 
@@ -36,7 +37,7 @@ public class Motherboard extends Component
 
     public String getWattUsage()
     {
-        return super.getWattUsage();
+        return wattUsage;
     }
 
     public String getSocketMB()
@@ -61,19 +62,18 @@ public class Motherboard extends Component
 
     public String toString()
     {
-        System.out.println("voor super");
-        return super.toString() + "\n" + socket + "\n" + ramSlots + "\n" + maxRam + "\n" + ramType + "\n";
+        return super.toString() + "\nWatt Usage: " + wattUsage + " Watt\nSocket: " + socket + "\nRAM Slots: " + ramSlots + "\nMax Amount of RAM: " + maxRam + " GB\nType of RAM: " + ramType + "\n";
     }
 
     public void display()
     {
-        System.out.println("voor super");
         System.out.println(toString());
     }
-    public String getDetailedDetails()
+    /*public String getDetailedDetails()
     {
 
-        return super.getOtherDetails() + "\nSocket: " + socket + "\nRAM Slots: " + ramSlots + "\nMax Amount of RAM: " + maxRam + " GB\n" + ramType + "\n" + super.getOtherDetails();
+        return super.getDetailedDetails() + "\nSocket: " + socket + "\nRAM Slots: " + ramSlots + "\nMax Amount of RAM: " + maxRam + " GB\n" + ramType + "\n";
 
     }
+    */
 }

@@ -4,11 +4,13 @@
 
 public class CPU extends Component
 {
+    private String wattUsage;
     private String socket;
 
     public CPU(String groupComponent, String nameComponent, String brandComponent, String wattUsage, String otherDetails, String socket)
     {
-        super(groupComponent, nameComponent, brandComponent, wattUsage, otherDetails);
+        super(groupComponent, nameComponent, brandComponent, otherDetails);
+        this.wattUsage = wattUsage;
         this.socket = socket;
     }
 
@@ -29,7 +31,7 @@ public class CPU extends Component
 
     public String getWattUsage()
     {
-        return super.getWattUsage();
+        return wattUsage;
     }
 
     public String getSocketCPU()
@@ -37,9 +39,9 @@ public class CPU extends Component
         return socket;
     }
 
-    public String getOtherDetails()
+    public String toString()
     {
-        return socket + "\n" + super.getOtherDetails();
+        return super.toString() + "\nWatt Usage: " + wattUsage + " Watt\nSocket: " + socket + "\n";
     }
 
 }

@@ -11,6 +11,7 @@ public class Catalogue
     private ArrayList<Component> componentList;
     private ArrayList<Component> searchList;
     private ArrayList<Component> compareList;
+    private Component component;
 
     public Catalogue()
     {
@@ -18,13 +19,12 @@ public class Catalogue
         componentList = new ArrayList<>();
         searchList = new ArrayList<>();
         compareList = new ArrayList<>();
+        component = new Component("", "", "", "");
         for(int sheetNr=0;sheetNr<6;sheetNr++)
         {
             for(int i=0;i<5;i++)
             {
-                Component component = new Component("", "", "", "", "");
-                component.getDetails(sheetNr,i);
-                addComponent(component);
+                addComponent(component.getDetails(sheetNr, i));
             }
 
         }
@@ -94,8 +94,7 @@ public class Catalogue
         for (Component component : componentList)
         {
             System.out.println("++++++++++++++++++++++++++++++++++++++++++++");
-            System.out.println("Group: " + component.getGroupComponent() + "\nName: " + component.getNameComponent() + "\nBrand: " + component.getBrandComponent() +
-                    "\nWatt usage: " + component.getWattUsage() + "\nDetails: " + component.getOtherDetails() + "\n");
+            System.out.println("Group: " + component.getGroupComponent() + "\nName: " + component.getNameComponent() + "\nBrand: " + component.getBrandComponent() + "\nDetails: " + component.getOtherDetails() + "\n");
         }
 
         return componentList;
@@ -124,8 +123,7 @@ public class Catalogue
         for (Component component : searchList)
         {
             System.out.println("---------------------------------------");
-            System.out.println("Group: " + component.getGroupComponent() + "\nName: " + component.getNameComponent() + "\nBrand: " + component.getBrandComponent() +
-                    "\nWatt usage: " + component.getWattUsage() + "\nDetails: " + component.getOtherDetails() + "\n");
+            System.out.println("Group: " + component.getGroupComponent() + "\nName: " + component.getNameComponent() + "\nBrand: " + component.getBrandComponent() + "\nDetails: " + component.getOtherDetails() + "\n");
         }
 
         return searchList;

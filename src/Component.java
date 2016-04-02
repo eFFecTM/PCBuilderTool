@@ -19,15 +19,13 @@ public class Component
     private String groupComponent;
     private String nameComponent;
     private String brandComponent;
-    private String wattUsage;
     private String otherDetails;
 
-    public Component(String groupComponent, String brandComponent, String nameComponent, String wattUsage,String otherDetails)
+    public Component(String groupComponent, String nameComponent, String brandComponent, String otherDetails)
     {
         this.groupComponent = groupComponent;
         this.nameComponent = nameComponent;
         this.brandComponent = brandComponent;
-        this.wattUsage = wattUsage;
         this.otherDetails = otherDetails;
     }
 
@@ -49,7 +47,7 @@ public class Component
                 return new GPU(groupComponent, nameComponent, brandComponent, wattUsage, otherDetails);
 
             case 4:
-                return new PSU(groupComponent, nameComponent, brandComponent, wattUsage, otherDetails, maxWattage);
+                return new PSU(groupComponent, nameComponent, brandComponent, maxWattage, otherDetails);
 
             case 5:
                 return new Drive(groupComponent, nameComponent, brandComponent, wattUsage, otherDetails);
@@ -60,6 +58,7 @@ public class Component
 
     public Component getDetails(int sheetNr,int rij)
     {
+        String wattUsage = "";
         String socket = "";
         String type = "";
         String maxWattage = "";
@@ -106,7 +105,14 @@ public class Component
                         brandComponent = cell.getStringCellValue();
                         break;
                     case 2:
-                        wattUsage = cell.getStringCellValue();
+                        if (sheetNr == 4)
+                        {
+                            maxWattage = cell.getStringCellValue();
+                            System.out.println(maxWattage);
+                        } else
+                        {
+                            wattUsage = cell.getStringCellValue();
+                        }
                         break;
                     case 3:
                         otherDetails = cell.getStringCellValue();
@@ -118,12 +124,9 @@ public class Component
                         } else if (sheetNr == 1)
                         {
                             socket = cell.getStringCellValue();
-                        } else if (sheetNr == 2)
-                        {
-                            type = cell.getStringCellValue();
                         } else
                         {
-                            maxWattage = cell.getStringCellValue();
+                            type = cell.getStringCellValue();
                         }
                         break;
                     case 5:
@@ -180,10 +183,6 @@ public class Component
         return brandComponent;
     }
 
-    public String getWattUsage()
-    {
-        return wattUsage;
-    }
 
     public String getOtherDetails()
     {
@@ -192,8 +191,7 @@ public class Component
 
     public String toString()
     {
-        String alles = "\nGroup: " + getGroupComponent() + "\nName: " + getNameComponent() + "\nBrand: " + getBrandComponent() +
-                "\nWatt usage: " + getWattUsage() + "\nOther Details: " + getOtherDetails() + "\n";
+        String alles = "\nGroup: " + getGroupComponent() + "\nName: " + getNameComponent() + "\nBrand: " + getBrandComponent() + "\nOther Details: " + getOtherDetails();
         return alles;
     }
 
@@ -202,8 +200,8 @@ public class Component
         System.out.println(toString());
     }
 
-    //public String getDetailedDetails()
+    public String getDetailedDetails()
     {
-
+        return toString();
     }
 }

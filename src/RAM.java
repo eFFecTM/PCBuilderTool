@@ -4,13 +4,15 @@
 
 public class RAM extends Component
 {
+    private String wattUsage;
     private String type;
     private String amountGB;
     private String amountSticks;
 
     public RAM(String groupComponent, String nameComponent, String brandComponent, String wattUsage, String otherDetails, String type, String amountGB, String amountSticks)
     {
-        super(groupComponent, nameComponent, brandComponent, wattUsage, otherDetails);
+        super(groupComponent, nameComponent, brandComponent, otherDetails);
+        this.wattUsage = wattUsage;
         this.type = type;
         this.amountGB = amountGB;
         this.amountSticks = amountSticks;
@@ -33,7 +35,7 @@ public class RAM extends Component
 
     public String getWattUsage()
     {
-        return super.getWattUsage();
+        return wattUsage;
     }
 
     public String getTypeRAM()
@@ -51,9 +53,9 @@ public class RAM extends Component
         return amountSticks;
     }
 
-    public String getOtherDetails()
+    public String toString()
     {
-        return type + "\n" + amountGB + "\n" + amountSticks + "\n" + super.getOtherDetails();
+        return super.toString() + "\nWatt Usage: " + wattUsage + " Watt\nType: " + type + "\nAmount of RAM: " + amountGB + " GB\nAmount of RAM Sticks: " + amountSticks + "\n";
     }
 
 }

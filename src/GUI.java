@@ -11,28 +11,26 @@ public class GUI {
     //Main Pane
     public JPanel mainPanel;
     public JTextField loginText;
+    //catalogue Tab
+    public JTextArea detailsTextArea;
+    public JList specificComponentList;
     private JTabbedPane mainTabbedPanel;
     private JTextArea welcomeTitle;
     private JTextArea userCfgTitle;
     private JList userCfgList;
+    //public String input;
     private JLabel PCBuilderIcon;
     private JProgressBar progressBar;
-    //public String input;
-
     //Main Tabbed Panes
     private JPanel catalogueTab;
     private JPanel compareTab;
     private JPanel wattTab;
     private JPanel compatibilityTab;
     private JPanel exportTab;
-
-    //catalogue Tab
-    private JTextArea detailsTextArea;
     private JTextArea detailsTitleTextArea;
     private JTextArea componentGroupTitle;
     private JTextArea specificComponentTitle;
     private JScrollPane specificComponentScrollPane;
-    public JList specificComponentList;
     private JButton motherboardButton;
     private JButton CPUButton;
     private JButton RAMButton;

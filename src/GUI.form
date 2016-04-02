@@ -68,7 +68,9 @@
                   </grid>
                   <gridbag weightx="0.0" weighty="0.75"/>
                 </constraints>
-                <properties/>
+                <properties>
+                  <editable value="false"/>
+                </properties>
               </component>
               <component id="88ad7" class="javax.swing.JTextArea" binding="detailsTitleTextArea">
                 <constraints>
@@ -79,7 +81,7 @@
                 </constraints>
                 <properties>
                   <editable value="false"/>
-                  <text value="Details of &lt;&gt;:"/>
+                  <text value="Details of selected component:"/>
                 </properties>
               </component>
               <component id="551ba" class="javax.swing.JTextArea" binding="componentGroupTitle">

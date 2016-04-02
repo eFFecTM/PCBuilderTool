@@ -4,10 +4,12 @@
 
 public class GPU extends Component
 {
+    private String wattUsage;
 
     public GPU(String groupComponent, String nameComponent, String brandComponent, String wattUsage, String otherDetails)
     {
-        super(groupComponent, nameComponent, brandComponent, wattUsage, otherDetails);
+        super(groupComponent, nameComponent, brandComponent, otherDetails);
+        this.wattUsage = wattUsage;
     }
 
     public String getGroupComponent()
@@ -27,12 +29,12 @@ public class GPU extends Component
 
     public String getWattUsage()
     {
-        return super.getWattUsage();
+        return wattUsage;
     }
 
-    public String getOtherDetails()
+    public String toString()
     {
-        return super.getOtherDetails();
+        return super.toString() + "\nWatt Usage: " + wattUsage + " Watt\n";
     }
 
 }

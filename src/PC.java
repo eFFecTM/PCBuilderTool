@@ -51,6 +51,7 @@ public class PC
         userCfg.remove(removeIndex);
     }
 
+
     public int calculateWattUsage(ArrayList<Component> userCfg)
     {
         String usage;
@@ -59,8 +60,8 @@ public class PC
         {
             for(Component component : userCfg)
             {
-                usage = component.getWattUsage();
-                totWattUsage += Integer.parseInt(usage);
+                //usage = component.;
+                //totWattUsage += Integer.parseInt(usage);
             }
         }
         return totWattUsage;
