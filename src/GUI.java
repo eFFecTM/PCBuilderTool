@@ -1,5 +1,4 @@
 import javax.swing.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
@@ -10,9 +9,9 @@ public class GUI {
 
     //Main Pane
     public JPanel mainPanel;
+    public JTextField loginText;
     private JTabbedPane mainTabbedPanel;
     private JTextArea welcomeTitle;
-    public JTextField loginText;
     private JTextArea userCfgTitle;
     private JList userCfgList;
     private JLabel PCBuilderIcon;
@@ -31,6 +30,7 @@ public class GUI {
     private JTextArea detailsTitleTextArea;
     private JTextArea componentGroupTitle;
     private JTextArea specificComponentTitle;
+    private JScrollPane specificComponentList;
     private JButton motherboardButton;
     private JButton CPUButton;
     private JButton RAMButton;
@@ -93,4 +93,35 @@ public class GUI {
     {
         loginText.addActionListener(al);
     }
+
+    public void setSelectMotherboardActionListener(ActionListener al)
+    {
+        motherboardButton.addActionListener(al);
+    }
+
+    public void setSelectCPUActionListener(ActionListener al)
+    {
+        CPUButton.addActionListener(al);
+    }
+
+    public void setSelectRAMActionListener(ActionListener al)
+    {
+        RAMButton.addActionListener(al);
+    }
+
+    public void setSelectGPUActionListener(ActionListener al)
+    {
+        GPUButton.addActionListener(al);
+    }
+
+    public void setSelectPSUActionListener(ActionListener al)
+    {
+        PSUButton.addActionListener(al);
+    }
+
+    public void setSelectDriveActionListener(ActionListener al)
+    {
+        drivesButton.addActionListener(al);
+    }
+
 }
