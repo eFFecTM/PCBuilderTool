@@ -172,14 +172,21 @@
                   <text value="Drives"/>
                 </properties>
               </component>
-              <scrollpane id="49cab" binding="specificComponentList">
+              <scrollpane id="49cab" binding="specificComponentScrollPane">
                 <constraints>
                   <grid row="1" column="2" row-span="6" col-span="3" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                   <gridbag weightx="5.0" weighty="0.0"/>
                 </constraints>
                 <properties/>
                 <border type="none"/>
-                <children/>
+                <children>
+                  <component id="4717a" class="javax.swing.JList" binding="specificComponentList">
+                    <constraints/>
+                    <properties>
+                      <enabled value="true"/>
+                    </properties>
+                  </component>
+                </children>
               </scrollpane>
               <component id="27027" class="javax.swing.JButton" binding="addComponent">
                 <constraints>

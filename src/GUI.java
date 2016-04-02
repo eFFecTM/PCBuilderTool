@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.swing.event.ListSelectionListener;
 import java.awt.event.ActionListener;
 
 
@@ -30,7 +31,8 @@ public class GUI {
     private JTextArea detailsTitleTextArea;
     private JTextArea componentGroupTitle;
     private JTextArea specificComponentTitle;
-    private JScrollPane specificComponentList;
+    private JScrollPane specificComponentScrollPane;
+    public JList specificComponentList;
     private JButton motherboardButton;
     private JButton CPUButton;
     private JButton RAMButton;
@@ -65,6 +67,7 @@ public class GUI {
     private JTextArea exportInfo;
     private JButton exportButton;
     private JTextArea exportResults;
+
 
 
     public GUI()
@@ -122,6 +125,11 @@ public class GUI {
     public void setSelectDriveActionListener(ActionListener al)
     {
         drivesButton.addActionListener(al);
+    }
+
+    public void setSelectComponentListener(ListSelectionListener lsl)
+    {
+
     }
 
 }

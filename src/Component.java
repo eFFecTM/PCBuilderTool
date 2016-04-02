@@ -189,4 +189,21 @@ public class Component
     {
         return otherDetails;
     }
+
+    public String toString()
+    {
+        String alles = "\nGroup: " + getGroupComponent() + "\nName: " + getNameComponent() + "\nBrand: " + getBrandComponent() +
+                "\nWatt usage: " + getWattUsage() + "\nOther Details: " + getOtherDetails() + "\n";
+        return alles;
+    }
+
+    public void display()
+    {
+        System.out.println(toString());
+    }
+
+    //public String getDetailedDetails()
+    {
+
+    }
 }

@@ -25,6 +25,7 @@ public class Motherboard extends Component
 
     public String getNameComponent()
     {
+        System.out.println("dshgqer");
         return super.getNameComponent();
     }
 
@@ -58,9 +59,21 @@ public class Motherboard extends Component
         return ramType;
     }
 
-    public String getOtherDetails()
+    public String toString()
     {
-        return socket + "\n" + ramSlots + "\n" + maxRam + "\n" + ramType + "\n" + super.getOtherDetails();
+        System.out.println("voor super");
+        return super.toString() + "\n" + socket + "\n" + ramSlots + "\n" + maxRam + "\n" + ramType + "\n";
     }
 
+    public void display()
+    {
+        System.out.println("voor super");
+        System.out.println(toString());
+    }
+    public String getDetailedDetails()
+    {
+
+        return super.getOtherDetails() + "\nSocket: " + socket + "\nRAM Slots: " + ramSlots + "\nMax Amount of RAM: " + maxRam + " GB\n" + ramType + "\n" + super.getOtherDetails();
+
+    }
 }

@@ -28,6 +28,7 @@ public class Catalogue
             }
 
         }
+
         show();
     }
 
@@ -40,8 +41,7 @@ public class Catalogue
     {
         for(Component component: list)
         {
-            System.out.println("\nGroup: " + component.getGroupComponent() + "\nName: " + component.getNameComponent() + "\nBrand: " + component.getBrandComponent() +
-                    "\nWatt usage: " + component.getWattUsage() + "\nDetails: " + component.getOtherDetails() + "\n");
+            component.display();
         }
     }
 

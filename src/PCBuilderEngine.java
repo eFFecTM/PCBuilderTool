@@ -4,6 +4,7 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Iterator;
 
 /**
@@ -13,6 +14,7 @@ public class PCBuilderEngine
 {
     Catalogue catalogue;
     PC myPc;
+    ArrayList<Component> componentList;
 
 
     public PCBuilderEngine()
@@ -23,9 +25,9 @@ public class PCBuilderEngine
         //System.out.println("Totale WattUsage: " + myPc.calculateWattUsage(ArrayList<Component> userCfg));
     }
 
-    public void selectComponentGroup(int index)
+    public ArrayList<Component> selectComponentGroup(int index)
     {
-        catalogue.filterGroupComponent(index);
+        return componentList = catalogue.filterGroupComponent(index);
     }
 
     public void selectComponent()
