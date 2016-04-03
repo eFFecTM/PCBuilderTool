@@ -183,7 +183,6 @@ public class Component
         return brandComponent;
     }
 
-
     public String getOtherDetails()
     {
         return otherDetails;

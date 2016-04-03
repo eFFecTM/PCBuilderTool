@@ -175,7 +175,23 @@ public class PCBuilder
 
                 gui.detailsTextArea.setText(textComponent);
 
+            }
+        });
 
+        gui.setAddComponentActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+
+
+                componentList = PCBE.selectComponentGroup(selectComponentGroupIndex);
+
+                for(Component component : componentList)
+                {
+                    DLM.addElement(component.getNameComponent());
+                }
+                gui.specificComponentList.setModel(DLM);
             }
         });
 

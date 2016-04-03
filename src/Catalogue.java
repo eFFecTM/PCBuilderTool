@@ -29,6 +29,7 @@ public class Catalogue
 
         }
 
+        // Mag later ook weg
         show();
     }
 
@@ -37,6 +38,7 @@ public class Catalogue
         list.add(component);
     }
 
+    // Mag later ook weg
     public void show()
     {
         for(Component component: list)
@@ -120,6 +122,7 @@ public class Catalogue
             }
         }
 
+        // To check: mag later weg
         for (Component component : searchList)
         {
             System.out.println("---------------------------------------");

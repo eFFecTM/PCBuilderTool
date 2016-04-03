@@ -125,9 +125,15 @@ public class GUI {
         drivesButton.addActionListener(al);
     }
 
+    /*
     public void setSelectComponentListener(ListSelectionListener lsl)
     {
 
     }
+    */
 
+    public void setAddComponentActionListener(ActionListener al)
+    {
+        addComponent.addActionListener(al);
+    }
 }
