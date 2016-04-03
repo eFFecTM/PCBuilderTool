@@ -41,7 +41,6 @@ public class GUI {
     private JButton drivesButton;
     private JButton addComponent;
     private JButton addCompare;
-    private JLabel selectedComponentPicture;
 
     //Compare Tab
     private JTextArea component1;
@@ -67,7 +66,7 @@ public class GUI {
     private JTextArea exportInfo;
     private JButton exportButton;
     private JTextArea exportResults;
-    private JTextArea textArea1;
+    private JButton saveUserCfg;
 
     //Error message plane
     private JPanel errorPanel;
