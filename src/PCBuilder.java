@@ -56,7 +56,7 @@ public class PCBuilder
 
                 for(Component component : componentList)
                 {
-                    DLM.addElement(component.getNameComponent());
+                    DLM.addElement(component.getBrandComponent() + " " + component.getNameComponent());
                 }
                 gui.specificComponentList.setModel(DLM);
             }
@@ -76,7 +76,7 @@ public class PCBuilder
 
                 for(Component component : componentList)
                 {
-                    DLM.addElement(component.getNameComponent());
+                    DLM.addElement(component.getBrandComponent() + " " + component.getNameComponent());
                 }
                 gui.specificComponentList.setModel(DLM);
             }
@@ -96,7 +96,7 @@ public class PCBuilder
 
                 for(Component component : componentList)
                 {
-                    DLM.addElement(component.getNameComponent());
+                    DLM.addElement(component.getBrandComponent() + " " + component.getNameComponent());
                 }
                 gui.specificComponentList.setModel(DLM);
             }
@@ -116,7 +116,7 @@ public class PCBuilder
 
                 for(Component component : componentList)
                 {
-                    DLM.addElement(component.getNameComponent());
+                    DLM.addElement(component.getBrandComponent() + " " + component.getNameComponent());
                 }
                 gui.specificComponentList.setModel(DLM);
             }
@@ -136,7 +136,7 @@ public class PCBuilder
 
                 for(Component component : componentList)
                 {
-                    DLM.addElement(component.getNameComponent());
+                    DLM.addElement(component.getBrandComponent() + " " + component.getNameComponent());
                 }
                 gui.specificComponentList.setModel(DLM);
             }
@@ -156,7 +156,7 @@ public class PCBuilder
 
                 for(Component component : componentList)
                 {
-                    DLM.addElement(component.getNameComponent());
+                    DLM.addElement(component.getBrandComponent() + " " + component.getNameComponent());
                 }
                 gui.specificComponentList.setModel(DLM);
             }
@@ -182,6 +182,8 @@ public class PCBuilder
             }
         });
 */
+        // Component in detail weergeven
+
         gui.specificComponentList.addListSelectionListener(new ListSelectionListener()
         {
             @Override
@@ -211,7 +213,7 @@ public class PCBuilder
                 boolean duplicate = PCBE.myPc.addComponent(selectedComponent);
                 if (!duplicate)
                 {
-                    userCfgDLM.addElement(selectedComponent.getNameComponent());
+                    userCfgDLM.addElement(selectedComponent.getBrandComponent() + " " + selectedComponent.getNameComponent());
                 } else
                 {
                     gui.setErrorPanel();
@@ -220,6 +222,7 @@ public class PCBuilder
             }
         });
 
+        // Selecting usercfgList elements
         gui.userCfgList.addListSelectionListener(new ListSelectionListener()
         {
             @Override
