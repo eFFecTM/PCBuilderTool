@@ -79,10 +79,18 @@ public class PCBuilderEngine
                                 break;
                             case 1:
                                 nameComponent = cell.getStringCellValue();
+                                for (Component component : catalogue.list)
+                                {
+                                    if (component.getNameComponent().equals(nameComponent)) //Vergelijken van database met componenten in de excel file
+                                    {
+                                        myPc.userCfg.add(component);
+                                    }
+                                }
                                 break;
                         }
 
                     }
+
                     //Component comp = .makeComponent(groupComponent, nameComponent);
 
                 }
@@ -94,7 +102,7 @@ public class PCBuilderEngine
                 FileOutputStream out = new FileOutputStream(new File("userCfg.xlsx"));
                 workbook.write(out);
                 out.close();
-                System.out.println("userCfg.xlsx written successfully on disk.");
+                System.out.println("User: " + name + " written successfully on userCfg.xlsx.");
             }
 
         } catch (FileNotFoundException e)
@@ -108,5 +116,71 @@ public class PCBuilderEngine
 
     }
 
+    public void saveUserCfg(String name)
+    {
+        try
+        {
+
+            FileOutputStream out = new FileOutputStream(new File("userCfg.xlsx"));
+            XSSFWorkbook workbook = new XSSFWorkbook();
+
+            int amountSheet = workbook.getNumberOfSheets();
+            int i = 0;
+            int indexComponent = 0;
+            int sheetFoundIndex = 0;
+            boolean sheetFound = false;
+
+            while (i < amountSheet && !sheetFound)
+            {
+                if (workbook.getSheetName(i).equals(name))
+                {
+                    sheetFound = true;
+                    sheetFoundIndex = i;
+                }
+                i++;
+            }
+
+            if (sheetFound)
+            {
+                XSSFSheet sheet = workbook.getSheetAt(sheetFoundIndex);
+                Iterator<Row> rowIterator = sheet.iterator();
+
+                while (rowIterator.hasNext())
+                {
+                    Row row = rowIterator.next();
+                    Iterator<Cell> cellIterator = row.cellIterator();
+
+                    while (cellIterator.hasNext())
+                    {
+                        Cell cell = cellIterator.next();
+                        switch (cell.getColumnIndex())
+                        {
+                            case 0:
+                                cell.setCellValue(myPc.userCfg.get(indexComponent).getGroupComponent());
+                                break;
+                            case 1:
+                                cell.setCellValue(myPc.userCfg.get(indexComponent).getNameComponent());
+                                break;
+                        }
+                    }
+                    indexComponent++;
+                }
+
+
+            }
+
+            workbook.write(out);
+            out.close();
+            System.out.println("userCfg.xlsx written successfully on disk.");
+
+        } catch (FileNotFoundException e)
+        {
+            e.printStackTrace();
+        } catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+
+    }
 
 }

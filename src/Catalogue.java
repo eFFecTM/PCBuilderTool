@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class Catalogue
 {
 
-    private ArrayList<Component> list;
+    public ArrayList<Component> list;
     private ArrayList<Component> componentList;
     private ArrayList<Component> searchList;
     private ArrayList<Component> compareList;
@@ -28,7 +28,6 @@ public class Catalogue
             }
 
         }
-
         // Mag later ook weg
         //show();
     }

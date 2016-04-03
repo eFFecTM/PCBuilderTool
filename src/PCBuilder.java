@@ -38,7 +38,15 @@ public class PCBuilder
             {
                 loginName = gui.loginText.getText();
                 System.out.println("main: " + loginName);
+                userCfgDLM.clear();
+                PCBE.myPc.userCfg.clear();
                 PCBE.getUserCfg(loginName);
+
+                for (Component component : PCBE.myPc.userCfg)
+                {
+                    userCfgDLM.addElement(component.getBrandComponent() + " " + component.getNameComponent());
+                }
+                gui.userCfgList.setModel(userCfgDLM);
             }
         });
 
@@ -181,7 +189,8 @@ public class PCBuilder
 
             }
         });
-*/
+        */
+
         // Component in detail weergeven
 
         gui.specificComponentList.addListSelectionListener(new ListSelectionListener()
@@ -222,6 +231,15 @@ public class PCBuilder
             }
         });
 
+        gui.setSaveUserCfgActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                PCBE.saveUserCfg(loginName);
+            }
+        });
+
         // Selecting usercfgList elements
         gui.userCfgList.addListSelectionListener(new ListSelectionListener()
         {
@@ -242,7 +260,6 @@ public class PCBuilder
                 }
             }
         });
-
 
 
 

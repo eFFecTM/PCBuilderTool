@@ -41,6 +41,7 @@ public class GUI {
     private JButton drivesButton;
     private JButton addComponent;
     private JButton addCompare;
+    private JButton saveUserCfg;
 
     //Compare Tab
     private JTextArea component1;
@@ -66,7 +67,6 @@ public class GUI {
     private JTextArea exportInfo;
     private JButton exportButton;
     private JTextArea exportResults;
-    private JButton saveUserCfg;
 
     //Error message plane
     private JPanel errorPanel;
@@ -131,16 +131,19 @@ public class GUI {
         drivesButton.addActionListener(al);
     }
 
-
     public void setSelectComponentListener(ListSelectionListener lsl)
     {
         specificComponentList.addListSelectionListener(lsl);
     }
 
-
     public void setAddComponentActionListener(ActionListener al)
     {
         addComponent.addActionListener(al);
+    }
+
+    public void setSaveUserCfgActionListener(ActionListener al)
+    {
+        saveUserCfg.addActionListener(al);
     }
 
     public void setAddUserCfgListener(ListSelectionListener lsl)

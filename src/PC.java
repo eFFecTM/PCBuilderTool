@@ -49,6 +49,7 @@ public class PC
         return true;
     }
 
+    // connect with button
     public void removeComponent(Component component)
     {
         int removeIndex = 100;
