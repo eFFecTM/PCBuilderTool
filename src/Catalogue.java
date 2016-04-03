@@ -30,7 +30,7 @@ public class Catalogue
         }
 
         // Mag later ook weg
-        show();
+        //show();
     }
 
     public void addComponent(Component component)
@@ -93,12 +93,14 @@ public class Catalogue
 
         }
 
+        /*
+        //Mag later weg
         for (Component component : componentList)
         {
             System.out.println("++++++++++++++++++++++++++++++++++++++++++++");
             System.out.println("Group: " + component.getGroupComponent() + "\nName: " + component.getNameComponent() + "\nBrand: " + component.getBrandComponent() + "\nDetails: " + component.getOtherDetails() + "\n");
         }
-
+        */
         return componentList;
     }
 
@@ -123,12 +125,13 @@ public class Catalogue
         }
 
         // To check: mag later weg
+        /*
         for (Component component : searchList)
         {
             System.out.println("---------------------------------------");
             System.out.println("Group: " + component.getGroupComponent() + "\nName: " + component.getNameComponent() + "\nBrand: " + component.getBrandComponent() + "\nDetails: " + component.getOtherDetails() + "\n");
         }
-
+        */
         return searchList;
     }
 

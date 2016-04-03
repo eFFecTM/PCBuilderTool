@@ -25,12 +25,28 @@ public class PC
         return check;
     }
 
-    public void addComponent(Component component)
+    public boolean addComponent(Component component)
     {
+        boolean duplicate = false;
         if(userCfg.size() < 6)
         {
-            userCfg.add(component);
+            for (Component comp : userCfg)
+            {
+                if (component.getGroupComponent().equals(comp.getGroupComponent()))
+                {
+                    duplicate = true;
+                    System.out.println("Duplicate element found : " + component.getGroupComponent());
+                }
+            }
+
+            if (!duplicate)
+            {
+                userCfg.add(component);
+            }
+            System.out.println("Duplicate: " + duplicate);
+            return duplicate;
         }
+        return true;
     }
 
     public void removeComponent(Component component)

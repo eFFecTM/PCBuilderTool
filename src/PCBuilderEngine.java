@@ -21,19 +21,15 @@ public class PCBuilderEngine
     {
         catalogue = new Catalogue();
         myPc = new PC();
-        catalogue.search("M");
+        //catalogue.search("M");
         //System.out.println("Totale WattUsage: " + myPc.calculateWattUsage(ArrayList<Component> userCfg));
     }
-
+/*
     public ArrayList<Component> selectComponentGroup(int index)
     {
         return componentList = catalogue.filterGroupComponent(index);
     }
-
-    public void selectComponent()
-    {
-
-    }
+    */
 
     public void makeOfferFile()
     {

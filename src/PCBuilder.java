@@ -1,8 +1,8 @@
 import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -16,8 +16,11 @@ public class PCBuilder
     static GUI gui;
     static String loginName;
     static int selectComponentGroupIndex; //dient voor de case switch om te weten welke knop was ingedrukt
+    static int selectComponentIndex; //dient om te weten welk component is geselecteerd
+    static Component selectedComponent;
     static ArrayList<Component> componentList;
-    static DefaultListModel DLM;
+    static DefaultListModel<String> DLM;
+    static DefaultListModel<String> userCfgDLM;
 
     public static void main(String[] args) throws IOException
     {
@@ -25,6 +28,7 @@ public class PCBuilder
         PCBE = new PCBuilderEngine();
         gui = new GUI();
         DLM = new DefaultListModel();
+        userCfgDLM = new DefaultListModel();
         componentList = new ArrayList<>();
 
         gui.setLoginActionListener(new ActionListener()
@@ -48,7 +52,7 @@ public class PCBuilder
                 componentList.clear();
                 //reset JList specificComponentList
                 DLM.clear();
-                componentList = PCBE.selectComponentGroup(selectComponentGroupIndex);
+                componentList = PCBE.catalogue.filterGroupComponent(selectComponentGroupIndex);
 
                 for(Component component : componentList)
                 {
@@ -68,7 +72,7 @@ public class PCBuilder
                 componentList.clear();
                 //reset JList specificComponentList
                 DLM.clear();
-                componentList = PCBE.selectComponentGroup(selectComponentGroupIndex);
+                componentList = PCBE.catalogue.filterGroupComponent(selectComponentGroupIndex);
 
                 for(Component component : componentList)
                 {
@@ -88,7 +92,7 @@ public class PCBuilder
                 componentList.clear();
                 //reset JList specificComponentList
                 DLM.clear();
-                componentList = PCBE.selectComponentGroup(selectComponentGroupIndex);
+                componentList = PCBE.catalogue.filterGroupComponent(selectComponentGroupIndex);
 
                 for(Component component : componentList)
                 {
@@ -108,7 +112,7 @@ public class PCBuilder
                 componentList.clear();
                 //reset JList specificComponentList
                 DLM.clear();
-                componentList = PCBE.selectComponentGroup(selectComponentGroupIndex);
+                componentList = PCBE.catalogue.filterGroupComponent(selectComponentGroupIndex);
 
                 for(Component component : componentList)
                 {
@@ -128,7 +132,7 @@ public class PCBuilder
                 componentList.clear();
                 //reset JList specificComponentList
                 DLM.clear();
-                componentList = PCBE.selectComponentGroup(selectComponentGroupIndex);
+                componentList = PCBE.catalogue.filterGroupComponent(selectComponentGroupIndex);
 
                 for(Component component : componentList)
                 {
@@ -148,7 +152,7 @@ public class PCBuilder
                 componentList.clear();
                 //reset JList specificComponentList
                 DLM.clear();
-                componentList = PCBE.selectComponentGroup(selectComponentGroupIndex);
+                componentList = PCBE.catalogue.filterGroupComponent(selectComponentGroupIndex);
 
                 for(Component component : componentList)
                 {
@@ -158,13 +162,13 @@ public class PCBuilder
             }
         });
 
+        /*
         gui.specificComponentList.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent evt) {
                 gui.specificComponentList = (JList)evt.getSource();
                 int index = 0;
                 if (evt.getClickCount() == 1) {
 
-                    // Double-click detected
                     index = gui.specificComponentList.locationToIndex(evt.getPoint());
                     System.out.println("Tot hier en index: " + index);
                 }
@@ -177,25 +181,67 @@ public class PCBuilder
 
             }
         });
+*/
+        gui.specificComponentList.addListSelectionListener(new ListSelectionListener()
+        {
+            @Override
+            public void valueChanged(ListSelectionEvent listSelectionEvent)
+            {
+                boolean adjust = listSelectionEvent.getValueIsAdjusting();
+                String textComponent = "";
+                if (!adjust)
+                {
+                    //gui.specificComponentList = (JList) listSelectionEvent.getSource();
+                    selectComponentIndex = gui.specificComponentList.getSelectedIndex();
+                    if (selectComponentIndex >= 0)
+                    {
+                        selectedComponent = componentList.get(selectComponentIndex);
+                        textComponent = selectedComponent.getDetailedDetails();
+                        gui.detailsTextArea.setText(textComponent);
+                    }
+                }
+            }
+        });
 
         gui.setAddComponentActionListener(new ActionListener()
         {
             @Override
             public void actionPerformed(ActionEvent e)
             {
-
-
-                componentList = PCBE.selectComponentGroup(selectComponentGroupIndex);
-
-                for(Component component : componentList)
+                boolean duplicate = PCBE.myPc.addComponent(selectedComponent);
+                if (!duplicate)
                 {
-                    DLM.addElement(component.getNameComponent());
+                    userCfgDLM.addElement(selectedComponent.getNameComponent());
+                } else
+                {
+                    gui.setErrorPanel();
                 }
-                gui.specificComponentList.setModel(DLM);
+                gui.userCfgList.setModel(userCfgDLM);
+            }
+        });
+
+        gui.userCfgList.addListSelectionListener(new ListSelectionListener()
+        {
+            @Override
+            public void valueChanged(ListSelectionEvent listSelectionEvent)
+            {
+                boolean adjust = listSelectionEvent.getValueIsAdjusting();
+                String textComponent = "";
+                if (!adjust)
+                {
+                    selectComponentIndex = gui.specificComponentList.getSelectedIndex();
+                    if (selectComponentIndex >= 0)
+                    {
+                        selectedComponent = componentList.get(selectComponentIndex);
+                        textComponent = selectedComponent.getDetailedDetails();
+                        gui.detailsTextArea.setText(textComponent);
+                    }
+                }
             }
         });
 
 
-    }
 
+
+    }
 }

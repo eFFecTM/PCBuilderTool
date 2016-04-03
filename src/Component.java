@@ -108,7 +108,6 @@ public class Component
                         if (sheetNr == 4)
                         {
                             maxWattage = cell.getStringCellValue();
-                            System.out.println(maxWattage);
                         } else
                         {
                             wattUsage = cell.getStringCellValue();

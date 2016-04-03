@@ -11,16 +11,18 @@ public class GUI {
     //Main Pane
     public JPanel mainPanel;
     public JTextField loginText;
+
     //catalogue Tab
     public JTextArea detailsTextArea;
     public JList specificComponentList;
+    public JList userCfgList;
     private JTabbedPane mainTabbedPanel;
     private JTextArea welcomeTitle;
     private JTextArea userCfgTitle;
-    private JList userCfgList;
     //public String input;
     private JLabel PCBuilderIcon;
     private JProgressBar progressBar;
+
     //Main Tabbed Panes
     private JPanel catalogueTab;
     private JPanel compareTab;
@@ -65,7 +67,10 @@ public class GUI {
     private JTextArea exportInfo;
     private JButton exportButton;
     private JTextArea exportResults;
+    private JTextArea textArea1;
 
+    //Error message plane
+    private JPanel errorPanel;
 
 
     public GUI()
@@ -76,6 +81,8 @@ public class GUI {
         frame.pack();
         frame.setLocation(900, 400);
         frame.setVisible(true);
+
+        JPanel panel = new JPanel();
 
         /*
         loginText.addActionListener(new ActionListener()
@@ -125,15 +132,25 @@ public class GUI {
         drivesButton.addActionListener(al);
     }
 
-    /*
+
     public void setSelectComponentListener(ListSelectionListener lsl)
     {
-
+        specificComponentList.addListSelectionListener(lsl);
     }
-    */
+
 
     public void setAddComponentActionListener(ActionListener al)
     {
         addComponent.addActionListener(al);
+    }
+
+    public void setAddUserCfgListener(ListSelectionListener lsl)
+    {
+        userCfgList.addListSelectionListener(lsl);
+    }
+
+    public void setErrorPanel()
+    {
+        JOptionPane.showMessageDialog(errorPanel, "ERROR!", "Error", JOptionPane.ERROR_MESSAGE);
     }
 }
