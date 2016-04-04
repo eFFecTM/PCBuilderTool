@@ -34,6 +34,7 @@ public class CPU extends Component
         return wattUsage;
     }
 
+
     public String getSocketCPU()
     {
         return socket;

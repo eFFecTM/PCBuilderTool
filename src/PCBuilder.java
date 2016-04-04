@@ -47,6 +47,8 @@ public class PCBuilder
                     userCfgDLM.addElement(component.getBrandComponent() + " " + component.getNameComponent());
                 }
                 gui.userCfgList.setModel(userCfgDLM);
+
+
             }
         });
 
@@ -55,7 +57,8 @@ public class PCBuilder
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                PCBE.myPc.calculateWattUsage();
+                float totWattUsage = PCBE.myPc.calculateWattUsage();
+                gui.wattResults.setText("Total amount of watt usage of the current configuration: " + totWattUsage + " Watt");
             }
         });
 

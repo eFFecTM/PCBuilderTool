@@ -193,6 +193,12 @@ public class Component
         return alles;
     }
 
+    public String getWattUsage()
+    {
+        String alles = "";
+        return alles;
+    }
+
     public void display()
     {
         System.out.println(toString());

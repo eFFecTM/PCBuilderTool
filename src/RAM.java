@@ -38,6 +38,7 @@ public class RAM extends Component
         return wattUsage;
     }
 
+
     public String getTypeRAM()
     {
         return type;

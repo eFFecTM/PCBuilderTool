@@ -32,6 +32,7 @@ public class GPU extends Component
         return wattUsage;
     }
 
+
     public String toString()
     {
         return super.toString() + "\nWatt Usage: " + wattUsage + " Watt\n";

@@ -17,7 +17,10 @@ public class GUI {
     public JList specificComponentList;
     public JList userCfgList;
     public JButton calculateButton;
-    private JTabbedPane mainTabbedPanel;
+    public JTabbedPane mainTabbedPanel;
+    //Watt Usage Tab
+    public JTextArea wattInfo;
+    public JTextArea wattResults;
     private JTextArea welcomeTitle;
     private JTextArea userCfgTitle;
     //public String input;
@@ -50,10 +53,6 @@ public class GUI {
     private JButton compareButton;
     private JLabel picture1;
     private JLabel picture2;
-    //Watt Usage Tab
-    private JTextArea wattInfo;
-    private JTextArea wattResults;
-
     //Compatibility Check Tab
     private JTextArea compatibilityInfo;
     private JButton compatibilityButton;
@@ -163,5 +162,15 @@ public class GUI {
         int result = JOptionPane.showConfirmDialog(null,
                 "User not found. Are you sure you wish to make a new user ?", null, JOptionPane.YES_NO_OPTION);
         return result == JOptionPane.YES_OPTION;
+    }
+
+    public void updateWattTab()
+    {
+        String textComponent = "";
+        for (Component component : PCBuilder.PCBE.myPc.userCfg)
+        {
+            textComponent += "\n" + component.getGroupComponent() + ": " + component.getBrandComponent() + " " + component.getNameComponent() + "\nIndividual Watt Usage: " + component.getWattUsage() + " Watt\n";
+        }
+        PCBuilder.PCBE.myPc.wattInfo.setText(textComponent);
     }
 }

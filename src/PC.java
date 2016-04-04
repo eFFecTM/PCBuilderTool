@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class PC
 {
     public ArrayList<Component> userCfg;
-    private int totWattUsage;
+    private float totWattUsage;
     private boolean check;
     private int amount;
 
@@ -72,16 +72,19 @@ public class PC
     }
 
 
-    public int calculateWattUsage()
+    public float calculateWattUsage()
     {
         String usage;
 
         if(userCfg.size() == 6)
         {
+            totWattUsage = 0;
             for(Component component : userCfg)
             {
-                System.out.println(((component.getClass()).getWattUsage());
-                //totWattUsage += Integer.parseInt(usage);
+                if (!component.getGroupComponent().equals("PSU"))
+                {
+                    totWattUsage += Float.parseFloat(component.getWattUsage());
+                }
             }
         }
         return totWattUsage;

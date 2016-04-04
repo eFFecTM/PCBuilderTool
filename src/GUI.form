@@ -302,7 +302,9 @@
                   </grid>
                   <gridbag weightx="1.0" weighty="1.0"/>
                 </constraints>
-                <properties/>
+                <properties>
+                  <editable value="false"/>
+                </properties>
               </component>
               <component id="673d4" class="javax.swing.JButton" binding="calculateButton">
                 <constraints>
@@ -320,7 +322,9 @@
                   </grid>
                   <gridbag weightx="0.0" weighty="0.25"/>
                 </constraints>
-                <properties/>
+                <properties>
+                  <editable value="false"/>
+                </properties>
               </component>
             </children>
           </grid>
