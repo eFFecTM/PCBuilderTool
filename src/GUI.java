@@ -16,13 +16,13 @@ public class GUI {
     public JTextArea detailsTextArea;
     public JList specificComponentList;
     public JList userCfgList;
+    public JButton calculateButton;
     private JTabbedPane mainTabbedPanel;
     private JTextArea welcomeTitle;
     private JTextArea userCfgTitle;
     //public String input;
     private JLabel PCBuilderIcon;
     private JProgressBar progressBar;
-
     //Main Tabbed Panes
     private JPanel catalogueTab;
     private JPanel compareTab;
@@ -42,7 +42,6 @@ public class GUI {
     private JButton addComponent;
     private JButton addCompare;
     private JButton saveUserCfg;
-
     //Compare Tab
     private JTextArea component1;
     private JTextArea component2;
@@ -51,11 +50,8 @@ public class GUI {
     private JButton compareButton;
     private JLabel picture1;
     private JLabel picture2;
-
-
     //Watt Usage Tab
     private JTextArea wattInfo;
-    private JButton calculateButton;
     private JTextArea wattResults;
 
     //Compatibility Check Tab
@@ -70,6 +66,7 @@ public class GUI {
 
     //Error message plane
     private JPanel errorPanel;
+    private JOptionPane loginPane;
 
 
     public GUI()
@@ -99,6 +96,11 @@ public class GUI {
     public void setLoginActionListener(ActionListener al)
     {
         loginText.addActionListener(al);
+    }
+
+    public void setCalculateWattButtonActionListener(ActionListener al)
+    {
+        calculateButton.addActionListener(al);
     }
 
     public void setSelectMotherboardActionListener(ActionListener al)
@@ -154,5 +156,12 @@ public class GUI {
     public void setErrorPanel()
     {
         JOptionPane.showMessageDialog(errorPanel, "ERROR!", "Error", JOptionPane.ERROR_MESSAGE);
+    }
+
+    public boolean setLoginVerification()
+    {
+        int result = JOptionPane.showConfirmDialog(null,
+                "User not found. Are you sure you wish to make a new user ?", null, JOptionPane.YES_NO_OPTION);
+        return result == JOptionPane.YES_OPTION;
     }
 }

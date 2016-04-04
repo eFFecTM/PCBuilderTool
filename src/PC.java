@@ -25,26 +25,29 @@ public class PC
         return check;
     }
 
-    public boolean addComponent(Component component)
+    public boolean addComponent(Component component, String name)
     {
-        boolean duplicate = false;
-        if(userCfg.size() < 6)
+        if (!name.equals(""))
         {
-            for (Component comp : userCfg)
+            boolean duplicate = false;
+            if (userCfg.size() < 6)
             {
-                if (component.getGroupComponent().equals(comp.getGroupComponent()))
+                for (Component comp : userCfg)
                 {
-                    duplicate = true;
-                    System.out.println("Duplicate element found : " + component.getGroupComponent());
+                    if (component.getGroupComponent().equals(comp.getGroupComponent()))
+                    {
+                        duplicate = true;
+                        System.out.println("Duplicate element found : " + component.getGroupComponent());
+                    }
                 }
-            }
 
-            if (!duplicate)
-            {
-                userCfg.add(component);
+                if (!duplicate)
+                {
+                    userCfg.add(component);
+                }
+                System.out.println("Duplicate: " + duplicate);
+                return duplicate;
             }
-            System.out.println("Duplicate: " + duplicate);
-            return duplicate;
         }
         return true;
     }
@@ -69,7 +72,7 @@ public class PC
     }
 
 
-    public int calculateWattUsage(ArrayList<Component> userCfg)
+    public int calculateWattUsage()
     {
         String usage;
 
@@ -77,7 +80,7 @@ public class PC
         {
             for(Component component : userCfg)
             {
-                //usage = component.;
+                System.out.println(((component.getClass()).getWattUsage());
                 //totWattUsage += Integer.parseInt(usage);
             }
         }

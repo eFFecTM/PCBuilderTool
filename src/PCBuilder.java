@@ -14,7 +14,7 @@ public class PCBuilder
 {
     static PCBuilderEngine PCBE;
     static GUI gui;
-    static String loginName;
+    static String loginName = "";
     static int selectComponentGroupIndex; //dient voor de case switch om te weten welke knop was ingedrukt
     static int selectComponentIndex; //dient om te weten welk component is geselecteerd
     static Component selectedComponent;
@@ -47,6 +47,15 @@ public class PCBuilder
                     userCfgDLM.addElement(component.getBrandComponent() + " " + component.getNameComponent());
                 }
                 gui.userCfgList.setModel(userCfgDLM);
+            }
+        });
+
+        gui.setCalculateWattButtonActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                PCBE.myPc.calculateWattUsage();
             }
         });
 
@@ -219,7 +228,8 @@ public class PCBuilder
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                boolean duplicate = PCBE.myPc.addComponent(selectedComponent);
+                boolean duplicate = PCBE.myPc.addComponent(selectedComponent, loginName);
+
                 if (!duplicate)
                 {
                     userCfgDLM.addElement(selectedComponent.getBrandComponent() + " " + selectedComponent.getNameComponent());

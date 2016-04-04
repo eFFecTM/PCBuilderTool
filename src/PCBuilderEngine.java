@@ -97,11 +97,18 @@ public class PCBuilderEngine
             } else
             {
                 //Vragen voor input van de user: ja of nee?
-                XSSFSheet sheet = workbook.createSheet(name.toLowerCase());
-                FileOutputStream out = new FileOutputStream(new File("userCfg.xlsx"));
-                workbook.write(out);
-                out.close();
-                System.out.println("User: " + name.toLowerCase() + " written successfully on userCfg.xlsx.");
+                boolean verification = PCBuilder.gui.setLoginVerification();
+                if (verification)
+                {
+                    XSSFSheet sheet = workbook.createSheet(name.toLowerCase());
+                    FileOutputStream out = new FileOutputStream(new File("userCfg.xlsx"));
+                    workbook.write(out);
+                    out.close();
+                    System.out.println("User: " + name.toLowerCase() + " written successfully on userCfg.xlsx.");
+                } else
+                {
+                    System.out.println("No new user is made");
+                }
             }
 
         } catch (FileNotFoundException e)
