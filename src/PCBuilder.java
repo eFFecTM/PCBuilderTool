@@ -48,7 +48,7 @@ public class PCBuilder
                 }
                 gui.userCfgList.setModel(userCfgDLM);
 
-
+                gui.updateWattTab();
             }
         });
 
@@ -241,6 +241,7 @@ public class PCBuilder
                     gui.setErrorPanel();
                 }
                 gui.userCfgList.setModel(userCfgDLM);
+                gui.updateWattTab();
             }
         });
 

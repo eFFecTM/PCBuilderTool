@@ -171,6 +171,6 @@ public class GUI {
         {
             textComponent += "\n" + component.getGroupComponent() + ": " + component.getBrandComponent() + " " + component.getNameComponent() + "\nIndividual Watt Usage: " + component.getWattUsage() + " Watt\n";
         }
-        PCBuilder.PCBE.myPc.wattInfo.setText(textComponent);
+        wattInfo.setText(textComponent);
     }
 }

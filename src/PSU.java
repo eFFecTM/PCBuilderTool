@@ -27,6 +27,11 @@ public class PSU extends Component
         return super.getBrandComponent();
     }
 
+    public String getWattUsage()
+    {
+        return "/";
+    }
+
     public String getMaxWattage()
     {
         return maxWattage;

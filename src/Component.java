@@ -13,13 +13,15 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Iterator;
 
-public class Component
+class Component
 {
+
 
     private String groupComponent;
     private String nameComponent;
     private String brandComponent;
     private String otherDetails;
+
 
     public Component(String groupComponent, String nameComponent, String brandComponent, String otherDetails)
     {
@@ -28,7 +30,6 @@ public class Component
         this.brandComponent = brandComponent;
         this.otherDetails = otherDetails;
     }
-
 
     public Component makeComponent(String groupComponent, String nameComponent, String brandComponent,String wattUsage, String otherDetails, int sheetNr, String socket, String type, String maxWattage, String ramSlots, String amountGB, String maxRam, String amountSticks, String ramType)
     {
