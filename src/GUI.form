@@ -223,67 +223,26 @@
             <properties/>
             <border type="none"/>
             <children>
-              <component id="dea78" class="javax.swing.JList" binding="list1" default-binding="true">
-                <constraints>
-                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="2" anchor="0" fill="3" indent="0" use-parent-layout="false">
-                    <preferred-size width="150" height="50"/>
-                  </grid>
-                  <gridbag weightx="0.0" weighty="1.0"/>
-                </constraints>
-                <properties/>
-              </component>
-              <component id="ccbd9" class="javax.swing.JTextArea" binding="component1">
+              <component id="ccbd9" class="javax.swing.JTextArea" binding="compareArea1">
                 <constraints>
                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="50"/>
                   </grid>
-                  <gridbag weightx="50.0" weighty="0.0"/>
+                  <gridbag weightx="50.0" weighty="1.0"/>
                 </constraints>
-                <properties/>
+                <properties>
+                  <editable value="false"/>
+                </properties>
               </component>
-              <component id="5ae5a" class="javax.swing.JTextArea" binding="component2">
+              <component id="5ae5a" class="javax.swing.JTextArea" binding="compareArea2">
                 <constraints>
                   <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="50"/>
                   </grid>
-                  <gridbag weightx="50.0" weighty="0.0"/>
-                </constraints>
-                <properties/>
-              </component>
-              <component id="2b84e" class="javax.swing.JList" binding="list2">
-                <constraints>
-                  <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="2" anchor="0" fill="3" indent="0" use-parent-layout="false">
-                    <preferred-size width="150" height="50"/>
-                  </grid>
-                  <gridbag weightx="0.0" weighty="1.0"/>
-                </constraints>
-                <properties/>
-              </component>
-              <component id="227c1" class="javax.swing.JLabel" binding="picture1">
-                <constraints>
-                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-                  <gridbag weightx="0.0" weighty="0.3"/>
+                  <gridbag weightx="50.0" weighty="1.0"/>
                 </constraints>
                 <properties>
-                  <text value="Label"/>
-                </properties>
-              </component>
-              <component id="90882" class="javax.swing.JLabel" binding="picture2">
-                <constraints>
-                  <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-                  <gridbag weightx="0.0" weighty="0.3"/>
-                </constraints>
-                <properties>
-                  <text value="Label"/>
-                </properties>
-              </component>
-              <component id="4f383" class="javax.swing.JButton" binding="compareButton" default-binding="true">
-                <constraints>
-                  <grid row="3" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                  <gridbag weightx="0.0" weighty="0.0"/>
-                </constraints>
-                <properties>
-                  <text value="Compare!"/>
+                  <editable value="false"/>
                 </properties>
               </component>
             </children>

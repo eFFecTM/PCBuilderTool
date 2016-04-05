@@ -21,6 +21,10 @@ public class GUI {
     //Watt Usage Tab
     public JTextArea wattInfo;
     public JTextArea wattResults;
+    public JButton addCompare;
+    //Compare Tab
+    public JTextArea compareArea1;
+    public JTextArea compareArea2;
     private JTextArea welcomeTitle;
     private JTextArea userCfgTitle;
     //public String input;
@@ -43,16 +47,7 @@ public class GUI {
     private JButton PSUButton;
     private JButton drivesButton;
     private JButton addComponent;
-    private JButton addCompare;
     private JButton saveUserCfg;
-    //Compare Tab
-    private JTextArea component1;
-    private JTextArea component2;
-    private JList list1;
-    private JList list2;
-    private JButton compareButton;
-    private JLabel picture1;
-    private JLabel picture2;
     //Compatibility Check Tab
     private JTextArea compatibilityInfo;
     private JButton compatibilityButton;
@@ -140,6 +135,13 @@ public class GUI {
     public void setAddComponentActionListener(ActionListener al)
     {
         addComponent.addActionListener(al);
+    }
+
+    // Compare Button in Component Catalogue tab
+
+    public void setAddToCompareActionListener(ActionListener al)
+    {
+        addCompare.addActionListener(al);
     }
 
     public void setSaveUserCfgActionListener(ActionListener al)

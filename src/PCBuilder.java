@@ -15,8 +15,11 @@ public class PCBuilder
     static PCBuilderEngine PCBE;
     static GUI gui;
     static String loginName = "";
+    static String compareGroup = "";
+    static String compareName = "";
     static int selectComponentGroupIndex; //dient voor de case switch om te weten welke knop was ingedrukt
     static int selectComponentIndex; //dient om te weten welk component is geselecteerd
+    static int clearCompare = 0;
     static Component selectedComponent;
     static ArrayList<Component> componentList;
     static DefaultListModel<String> DLM;
@@ -242,6 +245,57 @@ public class PCBuilder
                 }
                 gui.userCfgList.setModel(userCfgDLM);
                 gui.updateWattTab();
+            }
+        });
+
+        gui.setAddToCompareActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                switch (clearCompare)
+                {
+                    case 0:
+                        selectComponentIndex = gui.specificComponentList.getSelectedIndex();
+                        if (selectComponentIndex >= 0)
+                        {
+                            selectedComponent = componentList.get(selectComponentIndex);
+                            compareGroup = selectedComponent.getGroupComponent();
+                            compareName = selectedComponent.getNameComponent();
+                            String textComponent = selectedComponent.getDetailedDetails();
+                            gui.compareArea1.setText(textComponent);
+                            clearCompare++;
+                        }
+                        break;
+
+                    case 1:
+                        selectComponentIndex = gui.specificComponentList.getSelectedIndex();
+                        if (selectComponentIndex >= 0)
+                        {
+                            selectedComponent = componentList.get(selectComponentIndex);
+                            if (compareGroup.equals(selectedComponent.getGroupComponent()) && !compareName.equals(selectedComponent.getNameComponent()))
+                            {
+                                String textComponent = selectedComponent.getDetailedDetails();
+                                gui.compareArea2.setText(textComponent);
+                                clearCompare++;
+                            } else
+                            {
+                                gui.setErrorPanel();
+                            }
+
+                        }
+                        break;
+
+                    case 2:
+                        gui.setErrorPanel();
+                        clearCompare = 0;
+                        System.out.println("Compare tab has been cleared");
+                        gui.compareArea1.setText("");
+                        gui.compareArea2.setText("");
+
+                }
+
+
             }
         });
 
