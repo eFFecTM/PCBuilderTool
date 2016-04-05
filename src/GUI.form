@@ -6,14 +6,14 @@
     </constraints>
     <properties>
       <enabled value="true"/>
-      <minimumSize width="800" height="500"/>
-      <preferredSize width="800" height="500"/>
+      <minimumSize width="850" height="500"/>
+      <preferredSize width="850" height="500"/>
     </properties>
     <border type="line"/>
     <children>
       <component id="6c702" class="javax.swing.JTextArea" binding="welcomeTitle">
         <constraints>
-          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="4" fill="2" indent="0" use-parent-layout="false">
+          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="4" fill="0" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="50"/>
           </grid>
           <gridbag weightx="0.0" weighty="0.0"/>
@@ -61,13 +61,14 @@
               <tabbedpane title="Component Catalogue"/>
             </constraints>
             <properties>
+              <alignmentY value="0.0"/>
               <preferredSize width="800" height="500"/>
             </properties>
             <border type="none"/>
             <children>
               <component id="d3a98" class="javax.swing.JTextArea" binding="detailsTextArea">
                 <constraints>
-                  <grid row="9" column="0" row-span="1" col-span="4" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                  <grid row="9" column="0" row-span="1" col-span="8" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
                     <preferred-size width="843" height="50"/>
                   </grid>
                   <gridbag weightx="0.0" weighty="0.5"/>
@@ -80,26 +81,14 @@
               </component>
               <component id="88ad7" class="javax.swing.JTextArea" binding="detailsTitleTextArea">
                 <constraints>
-                  <grid row="8" column="0" row-span="1" col-span="4" vsize-policy="0" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                  <grid row="8" column="0" row-span="1" col-span="5" vsize-policy="0" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
                     <preferred-size width="843" height="50"/>
                   </grid>
                   <gridbag weightx="1.0" weighty="0.0"/>
                 </constraints>
                 <properties>
                   <editable value="false"/>
-                  <text value="Details of selected component:"/>
-                </properties>
-              </component>
-              <component id="551ba" class="javax.swing.JTextArea" binding="componentGroupTitle">
-                <constraints>
-                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
-                    <preferred-size width="843" height="50"/>
-                  </grid>
-                  <gridbag weightx="1.0" weighty="0.0"/>
-                </constraints>
-                <properties>
-                  <editable value="false"/>
-                  <text value="Select a PC component category:"/>
+                  <text value="Details of the selected component:"/>
                 </properties>
               </component>
               <hspacer id="925b">
@@ -108,18 +97,6 @@
                   <gridbag weightx="0.0" weighty="0.0"/>
                 </constraints>
               </hspacer>
-              <component id="32189" class="javax.swing.JTextArea" binding="specificComponentTitle">
-                <constraints>
-                  <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
-                    <preferred-size width="843" height="50"/>
-                  </grid>
-                  <gridbag weightx="1.0" weighty="0.0"/>
-                </constraints>
-                <properties>
-                  <editable value="false"/>
-                  <text value="Select a PC component:"/>
-                </properties>
-              </component>
               <vspacer id="a30d8">
                 <constraints>
                   <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
@@ -182,7 +159,7 @@
               </component>
               <scrollpane id="49cab" binding="specificComponentScrollPane">
                 <constraints>
-                  <grid row="1" column="2" row-span="6" col-span="2" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <grid row="1" column="2" row-span="6" col-span="6" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                   <gridbag weightx="5.0" weighty="0.0"/>
                 </constraints>
                 <properties/>
@@ -196,24 +173,98 @@
                   </component>
                 </children>
               </scrollpane>
+              <component id="32189" class="javax.swing.JTextArea" binding="specificComponentTitle">
+                <constraints>
+                  <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="843" height="50"/>
+                  </grid>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <alignmentX value="1.0"/>
+                  <editable value="false"/>
+                  <text value="Search:"/>
+                </properties>
+              </component>
               <component id="27027" class="javax.swing.JButton" binding="addComponent">
                 <constraints>
-                  <grid row="10" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                   <gridbag weightx="0.0" weighty="0.0"/>
                 </constraints>
                 <properties>
-                  <text value="Add component to your PC configuration"/>
+                  <text value="Add  to your PC configuration"/>
                 </properties>
               </component>
+              <component id="c2b8b" class="javax.swing.JTextField" binding="searchText">
+                <constraints>
+                  <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties/>
+              </component>
+              <hspacer id="f681c">
+                <constraints>
+                  <grid row="0" column="5" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+              </hspacer>
+              <component id="3cc0d" class="javax.swing.JButton" binding="sortZA">
+                <constraints>
+                  <grid row="0" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <alignmentY value="0.0"/>
+                  <maximumSize width="64" height="24"/>
+                  <minimumSize width="64" height="24"/>
+                  <preferredSize width="64" height="24"/>
+                  <text value="Z&gt;A"/>
+                </properties>
+              </component>
+              <component id="2f9d2" class="javax.swing.JButton" binding="sortAZ">
+                <constraints>
+                  <grid row="0" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <alignmentX value="0.0"/>
+                  <alignmentY value="0.0"/>
+                  <maximumSize width="53" height="24"/>
+                  <minimumSize width="53" height="24"/>
+                  <preferredSize width="64" height="24"/>
+                  <text value="A&gt;Z"/>
+                </properties>
+              </component>
+              <hspacer id="2a7bc">
+                <constraints>
+                  <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+              </hspacer>
+              <hspacer id="cbbda">
+                <constraints>
+                  <grid row="10" column="1" row-span="1" col-span="3" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+              </hspacer>
               <component id="ddc0d" class="javax.swing.JButton" binding="addCompare">
                 <constraints>
-                  <grid row="10" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                  <gridbag weightx="0.0" weighty="0.0"/>
+                  <grid row="10" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="1.0" weighty="0.0"/>
                 </constraints>
                 <properties>
-                  <text value="Add component to compare"/>
+                  <preferredSize width="200" height="32"/>
+                  <text value="Add to compare"/>
                 </properties>
               </component>
+              <hspacer id="83b75">
+                <constraints>
+                  <grid row="10" column="5" row-span="1" col-span="3" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+              </hspacer>
             </children>
           </grid>
           <grid id="6b938" binding="compareTab" layout-manager="GridBagLayout">
@@ -394,7 +445,7 @@
         <properties>
           <foreground color="-16655360"/>
           <maximum value="120"/>
-          <value value="60"/>
+          <value value="0"/>
         </properties>
       </component>
       <component id="2ad09" class="javax.swing.JButton" binding="saveUserCfg">

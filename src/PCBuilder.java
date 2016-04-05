@@ -3,8 +3,11 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * Created by students UA:FTI-EI De Laet Jan & Yigit Yunus Emre.
@@ -21,9 +24,10 @@ public class PCBuilder
     static int selectComponentIndex; //dient om te weten welk component is geselecteerd
     static int clearCompare = 0;
     static Component selectedComponent;
-    static ArrayList<Component> componentList;
+    static ArrayList<Component> componentList; //specifieke weer te geven arraylist
     static DefaultListModel<String> DLM;
     static DefaultListModel<String> userCfgDLM;
+    static ArrayList<String> componentNameList;
 
     public static void main(String[] args) throws IOException
     {
@@ -33,6 +37,7 @@ public class PCBuilder
         DLM = new DefaultListModel();
         userCfgDLM = new DefaultListModel();
         componentList = new ArrayList<>();
+        componentNameList = new ArrayList<>();
 
         gui.setLoginActionListener(new ActionListener()
         {
@@ -50,7 +55,7 @@ public class PCBuilder
                     userCfgDLM.addElement(component.getBrandComponent() + " " + component.getNameComponent());
                 }
                 gui.userCfgList.setModel(userCfgDLM);
-
+                gui.setProgressBar();
                 gui.updateWattTab();
             }
         });
@@ -185,6 +190,82 @@ public class PCBuilder
             }
         });
 
+        gui.setSearchActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                String searchText = gui.searchText.getText();
+
+                if (!searchText.equals(""))
+                {
+                    DLM.clear();
+                    componentNameList.clear();
+                    for (Component component : componentList)
+                    {
+                        if ((component.getBrandComponent() + " " + component.getNameComponent()).toLowerCase().contains(searchText.toLowerCase()))
+                        {
+                            componentNameList.add(component.getBrandComponent() + " " + component.getNameComponent());
+                            DLM.addElement(component.getBrandComponent() + " " + component.getNameComponent());
+                        }
+                    }
+                } else
+                {
+                    gui.updateSpecificComponentList(searchText);
+                }
+                gui.specificComponentList.setModel(DLM);
+            }
+        });
+
+        gui.setSortAZActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                componentNameList.clear();
+                for (Component component : componentList)
+                {
+                    componentNameList.add(component.getBrandComponent() + " " + component.getNameComponent());
+                }
+                Collections.sort(componentNameList);
+
+                DLM.clear();
+
+                for (String string : componentNameList)
+                {
+                    DLM.addElement(string);
+                }
+                gui.updateSpecificComponentList("a");
+                gui.specificComponentList.setModel(DLM);
+
+            }
+        });
+
+        gui.setSortZAActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+
+                componentNameList.clear();
+                for (Component component : componentList)
+                {
+                    componentNameList.add(component.getBrandComponent() + " " + component.getNameComponent());
+                }
+                Collections.sort(componentNameList, Collections.reverseOrder());
+
+                DLM.clear();
+
+                for (String string : componentNameList)
+                {
+                    DLM.addElement(string);
+                }
+
+                gui.updateSpecificComponentList("a");
+                gui.specificComponentList.setModel(DLM);
+            }
+        });
+
         /*
         gui.specificComponentList.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent evt) {
@@ -207,7 +288,6 @@ public class PCBuilder
         */
 
         // Component in detail weergeven
-
         gui.specificComponentList.addListSelectionListener(new ListSelectionListener()
         {
             @Override
@@ -239,6 +319,7 @@ public class PCBuilder
                 if (!duplicate)
                 {
                     userCfgDLM.addElement(selectedComponent.getBrandComponent() + " " + selectedComponent.getNameComponent());
+                    gui.setProgressBar();
                 } else
                 {
                     gui.setErrorPanel();
@@ -308,24 +389,32 @@ public class PCBuilder
             }
         });
 
-        // Selecting usercfgList elements
-        gui.userCfgList.addListSelectionListener(new ListSelectionListener()
+        // Selecting usercfgList elements an deleting elements with mouseclick = 2
+
+        gui.userCfgList.addMouseListener(new MouseAdapter()
         {
-            @Override
-            public void valueChanged(ListSelectionEvent listSelectionEvent)
+            public void mouseClicked(MouseEvent evt)
             {
-                boolean adjust = listSelectionEvent.getValueIsAdjusting();
-                String textComponent = "";
-                if (!adjust)
+                if (evt.getClickCount() == 2)
                 {
-                    selectComponentIndex = gui.specificComponentList.getSelectedIndex();
-                    if (selectComponentIndex >= 0)
+                    System.out.println(gui.userCfgList.locationToIndex(evt.getPoint()));
+                    int index = gui.userCfgList.locationToIndex(evt.getPoint());
+                    Component removeComponent = PCBE.myPc.userCfg.get(index);
+                    if (gui.setRemoveComponentVerification())
                     {
-                        selectedComponent = componentList.get(selectComponentIndex);
-                        textComponent = selectedComponent.getDetailedDetails();
-                        gui.detailsTextArea.setText(textComponent);
+                        PCBE.myPc.removeComponent(removeComponent);
+                        userCfgDLM.clear();
+                        for (Component component : PCBE.myPc.userCfg)
+                        {
+                            userCfgDLM.addElement(component.getBrandComponent() + " " + component.getNameComponent());
+                            gui.setProgressBar();
+                        }
+                        gui.userCfgList.setModel(userCfgDLM);
+                        gui.updateWattTab();
+
                     }
                 }
+
             }
         });
 

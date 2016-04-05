@@ -1,6 +1,6 @@
 import javax.swing.*;
-import javax.swing.event.ListSelectionListener;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 
 /**
@@ -18,6 +18,7 @@ public class GUI {
     public JList userCfgList;
     public JButton calculateButton;
     public JTabbedPane mainTabbedPanel;
+    public JTextField searchText;
     //Watt Usage Tab
     public JTextArea wattInfo;
     public JTextArea wattResults;
@@ -25,11 +26,13 @@ public class GUI {
     //Compare Tab
     public JTextArea compareArea1;
     public JTextArea compareArea2;
+    public JProgressBar progressBar;
+    private JButton sortZA;
+    private JButton sortAZ;
     private JTextArea welcomeTitle;
     private JTextArea userCfgTitle;
     //public String input;
     private JLabel PCBuilderIcon;
-    private JProgressBar progressBar;
     //Main Tabbed Panes
     private JPanel catalogueTab;
     private JPanel compareTab;
@@ -37,7 +40,6 @@ public class GUI {
     private JPanel compatibilityTab;
     private JPanel exportTab;
     private JTextArea detailsTitleTextArea;
-    private JTextArea componentGroupTitle;
     private JTextArea specificComponentTitle;
     private JScrollPane specificComponentScrollPane;
     private JButton motherboardButton;
@@ -57,6 +59,7 @@ public class GUI {
     private JTextArea exportInfo;
     private JButton exportButton;
     private JTextArea exportResults;
+
 
     //Error message plane
     private JPanel errorPanel;
@@ -127,10 +130,22 @@ public class GUI {
         drivesButton.addActionListener(al);
     }
 
-    public void setSelectComponentListener(ListSelectionListener lsl)
+    public void setSearchActionListener(ActionListener al)
     {
-        specificComponentList.addListSelectionListener(lsl);
+        searchText.addActionListener(al);
     }
+
+    public void setSortAZActionListener(ActionListener al)
+    {
+        sortAZ.addActionListener(al);
+    }
+
+    public void setSortZAActionListener(ActionListener al)
+    {
+        sortZA.addActionListener(al);
+    }
+
+
 
     public void setAddComponentActionListener(ActionListener al)
     {
@@ -149,14 +164,34 @@ public class GUI {
         saveUserCfg.addActionListener(al);
     }
 
-    public void setAddUserCfgListener(ListSelectionListener lsl)
-    {
-        userCfgList.addListSelectionListener(lsl);
-    }
-
     public void setErrorPanel()
     {
         JOptionPane.showMessageDialog(errorPanel, "ERROR!", "Error", JOptionPane.ERROR_MESSAGE);
+    }
+
+    public void setProgressBar()
+    {
+        switch (PCBuilder.PCBE.myPc.userCfg.size())
+        {
+            case 1:
+                progressBar.setValue(20);
+                break;
+            case 2:
+                progressBar.setValue(40);
+                break;
+            case 3:
+                progressBar.setValue(60);
+                break;
+            case 4:
+                progressBar.setValue(80);
+                break;
+            case 5:
+                progressBar.setValue(100);
+                break;
+            case 6:
+                progressBar.setValue(120);
+                break;
+        }
     }
 
     public boolean setLoginVerification()
@@ -174,5 +209,46 @@ public class GUI {
             textComponent += "\n" + component.getGroupComponent() + ": " + component.getBrandComponent() + " " + component.getNameComponent() + "\nIndividual Watt Usage: " + component.getWattUsage() + " Watt\n";
         }
         wattInfo.setText(textComponent);
+    }
+
+    public void updateSpecificComponentList(String searchText)
+    {
+        ArrayList<Component> tempList = new ArrayList<>();
+        int size = PCBuilder.componentNameList.size();
+        if (!searchText.equals(""))
+        {
+            for (int i = 0; i < size; i++)
+            {
+                for (Component component : PCBuilder.componentList)
+                {
+                    if ((component.getBrandComponent() + " " + component.getNameComponent()).equals(PCBuilder.componentNameList.get(i)))
+                    {
+                        tempList.add(component);
+                    }
+                }
+            }
+
+            PCBuilder.componentList.clear();
+            for (Component component : tempList)
+            {
+                PCBuilder.componentList.add(component);
+            }
+        } else
+        {
+            PCBuilder.DLM.clear();
+
+            for (Component component : PCBuilder.componentList)
+            {
+                PCBuilder.DLM.addElement(component.getBrandComponent() + " " + component.getNameComponent());
+            }
+            specificComponentList.setModel(PCBuilder.DLM);
+        }
+    }
+
+    public boolean setRemoveComponentVerification()
+    {
+        int result = JOptionPane.showConfirmDialog(null,
+                "Are you sure you want to remove selected component from your configuration ?", null, JOptionPane.YES_NO_OPTION);
+        return result == JOptionPane.YES_OPTION;
     }
 }
