@@ -172,9 +172,9 @@ public class GUI {
         saveUserCfg.addActionListener(al);
     }
 
-    public void setErrorPanel()
+    public void setErrorPanel(String error)
     {
-        JOptionPane.showMessageDialog(errorPanel, "ERROR!", "Error", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(errorPanel, error, "ERROR!", JOptionPane.ERROR_MESSAGE);
     }
 
     public void setProgressBar()

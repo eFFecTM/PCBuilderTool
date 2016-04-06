@@ -40,8 +40,9 @@ public class PCBuilderEngine
                 PrintWriter writer = new PrintWriter("Offer_" + PCBuilder.loginName + ".txt", "UTF-8");
                 writer.println("--------------------------------------------------");
                 float totalWatt = myPc.calculateWattUsage();
+                boolean check = myPc.checkCompatibility();
 
-                if (totalWatt != 0)
+                if (totalWatt != 0 && check)
                 {
                     writer.println("| User: " + PCBuilder.loginName.toUpperCase());
                     writer.println("--------------------------------------------------");
@@ -54,16 +55,27 @@ public class PCBuilderEngine
                     writer.println(textComponent + "--------------------------------------------------");
                     writer.println("| Total watt usage: " + totalWatt + " Watt");
                     writer.println("--------------------------------------------------");
+                    writer.println("| Compatibility check: SUCCESS");
+                    writer.println("--------------------------------------------------");
 
-                    if (myPc.checkCompatibility())
+                    writer.close();
+                    return true;
+                } else if (!check && PCBuilder.gui.setCompCheckVerification())
+                {
+                    writer.println("| User: " + PCBuilder.loginName.toUpperCase());
+                    writer.println("--------------------------------------------------");
+                    writer.println("| List of components");
+                    String textComponent = "";
+                    for (Component component : PCBuilder.PCBE.myPc.userCfg)
                     {
-                        writer.println("| Compatibility check: SUCCESS");
-                        writer.println("--------------------------------------------------");
-                    } else if (PCBuilder.gui.setCompCheckVerification())
-                    {
-                        writer.println("| Compatibility check: FAILURE");
-                        writer.println("--------------------------------------------------");
+                        textComponent += "--------------------------------------------------\n| " + component.getGroupComponent() + ": " + component.getBrandComponent() + " " + component.getNameComponent() + "\n";
                     }
+                    writer.println(textComponent + "--------------------------------------------------");
+                    writer.println("| Total watt usage: " + totalWatt + " Watt");
+                    writer.println("--------------------------------------------------");
+                    writer.println("| Compatibility check: FAILURE");
+                    writer.println("--------------------------------------------------");
+
                     writer.close();
                     return true;
                 } else

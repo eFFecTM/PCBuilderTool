@@ -72,7 +72,7 @@ public class PCBuilder
                     gui.wattResults.setText("Total amount of watt usage of the current configuration: " + totWattUsage + " Watt");
                 } else
                 {
-                    gui.setErrorPanel();
+                    gui.setErrorPanel("No user logged in: No configuration found !");
                 }
             }
         });
@@ -341,7 +341,7 @@ public class PCBuilder
                     gui.setProgressBar();
                 } else
                 {
-                    gui.setErrorPanel();
+                    gui.setErrorPanel("Trying to add a component which already is present in your configuration !");
                 }
                 gui.userCfgList.setModel(userCfgDLM);
                 gui.updateWattTab();
@@ -382,14 +382,14 @@ public class PCBuilder
                                 clearCompare++;
                             } else
                             {
-                                gui.setErrorPanel();
+                                gui.setErrorPanel("Comparing same component or component group !");
                             }
 
                         }
                         break;
 
                     case 2:
-                        gui.setErrorPanel();
+                        gui.setErrorPanel("Compare is full, clearing...");
                         clearCompare = 0;
                         System.out.println("Compare tab has been cleared");
                         gui.compareArea1.setText("");

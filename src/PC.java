@@ -39,7 +39,7 @@ public class PC
         RAM ram = null;
         PSU psu = null;
 
-        float CalculatedWattUsage = calculateWattUsage();
+        float CalculatedWattUsage = totWattUsage;
 
         if (userCfg.size() == 6)
         {
@@ -165,7 +165,7 @@ public class PC
 
         } else
         {
-            PCBuilder.gui.setErrorPanel();
+            PCBuilder.gui.setErrorPanel("Don't have enough components for compatibility check !");
             return false;
         }
     }
@@ -219,6 +219,7 @@ public class PC
     public float calculateWattUsage()
     {
         totWattUsage = 0;
+        System.out.println("calcwatt");
         if(userCfg.size() == 6)
         {
             for(Component component : userCfg)
@@ -238,6 +239,7 @@ public class PC
                 }
             }
         }
+        System.out.println("Tot Watt Usage: " + totWattUsage);
         return totWattUsage;
     }
 
