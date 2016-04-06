@@ -230,6 +230,13 @@ public class GUI {
         return result == JOptionPane.YES_OPTION;
     }
 
+    public boolean setCompCheckVerification()
+    {
+        int result = JOptionPane.showConfirmDialog(null,
+                "Are you sure you want to continue with a configuration that isn't compatible ?", null, JOptionPane.YES_NO_OPTION);
+        return result == JOptionPane.YES_OPTION;
+    }
+
     public void updateSpecificComponentList(String searchText)
     {
         ArrayList<Component> tempList = new ArrayList<>();

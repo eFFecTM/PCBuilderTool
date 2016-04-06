@@ -45,11 +45,11 @@ public class PCBuilderEngine
                 {
                     writer.println("| User: " + PCBuilder.loginName.toUpperCase());
                     writer.println("--------------------------------------------------");
-                    writer.println("| List of components: ");
+                    writer.println("| List of components");
                     String textComponent = "";
                     for (Component component : PCBuilder.PCBE.myPc.userCfg)
                     {
-                        textComponent += "--------------------------------------------------\n|" + component.getGroupComponent() + ": " + component.getBrandComponent() + " " + component.getNameComponent() + "\n";
+                        textComponent += "--------------------------------------------------\n| " + component.getGroupComponent() + ": " + component.getBrandComponent() + " " + component.getNameComponent() + "\n";
                     }
                     writer.println(textComponent + "--------------------------------------------------");
                     writer.println("| Total watt usage: " + totalWatt + " Watt");
@@ -59,7 +59,7 @@ public class PCBuilderEngine
                     {
                         writer.println("| Compatibility check: SUCCESS");
                         writer.println("--------------------------------------------------");
-                    } else
+                    } else if (PCBuilder.gui.setCompCheckVerification())
                     {
                         writer.println("| Compatibility check: FAILURE");
                         writer.println("--------------------------------------------------");
