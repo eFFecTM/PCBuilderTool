@@ -57,6 +57,7 @@ public class PCBuilder
                 gui.userCfgList.setModel(userCfgDLM);
                 gui.setProgressBar();
                 gui.updateWattTab();
+                gui.updateCheckCompatibilityTab();
             }
         });
 
@@ -67,6 +68,28 @@ public class PCBuilder
             {
                 float totWattUsage = PCBE.myPc.calculateWattUsage();
                 gui.wattResults.setText("Total amount of watt usage of the current configuration: " + totWattUsage + " Watt");
+            }
+        });
+
+        // Compatibility tab button
+        gui.setCompatibilityCheckActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                gui.updateCheckCompatibilityTab();
+                boolean check = PCBE.myPc.checkCompatibility();
+                if (check)
+                {
+                    gui.compatibilityResults.setText("Congratulations !! Your PC is fully compatible. All components are compatible.\n\nYou can export your PC to an offer file from within the 'Export Configuration' tab. Happy Gaming !!");
+                } else if (!check && PCBE.myPc.notCompatible == null)
+                {
+                    gui.compatibilityResults.setText("Not enough components selected to do a compatibility check !");
+                } else
+                {
+                    gui.compatibilityResults.setText("Some parts are incompatible with each other: \n\n" + PCBE.myPc.notCompatible);
+                }
+
             }
         });
 
@@ -300,6 +323,7 @@ public class PCBuilder
                 }
                 gui.userCfgList.setModel(userCfgDLM);
                 gui.updateWattTab();
+                gui.updateCheckCompatibilityTab();
             }
         });
 
@@ -385,6 +409,7 @@ public class PCBuilder
                         }
                         gui.userCfgList.setModel(userCfgDLM);
                         gui.updateWattTab();
+                        gui.updateCheckCompatibilityTab();
 
                     }
                 }
@@ -392,9 +417,5 @@ public class PCBuilder
             }
         });
 
-        ///srhsjnfbq(uhjwrsyndh
-        //ragehtzqjystkudfill;g,fhgbfsv
-
-        //hello my friend
     }
 }

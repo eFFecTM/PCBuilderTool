@@ -6,23 +6,11 @@
     </constraints>
     <properties>
       <enabled value="true"/>
-      <minimumSize width="850" height="500"/>
-      <preferredSize width="850" height="500"/>
+      <minimumSize width="900" height="500"/>
+      <preferredSize width="900" height="500"/>
     </properties>
     <border type="line"/>
     <children>
-      <component id="6c702" class="javax.swing.JTextArea" binding="welcomeTitle">
-        <constraints>
-          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="4" fill="0" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="50"/>
-          </grid>
-          <gridbag weightx="0.0" weighty="0.0"/>
-        </constraints>
-        <properties>
-          <editable value="false"/>
-          <text value="Welcome to the PCBuilder Tool! Please enter your name here:"/>
-        </properties>
-      </component>
       <component id="e76bd" class="javax.swing.JTextField" binding="loginText">
         <constraints>
           <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
@@ -330,7 +318,7 @@
                   <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="50"/>
                   </grid>
-                  <gridbag weightx="0.0" weighty="0.25"/>
+                  <gridbag weightx="0.0" weighty="0.5"/>
                 </constraints>
                 <properties>
                   <editable value="false"/>
@@ -352,7 +340,9 @@
                   </grid>
                   <gridbag weightx="1.0" weighty="1.0"/>
                 </constraints>
-                <properties/>
+                <properties>
+                  <editable value="false"/>
+                </properties>
               </component>
               <component id="69ce6" class="javax.swing.JButton" binding="compatibilityButton">
                 <constraints>
@@ -360,7 +350,7 @@
                   <gridbag weightx="0.0" weighty="0.0"/>
                 </constraints>
                 <properties>
-                  <text value="Button"/>
+                  <text value="Check for compatibility of all components"/>
                 </properties>
               </component>
               <component id="fc469" class="javax.swing.JTextArea" binding="compatibilityResults">
@@ -368,9 +358,11 @@
                   <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="50"/>
                   </grid>
-                  <gridbag weightx="0.0" weighty="0.25"/>
+                  <gridbag weightx="0.0" weighty="0.5"/>
                 </constraints>
-                <properties/>
+                <properties>
+                  <editable value="false"/>
+                </properties>
               </component>
             </children>
           </grid>
@@ -404,7 +396,7 @@
                   <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="50"/>
                   </grid>
-                  <gridbag weightx="0.0" weighty="0.25"/>
+                  <gridbag weightx="0.0" weighty="0.5"/>
                 </constraints>
                 <properties/>
               </component>
@@ -455,6 +447,18 @@
         </constraints>
         <properties>
           <text value="Save your user configuration"/>
+        </properties>
+      </component>
+      <component id="6c702" class="javax.swing.JTextArea" binding="welcomeTitle">
+        <constraints>
+          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="4" fill="0" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="50"/>
+          </grid>
+          <gridbag weightx="0.0" weighty="0.0"/>
+        </constraints>
+        <properties>
+          <editable value="false"/>
+          <text value="Welcome to the PCBuilder Tool! Please enter your name here:"/>
         </properties>
       </component>
     </children>

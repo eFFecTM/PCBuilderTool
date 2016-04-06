@@ -27,6 +27,9 @@ public class GUI {
     public JTextArea compareArea1;
     public JTextArea compareArea2;
     public JProgressBar progressBar;
+    //Compatibility Check Tab
+    public JTextArea compatibilityInfo;
+    public JTextArea compatibilityResults;
     private JButton sortZA;
     private JButton sortAZ;
     private JTextArea welcomeTitle;
@@ -50,10 +53,8 @@ public class GUI {
     private JButton drivesButton;
     private JButton addComponent;
     private JButton saveUserCfg;
-    //Compatibility Check Tab
-    private JTextArea compatibilityInfo;
     private JButton compatibilityButton;
-    private JTextArea compatibilityResults;
+
 
     //Export (offer file) Tab
     private JTextArea exportInfo;
@@ -98,6 +99,11 @@ public class GUI {
     public void setCalculateWattButtonActionListener(ActionListener al)
     {
         calculateButton.addActionListener(al);
+    }
+
+    public void setCompatibilityCheckActionListener(ActionListener al)
+    {
+        compatibilityButton.addActionListener(al);
     }
 
     public void setSelectMotherboardActionListener(ActionListener al)
@@ -209,6 +215,16 @@ public class GUI {
             textComponent += "\n" + component.getGroupComponent() + ": " + component.getBrandComponent() + " " + component.getNameComponent() + "\nIndividual Watt Usage: " + component.getWattUsage() + " Watt\n";
         }
         wattInfo.setText(textComponent);
+    }
+
+    public void updateCheckCompatibilityTab()
+    {
+        String textComponent = "Your configuration:\n";
+        for (Component component : PCBuilder.PCBE.myPc.userCfg)
+        {
+            textComponent += "\n" + component.getGroupComponent() + ": " + component.getBrandComponent() + " " + component.getNameComponent();
+        }
+        compatibilityInfo.setText(textComponent);
     }
 
     public void updateSpecificComponentList(String searchText)
