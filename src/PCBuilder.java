@@ -58,6 +58,7 @@ public class PCBuilder
                 gui.setProgressBar();
                 gui.updateWattTab();
                 gui.updateCheckCompatibilityTab();
+                gui.updateExportTab();
             }
         });
 
@@ -66,8 +67,30 @@ public class PCBuilder
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                float totWattUsage = PCBE.myPc.calculateWattUsage();
-                gui.wattResults.setText("Total amount of watt usage of the current configuration: " + totWattUsage + " Watt");
+                if (!loginName.equals(""))
+                {
+                    float totWattUsage = PCBE.myPc.calculateWattUsage();
+                    gui.wattResults.setText("Total amount of watt usage of the current configuration: " + totWattUsage + " Watt");
+                } else
+                {
+                    gui.setErrorPanel();
+                }
+            }
+        });
+
+        gui.setExportButtonActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                boolean success = PCBE.makeOfferFile();
+                if (success)
+                {
+                    gui.exportResults.setText("Your offer has been written succesfully to the file: Offer_" + PCBuilder.loginName + ".txt");
+                } else
+                {
+                    gui.exportResults.setText("The writing of your offer file has failed or has been canceled!");
+                }
             }
         });
 
@@ -324,6 +347,7 @@ public class PCBuilder
                 gui.userCfgList.setModel(userCfgDLM);
                 gui.updateWattTab();
                 gui.updateCheckCompatibilityTab();
+                gui.updateExportTab();
             }
         });
 
@@ -410,6 +434,7 @@ public class PCBuilder
                         gui.userCfgList.setModel(userCfgDLM);
                         gui.updateWattTab();
                         gui.updateCheckCompatibilityTab();
+                        gui.updateExportTab();
 
                     }
                 }

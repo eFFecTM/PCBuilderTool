@@ -31,8 +31,61 @@ public class PCBuilderEngine
     }
     */
 
-    public void makeOfferFile()
+    public boolean makeOfferFile()
     {
+        if (!PCBuilder.loginName.equals(""))
+        {
+            try
+            {
+                PrintWriter writer = new PrintWriter("Offer_" + PCBuilder.loginName + ".txt", "UTF-8");
+                writer.println("--------------------------------------------------");
+                float totalWatt = myPc.calculateWattUsage();
+
+                if (totalWatt != 0)
+                {
+                    writer.println("| User: " + PCBuilder.loginName.toUpperCase());
+                    writer.println("--------------------------------------------------");
+                    writer.println("| List of components");
+                    String textComponent = "";
+                    for (Component component : PCBuilder.PCBE.myPc.userCfg)
+                    {
+                        textComponent += "--------------------------------------------------\n| " + component.getGroupComponent() + ": " + component.getBrandComponent() + " " + component.getNameComponent() + "\n";
+                    }
+                    writer.println(textComponent + "--------------------------------------------------");
+                    writer.println("| Total watt usage: " + totalWatt + " Watt");
+                    writer.println("--------------------------------------------------");
+
+                    if (myPc.checkCompatibility())
+                    {
+                        writer.println("| Compatibility check: SUCCESS");
+                        writer.println("--------------------------------------------------");
+                    } else if (PCBuilder.gui.setCompCheckVerification())
+                    {
+                        writer.println("| Compatibility check: FAILURE");
+                        writer.println("--------------------------------------------------");
+                    }
+                    writer.close();
+                    return true;
+                } else
+                {
+                    writer.close();
+                    return false;
+                }
+
+            } catch (FileNotFoundException e)
+            {
+                e.printStackTrace();
+                return false;
+            } catch (UnsupportedEncodingException e)
+            {
+                e.printStackTrace();
+                return false;
+            }
+
+        } else
+        {
+            return false;
+        }
 
     }
 

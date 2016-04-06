@@ -30,6 +30,7 @@ public class GUI {
     //Compatibility Check Tab
     public JTextArea compatibilityInfo;
     public JTextArea compatibilityResults;
+    public JTextArea exportResults;
     private JButton sortZA;
     private JButton sortAZ;
     private JTextArea welcomeTitle;
@@ -53,15 +54,14 @@ public class GUI {
     private JButton drivesButton;
     private JButton addComponent;
     private JButton saveUserCfg;
+    //Compatibility Check Tab
+    private JTextArea compatibilityInfo;
     private JButton compatibilityButton;
-
+    private JTextArea compatibilityResults;
 
     //Export (offer file) Tab
     private JTextArea exportInfo;
     private JButton exportButton;
-    private JTextArea exportResults;
-
-
     //Error message plane
     private JPanel errorPanel;
     private JOptionPane loginPane;
@@ -104,6 +104,11 @@ public class GUI {
     public void setCompatibilityCheckActionListener(ActionListener al)
     {
         compatibilityButton.addActionListener(al);
+    }
+
+    public void setExportButtonActionListener(ActionListener al)
+    {
+        exportButton.addActionListener(al);
     }
 
     public void setSelectMotherboardActionListener(ActionListener al)
@@ -225,6 +230,30 @@ public class GUI {
             textComponent += "\n" + component.getGroupComponent() + ": " + component.getBrandComponent() + " " + component.getNameComponent();
         }
         compatibilityInfo.setText(textComponent);
+    }
+
+    public void updateExportTab()
+    {
+        String textComponent = "";
+        for (Component component : PCBuilder.PCBE.myPc.userCfg)
+        {
+            textComponent += "\n" + component.getGroupComponent() + ": " + component.getBrandComponent() + " " + component.getNameComponent() + "\n";
+        }
+        exportInfo.setText(textComponent);
+    }
+
+    public boolean setCalcWattVerification()
+    {
+        int result = JOptionPane.showConfirmDialog(null,
+                "Are you sure you want to continue with less than 6 components ?", null, JOptionPane.YES_NO_OPTION);
+        return result == JOptionPane.YES_OPTION;
+    }
+
+    public boolean setCompCheckVerification()
+    {
+        int result = JOptionPane.showConfirmDialog(null,
+                "Are you sure you want to continue with a configuration that isn't compatible ?", null, JOptionPane.YES_NO_OPTION);
+        return result == JOptionPane.YES_OPTION;
     }
 
     public void updateSpecificComponentList(String searchText)

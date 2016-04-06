@@ -220,12 +220,19 @@ public class PC
 
     public float calculateWattUsage()
     {
-        String usage;
-
+        totWattUsage = 0;
         if(userCfg.size() == 6)
         {
-            totWattUsage = 0;
             for(Component component : userCfg)
+            {
+                if (!component.getGroupComponent().equals("PSU"))
+                {
+                    totWattUsage += Float.parseFloat(component.getWattUsage());
+                }
+            }
+        } else if (PCBuilder.gui.setCalcWattVerification())
+        {
+            for (Component component : userCfg)
             {
                 if (!component.getGroupComponent().equals("PSU"))
                 {

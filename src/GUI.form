@@ -380,7 +380,9 @@
                   </grid>
                   <gridbag weightx="1.0" weighty="1.0"/>
                 </constraints>
-                <properties/>
+                <properties>
+                  <editable value="false"/>
+                </properties>
               </component>
               <component id="1fb3f" class="javax.swing.JButton" binding="exportButton">
                 <constraints>
@@ -388,7 +390,7 @@
                   <gridbag weightx="0.0" weighty="0.0"/>
                 </constraints>
                 <properties>
-                  <text value="Button"/>
+                  <text value="Export to text file"/>
                 </properties>
               </component>
               <component id="fa6b9" class="javax.swing.JTextArea" binding="exportResults">
@@ -398,7 +400,9 @@
                   </grid>
                   <gridbag weightx="0.0" weighty="0.5"/>
                 </constraints>
-                <properties/>
+                <properties>
+                  <editable value="false"/>
+                </properties>
               </component>
             </children>
           </grid>
