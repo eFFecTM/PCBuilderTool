@@ -251,4 +251,6 @@ public class GUI {
                 "Are you sure you want to remove selected component from your configuration ?", null, JOptionPane.YES_NO_OPTION);
         return result == JOptionPane.YES_OPTION;
     }
+
+    //gljscuktijxhuyjsrvuhkycu,kldr
 }
