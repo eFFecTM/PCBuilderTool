@@ -75,7 +75,6 @@ public class PC
             // Compatibility check
             for (int i = 0; i < 5; i++)
             {
-                System.out.println("waarde van i: " + i);
                 switch (i)
                 {
                     case 0:
@@ -132,7 +131,6 @@ public class PC
                             {
                                 notCompatible += "\n";
                             }
-                            System.out.println("hey");
                             notCompatible += "Ram type of the selected RAM: " + ram.getNameComponent() + " (" + typeRAM + ") " + "is not compatible with the selected motherboard: " + mb.getNameComponent() + " (" + ramTypeMB + ").\n";
                         }
                         break;

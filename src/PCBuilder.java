@@ -45,7 +45,6 @@ public class PCBuilder
             public void actionPerformed(ActionEvent e)
             {
                 loginName = gui.loginText.getText();
-                System.out.println("main: " + loginName);
                 userCfgDLM.clear();
                 PCBE.myPc.userCfg.clear();
                 PCBE.getUserCfg(loginName);

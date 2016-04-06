@@ -27,10 +27,11 @@ public class GUI {
     public JTextArea compareArea1;
     public JTextArea compareArea2;
     public JProgressBar progressBar;
+
+    public JTextArea exportResults;
     //Compatibility Check Tab
     public JTextArea compatibilityInfo;
     public JTextArea compatibilityResults;
-    public JTextArea exportResults;
     private JButton sortZA;
     private JButton sortAZ;
     private JTextArea welcomeTitle;
@@ -54,11 +55,7 @@ public class GUI {
     private JButton drivesButton;
     private JButton addComponent;
     private JButton saveUserCfg;
-    //Compatibility Check Tab
-    private JTextArea compatibilityInfo;
     private JButton compatibilityButton;
-    private JTextArea compatibilityResults;
-
     //Export (offer file) Tab
     private JTextArea exportInfo;
     private JButton exportButton;
