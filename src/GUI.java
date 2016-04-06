@@ -252,5 +252,4 @@ public class GUI {
         return result == JOptionPane.YES_OPTION;
     }
 
-    //gljscuktijxhuyjsrvuhkycu,kldr
 }
