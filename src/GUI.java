@@ -27,6 +27,7 @@ public class GUI {
     public JTextArea compareArea1;
     public JTextArea compareArea2;
     public JProgressBar progressBar;
+    public JTextArea exportResults;
     private JButton sortZA;
     private JButton sortAZ;
     private JTextArea welcomeTitle;
@@ -54,13 +55,9 @@ public class GUI {
     private JTextArea compatibilityInfo;
     private JButton compatibilityButton;
     private JTextArea compatibilityResults;
-
     //Export (offer file) Tab
     private JTextArea exportInfo;
     private JButton exportButton;
-    private JTextArea exportResults;
-
-
     //Error message plane
     private JPanel errorPanel;
     private JOptionPane loginPane;
@@ -98,6 +95,11 @@ public class GUI {
     public void setCalculateWattButtonActionListener(ActionListener al)
     {
         calculateButton.addActionListener(al);
+    }
+
+    public void setExportButtonActionListener(ActionListener al)
+    {
+        exportButton.addActionListener(al);
     }
 
     public void setSelectMotherboardActionListener(ActionListener al)
@@ -211,6 +213,23 @@ public class GUI {
         wattInfo.setText(textComponent);
     }
 
+    public void updateExportTab()
+    {
+        String textComponent = "";
+        for (Component component : PCBuilder.PCBE.myPc.userCfg)
+        {
+            textComponent += "\n" + component.getGroupComponent() + ": " + component.getBrandComponent() + " " + component.getNameComponent() + "\n";
+        }
+        exportInfo.setText(textComponent);
+    }
+
+    public boolean setCalcWattVerification()
+    {
+        int result = JOptionPane.showConfirmDialog(null,
+                "Are you sure you want to continue with less than 6 components ?", null, JOptionPane.YES_NO_OPTION);
+        return result == JOptionPane.YES_OPTION;
+    }
+
     public void updateSpecificComponentList(String searchText)
     {
         ArrayList<Component> tempList = new ArrayList<>();
@@ -251,5 +270,6 @@ public class GUI {
                 "Are you sure you want to remove selected component from your configuration ?", null, JOptionPane.YES_NO_OPTION);
         return result == JOptionPane.YES_OPTION;
     }
+
 
 }
