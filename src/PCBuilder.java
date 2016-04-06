@@ -190,29 +190,24 @@ public class PCBuilder
             }
         });
 
+        // Search listener
         gui.setSearchActionListener(new ActionListener()
         {
             @Override
             public void actionPerformed(ActionEvent e)
             {
                 String searchText = gui.searchText.getText();
-
-                if (!searchText.equals(""))
+                DLM.clear();
+                componentNameList.clear();
+                for (Component component : componentList)
                 {
-                    DLM.clear();
-                    componentNameList.clear();
-                    for (Component component : componentList)
+                    if ((component.getBrandComponent() + " " + component.getNameComponent()).toLowerCase().contains(searchText.toLowerCase()))
                     {
-                        if ((component.getBrandComponent() + " " + component.getNameComponent()).toLowerCase().contains(searchText.toLowerCase()))
-                        {
                             componentNameList.add(component.getBrandComponent() + " " + component.getNameComponent());
                             DLM.addElement(component.getBrandComponent() + " " + component.getNameComponent());
-                        }
                     }
-                } else
-                {
-                    gui.updateSpecificComponentList(searchText);
                 }
+                gui.updateSpecificComponentList(searchText);
                 gui.specificComponentList.setModel(DLM);
             }
         });
@@ -265,27 +260,6 @@ public class PCBuilder
                 gui.specificComponentList.setModel(DLM);
             }
         });
-
-        /*
-        gui.specificComponentList.addMouseListener(new MouseAdapter() {
-            public void mouseClicked(MouseEvent evt) {
-                gui.specificComponentList = (JList)evt.getSource();
-                int index = 0;
-                if (evt.getClickCount() == 1) {
-
-                    index = gui.specificComponentList.locationToIndex(evt.getPoint());
-                    System.out.println("Tot hier en index: " + index);
-                }
-
-
-                Component componentIndex = componentList.get(index);
-                String textComponent = componentIndex.getDetailedDetails();
-
-                gui.detailsTextArea.setText(textComponent);
-
-            }
-        });
-        */
 
         // Component in detail weergeven
         gui.specificComponentList.addListSelectionListener(new ListSelectionListener()

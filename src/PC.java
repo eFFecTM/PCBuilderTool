@@ -71,7 +71,6 @@ public class PC
         userCfg.remove(removeIndex);
     }
 
-
     public float calculateWattUsage()
     {
         String usage;
