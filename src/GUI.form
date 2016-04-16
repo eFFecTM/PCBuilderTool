@@ -5,15 +5,16 @@
       <xy x="20" y="20" width="928" height="800"/>
     </constraints>
     <properties>
+      <background color="-1513240"/>
       <enabled value="true"/>
       <minimumSize width="900" height="500"/>
       <preferredSize width="900" height="500"/>
     </properties>
-    <border type="line"/>
+    <border type="none"/>
     <children>
       <component id="e76bd" class="javax.swing.JTextField" binding="loginText">
         <constraints>
-          <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
+          <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
           </grid>
           <gridbag weightx="0.0" weighty="0.0" ipadx="200"/>
@@ -22,25 +23,30 @@
       </component>
       <component id="15c92" class="javax.swing.JTextArea" binding="userCfgTitle">
         <constraints>
-          <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="1" fill="1" indent="0" use-parent-layout="false">
+          <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="1" fill="0" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="50"/>
           </grid>
           <gridbag weightx="20.0" weighty="0.0"/>
         </constraints>
         <properties>
           <editable value="false"/>
+          <font name="Segoe UI" style="1"/>
+          <opaque value="false"/>
+          <selectionColor color="-1"/>
           <text value="Current PC configuration:"/>
         </properties>
       </component>
       <tabbedpane id="68b2f" binding="mainTabbedPanel">
         <constraints>
-          <grid row="1" column="0" row-span="4" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+          <grid row="1" column="0" row-span="4" col-span="3" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
             <preferred-size width="200" height="200"/>
           </grid>
           <gridbag weightx="100.0" weighty="1.0"/>
         </constraints>
         <properties>
+          <background color="-1513240"/>
           <enabled value="true"/>
+          <font name="Segoe UI"/>
         </properties>
         <border type="none"/>
         <children>
@@ -50,53 +56,56 @@
             </constraints>
             <properties>
               <alignmentY value="0.0"/>
+              <background color="-1513240"/>
               <preferredSize width="800" height="500"/>
             </properties>
             <border type="none"/>
             <children>
               <component id="d3a98" class="javax.swing.JTextArea" binding="detailsTextArea">
                 <constraints>
-                  <grid row="9" column="0" row-span="1" col-span="8" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                  <grid row="8" column="0" row-span="1" col-span="6" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
                     <preferred-size width="843" height="50"/>
                   </grid>
                   <gridbag weightx="0.0" weighty="0.5"/>
                 </constraints>
                 <properties>
                   <editable value="false"/>
+                  <font name="Segoe UI" style="1"/>
                   <minimumSize width="0" height="10"/>
+                  <opaque value="true"/>
                   <preferredSize width="0" height="10"/>
+                  <selectionColor color="-1"/>
                 </properties>
               </component>
               <component id="88ad7" class="javax.swing.JTextArea" binding="detailsTitleTextArea">
                 <constraints>
-                  <grid row="8" column="0" row-span="1" col-span="5" vsize-policy="0" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                  <grid row="7" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="2" fill="0" indent="0" use-parent-layout="false">
                     <preferred-size width="843" height="50"/>
                   </grid>
                   <gridbag weightx="1.0" weighty="0.0"/>
                 </constraints>
                 <properties>
+                  <alignmentX value="0.5"/>
+                  <alignmentY value="0.5"/>
+                  <background color="-1710619"/>
                   <editable value="false"/>
+                  <font name="Segoe UI" style="1"/>
+                  <margin top="8" left="0" bottom="0" right="0"/>
+                  <maximumSize width="250" height="32"/>
+                  <minimumSize width="238" height="32"/>
+                  <opaque value="false"/>
+                  <preferredSize width="238" height="32"/>
+                  <selectionColor color="-1"/>
                   <text value="Details of the selected component:"/>
                 </properties>
               </component>
-              <hspacer id="925b">
-                <constraints>
-                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                  <gridbag weightx="0.0" weighty="0.0"/>
-                </constraints>
-              </hspacer>
-              <vspacer id="a30d8">
-                <constraints>
-                  <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
-                  <gridbag weightx="0.0" weighty="0.0"/>
-                </constraints>
-              </vspacer>
               <component id="ee25d" class="javax.swing.JButton" binding="motherboardButton" default-binding="true">
                 <constraints>
                   <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                   <gridbag weightx="0.0" weighty="0.0"/>
                 </constraints>
                 <properties>
+                  <font name="Segoe UI"/>
                   <text value="Motherboard"/>
                 </properties>
               </component>
@@ -106,6 +115,7 @@
                   <gridbag weightx="0.0" weighty="0.0"/>
                 </constraints>
                 <properties>
+                  <font name="Segoe UI"/>
                   <text value="Processor (CPU)"/>
                 </properties>
               </component>
@@ -115,6 +125,7 @@
                   <gridbag weightx="0.0" weighty="0.0"/>
                 </constraints>
                 <properties>
+                  <font name="Segoe UI"/>
                   <text value="Memory (RAM)"/>
                 </properties>
               </component>
@@ -124,6 +135,7 @@
                   <gridbag weightx="0.0" weighty="0.0"/>
                 </constraints>
                 <properties>
+                  <font name="Segoe UI"/>
                   <text value="Graphics Card (GPU)"/>
                 </properties>
               </component>
@@ -133,6 +145,7 @@
                   <gridbag weightx="0.0" weighty="0.0"/>
                 </constraints>
                 <properties>
+                  <font name="Segoe UI"/>
                   <text value="Power Supply (PSU)"/>
                 </properties>
               </component>
@@ -142,12 +155,13 @@
                   <gridbag weightx="0.0" weighty="0.0"/>
                 </constraints>
                 <properties>
+                  <font name="Segoe UI"/>
                   <text value="Drives"/>
                 </properties>
               </component>
               <scrollpane id="49cab" binding="specificComponentScrollPane">
                 <constraints>
-                  <grid row="1" column="2" row-span="6" col-span="6" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <grid row="1" column="1" row-span="6" col-span="5" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                   <gridbag weightx="5.0" weighty="0.0"/>
                 </constraints>
                 <properties/>
@@ -157,102 +171,96 @@
                     <constraints/>
                     <properties>
                       <enabled value="true"/>
+                      <font name="Segoe UI" style="1"/>
+                      <selectionBackground color="-1"/>
                     </properties>
                   </component>
                 </children>
               </scrollpane>
               <component id="32189" class="javax.swing.JTextArea" binding="specificComponentTitle">
                 <constraints>
-                  <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
+                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="4" fill="0" indent="0" use-parent-layout="false">
                     <preferred-size width="843" height="50"/>
                   </grid>
-                  <gridbag weightx="0.0" weighty="0.0"/>
+                  <gridbag weightx="0.1" weighty="0.0"/>
                 </constraints>
                 <properties>
                   <alignmentX value="1.0"/>
                   <editable value="false"/>
+                  <font name="Segoe UI" style="1"/>
+                  <margin top="0" left="0" bottom="0" right="5"/>
+                  <opaque value="false"/>
+                  <selectionColor color="-1"/>
                   <text value="Search:"/>
                 </properties>
               </component>
-              <component id="27027" class="javax.swing.JButton" binding="addComponent">
-                <constraints>
-                  <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                  <gridbag weightx="0.0" weighty="0.0"/>
-                </constraints>
-                <properties>
-                  <text value="Add  to your PC configuration"/>
-                </properties>
-              </component>
-              <component id="c2b8b" class="javax.swing.JTextField" binding="searchText">
-                <constraints>
-                  <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                    <preferred-size width="150" height="-1"/>
-                  </grid>
-                  <gridbag weightx="0.0" weighty="0.0"/>
-                </constraints>
-                <properties/>
-              </component>
-              <hspacer id="f681c">
-                <constraints>
-                  <grid row="0" column="5" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                  <gridbag weightx="0.0" weighty="0.0"/>
-                </constraints>
-              </hspacer>
               <component id="3cc0d" class="javax.swing.JButton" binding="sortZA">
                 <constraints>
-                  <grid row="0" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <grid row="0" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                   <gridbag weightx="0.0" weighty="0.0"/>
                 </constraints>
                 <properties>
-                  <alignmentY value="0.0"/>
+                  <alignmentY value="0.5"/>
+                  <horizontalAlignment value="0"/>
+                  <margin top="2" left="14" bottom="2" right="14"/>
                   <maximumSize width="64" height="24"/>
                   <minimumSize width="64" height="24"/>
                   <preferredSize width="64" height="24"/>
                   <text value="Z&gt;A"/>
                 </properties>
               </component>
+              <component id="27027" class="javax.swing.JButton" binding="addComponent">
+                <constraints>
+                  <grid row="7" column="4" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <font name="Segoe UI"/>
+                  <maximumSize width="111" height="24"/>
+                  <minimumSize width="111" height="24"/>
+                  <preferredSize width="125" height="24"/>
+                  <text value="Add to your PC"/>
+                </properties>
+              </component>
+              <component id="ddc0d" class="javax.swing.JButton" binding="addCompare">
+                <constraints>
+                  <grid row="7" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <font name="Segoe UI"/>
+                  <margin top="2" left="5" bottom="2" right="5"/>
+                  <maximumSize width="116" height="24"/>
+                  <minimumSize width="116" height="24"/>
+                  <preferredSize width="125" height="24"/>
+                  <text value="Add to compare"/>
+                </properties>
+              </component>
+              <component id="c2b8b" class="javax.swing.JTextField" binding="searchText">
+                <constraints>
+                  <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                  <gridbag weightx="0.5" weighty="0.0"/>
+                </constraints>
+                <properties/>
+              </component>
               <component id="2f9d2" class="javax.swing.JButton" binding="sortAZ">
                 <constraints>
-                  <grid row="0" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                   <gridbag weightx="0.0" weighty="0.0"/>
                 </constraints>
                 <properties>
                   <alignmentX value="0.0"/>
-                  <alignmentY value="0.0"/>
+                  <alignmentY value="0.5"/>
+                  <font name="Segoe UI"/>
+                  <margin top="2" left="14" bottom="2" right="14"/>
                   <maximumSize width="53" height="24"/>
                   <minimumSize width="53" height="24"/>
                   <preferredSize width="64" height="24"/>
                   <text value="A&gt;Z"/>
                 </properties>
               </component>
-              <hspacer id="2a7bc">
-                <constraints>
-                  <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                  <gridbag weightx="0.0" weighty="0.0"/>
-                </constraints>
-              </hspacer>
-              <hspacer id="cbbda">
-                <constraints>
-                  <grid row="10" column="1" row-span="1" col-span="3" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                  <gridbag weightx="0.0" weighty="0.0"/>
-                </constraints>
-              </hspacer>
-              <component id="ddc0d" class="javax.swing.JButton" binding="addCompare">
-                <constraints>
-                  <grid row="10" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                  <gridbag weightx="1.0" weighty="0.0"/>
-                </constraints>
-                <properties>
-                  <preferredSize width="200" height="32"/>
-                  <text value="Add to compare"/>
-                </properties>
-              </component>
-              <hspacer id="83b75">
-                <constraints>
-                  <grid row="10" column="5" row-span="1" col-span="3" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                  <gridbag weightx="0.0" weighty="0.0"/>
-                </constraints>
-              </hspacer>
             </children>
           </grid>
           <grid id="6b938" binding="compareTab" layout-manager="GridBagLayout">
@@ -271,6 +279,8 @@
                 </constraints>
                 <properties>
                   <editable value="false"/>
+                  <font name="Segoe UI" style="1"/>
+                  <selectionColor color="-1"/>
                 </properties>
               </component>
               <component id="5ae5a" class="javax.swing.JTextArea" binding="compareArea2">
@@ -282,6 +292,8 @@
                 </constraints>
                 <properties>
                   <editable value="false"/>
+                  <font name="Segoe UI" style="1"/>
+                  <selectionColor color="-1"/>
                 </properties>
               </component>
             </children>
@@ -302,6 +314,8 @@
                 </constraints>
                 <properties>
                   <editable value="false"/>
+                  <font name="Segoe UI" style="1"/>
+                  <selectionColor color="-1"/>
                 </properties>
               </component>
               <component id="673d4" class="javax.swing.JButton" binding="calculateButton">
@@ -310,6 +324,7 @@
                   <gridbag weightx="0.0" weighty="0.0"/>
                 </constraints>
                 <properties>
+                  <font name="Segoe UI"/>
                   <text value="Calculate Watt Usage"/>
                 </properties>
               </component>
@@ -322,6 +337,8 @@
                 </constraints>
                 <properties>
                   <editable value="false"/>
+                  <font name="Segoe UI" style="1"/>
+                  <selectionColor color="-1"/>
                 </properties>
               </component>
             </children>
@@ -342,6 +359,8 @@
                 </constraints>
                 <properties>
                   <editable value="false"/>
+                  <font name="Segoe UI" style="1"/>
+                  <selectionColor color="-1"/>
                 </properties>
               </component>
               <component id="69ce6" class="javax.swing.JButton" binding="compatibilityButton">
@@ -350,6 +369,7 @@
                   <gridbag weightx="0.0" weighty="0.0"/>
                 </constraints>
                 <properties>
+                  <font name="Segoe UI"/>
                   <text value="Check for compatibility of all components"/>
                 </properties>
               </component>
@@ -362,6 +382,8 @@
                 </constraints>
                 <properties>
                   <editable value="false"/>
+                  <font name="Segoe UI" style="1"/>
+                  <selectionColor color="-1"/>
                 </properties>
               </component>
             </children>
@@ -382,6 +404,8 @@
                 </constraints>
                 <properties>
                   <editable value="false"/>
+                  <font name="Segoe UI" style="1"/>
+                  <selectionColor color="-1"/>
                 </properties>
               </component>
               <component id="1fb3f" class="javax.swing.JButton" binding="exportButton">
@@ -390,6 +414,7 @@
                   <gridbag weightx="0.0" weighty="0.0"/>
                 </constraints>
                 <properties>
+                  <font name="Segoe UI"/>
                   <text value="Export to text file"/>
                 </properties>
               </component>
@@ -402,18 +427,14 @@
                 </constraints>
                 <properties>
                   <editable value="false"/>
+                  <font name="Segoe UI" style="1"/>
+                  <selectionColor color="-1"/>
                 </properties>
               </component>
             </children>
           </grid>
         </children>
       </tabbedpane>
-      <hspacer id="8ef3b">
-        <constraints>
-          <grid row="2" column="2" row-span="2" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-          <gridbag weightx="0.0" weighty="0.0"/>
-        </constraints>
-      </hspacer>
       <component id="3629c" class="javax.swing.JList" binding="userCfgList">
         <constraints>
           <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="6" hsize-policy="2" anchor="0" fill="3" indent="0" use-parent-layout="false">
@@ -421,16 +442,10 @@
           </grid>
           <gridbag weightx="0.0" weighty="0.5"/>
         </constraints>
-        <properties/>
-      </component>
-      <component id="24671" class="javax.swing.JLabel" binding="PCBuilderIcon">
-        <constraints>
-          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
-          <gridbag weightx="0.0" weighty="0.0"/>
-        </constraints>
         <properties>
-          <icon value="PCBuilderIcon.png"/>
-          <text value=""/>
+          <font name="Segoe UI" style="1"/>
+          <opaque value="true"/>
+          <selectionBackground color="-1"/>
         </properties>
       </component>
       <component id="cf306" class="javax.swing.JProgressBar" binding="progressBar">
@@ -450,10 +465,28 @@
           <gridbag weightx="0.0" weighty="0.0"/>
         </constraints>
         <properties>
+          <font name="Segoe UI"/>
           <text value="Save your user configuration"/>
         </properties>
       </component>
       <component id="6c702" class="javax.swing.JTextArea" binding="welcomeTitle">
+        <constraints>
+          <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="4" fill="0" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="50"/>
+          </grid>
+          <gridbag weightx="0.0" weighty="0.0"/>
+        </constraints>
+        <properties>
+          <editable value="false"/>
+          <enabled value="true"/>
+          <font name="Segoe UI" style="1"/>
+          <margin top="0" left="0" bottom="0" right="10"/>
+          <opaque value="false"/>
+          <selectionColor color="-1"/>
+          <text value="Please enter your name here:"/>
+        </properties>
+      </component>
+      <component id="a2bd" class="javax.swing.JTextArea">
         <constraints>
           <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="4" fill="0" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="50"/>
@@ -462,7 +495,26 @@
         </constraints>
         <properties>
           <editable value="false"/>
-          <text value="Welcome to the PCBuilder Tool! Please enter your name here:"/>
+          <enabled value="true"/>
+          <font name="Segoe UI" style="1"/>
+          <margin top="0" left="10" bottom="0" right="0"/>
+          <opaque value="false"/>
+          <selectionColor color="-1"/>
+          <text value="Welcome to the PCBuilder Tool!"/>
+        </properties>
+      </component>
+      <component id="24671" class="javax.swing.JLabel" binding="PCBuilderIcon">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="0.0"/>
+        </constraints>
+        <properties>
+          <alignmentX value="0.0"/>
+          <doubleBuffered value="false"/>
+          <horizontalAlignment value="4"/>
+          <icon value="PCBuilderIcon.png"/>
+          <opaque value="false"/>
+          <text value=""/>
         </properties>
       </component>
     </children>
