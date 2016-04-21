@@ -512,7 +512,7 @@
           <alignmentX value="0.0"/>
           <doubleBuffered value="false"/>
           <horizontalAlignment value="4"/>
-          <icon value="PCBuilderIcon.png"/>
+          <icon value="resources/PCBuilderIcon.png"/>
           <opaque value="false"/>
           <text value=""/>
         </properties>

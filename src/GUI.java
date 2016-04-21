@@ -151,12 +151,12 @@ public class GUI
         searchText.addActionListener(al);
     }
 
+    // Compare Button in Component Catalogue tab
+
     public void setSortAZActionListener(ActionListener al)
     {
         sortAZ.addActionListener(al);
     }
-
-    // Compare Button in Component Catalogue tab
 
     public void setSortZAActionListener(ActionListener al)
     {
@@ -700,7 +700,7 @@ public class GUI
         PCBuilderIcon.setAlignmentX(0.0f);
         PCBuilderIcon.setDoubleBuffered(false);
         PCBuilderIcon.setHorizontalAlignment(4);
-        PCBuilderIcon.setIcon(new ImageIcon(getClass().getResource("/PCBuilderIcon.png")));
+        PCBuilderIcon.setIcon(new ImageIcon(getClass().getResource("/resources/PCBuilderIcon.png")));
         PCBuilderIcon.setOpaque(false);
         PCBuilderIcon.setText("");
         gbc = new GridBagConstraints();
