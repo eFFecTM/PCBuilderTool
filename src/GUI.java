@@ -146,12 +146,12 @@ public class GUI
         drivesButton.addActionListener(al);
     }
 
+    // Compare Button in Component Catalogue tab
+
     public void setSearchActionListener(ActionListener al)
     {
         searchText.addActionListener(al);
     }
-
-    // Compare Button in Component Catalogue tab
 
     public void setSortAZActionListener(ActionListener al)
     {
@@ -351,7 +351,7 @@ public class GUI
         catalogueTab = new JPanel();
         catalogueTab.setLayout(new GridBagLayout());
         catalogueTab.setAlignmentY(0.0f);
-        catalogueTab.setBackground(new Color(-1513240));
+        catalogueTab.setBackground(new Color(-3613198));
         catalogueTab.setPreferredSize(new Dimension(800, 500));
         mainTabbedPanel.addTab("Component Catalogue", catalogueTab);
         detailsTextArea = new JTextArea();
@@ -364,7 +364,7 @@ public class GUI
         gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.gridy = 8;
-        gbc.gridwidth = 6;
+        gbc.gridwidth = 2;
         gbc.weighty = 0.5;
         gbc.fill = GridBagConstraints.BOTH;
         catalogueTab.add(detailsTextArea, gbc);
@@ -522,6 +522,15 @@ public class GUI
         gbc.gridy = 0;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         catalogueTab.add(sortAZ, gbc);
+        final JLabel label1 = new JLabel();
+        label1.setHorizontalAlignment(0);
+        label1.setText("Label");
+        gbc = new GridBagConstraints();
+        gbc.gridx = 2;
+        gbc.gridy = 8;
+        gbc.gridwidth = 4;
+        gbc.fill = GridBagConstraints.BOTH;
+        catalogueTab.add(label1, gbc);
         compareTab = new JPanel();
         compareTab.setLayout(new GridBagLayout());
         mainTabbedPanel.addTab("Compare", compareTab);
@@ -531,7 +540,7 @@ public class GUI
         compareArea1.setSelectionColor(new Color(-1));
         gbc = new GridBagConstraints();
         gbc.gridx = 0;
-        gbc.gridy = 0;
+        gbc.gridy = 1;
         gbc.weightx = 50.0;
         gbc.weighty = 1.0;
         gbc.fill = GridBagConstraints.BOTH;
@@ -542,11 +551,29 @@ public class GUI
         compareArea2.setSelectionColor(new Color(-1));
         gbc = new GridBagConstraints();
         gbc.gridx = 1;
-        gbc.gridy = 0;
+        gbc.gridy = 1;
         gbc.weightx = 50.0;
         gbc.weighty = 1.0;
         gbc.fill = GridBagConstraints.BOTH;
         compareTab.add(compareArea2, gbc);
+        final JLabel label2 = new JLabel();
+        label2.setHorizontalAlignment(0);
+        label2.setText("Label");
+        gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.weighty = 1.0;
+        gbc.fill = GridBagConstraints.BOTH;
+        compareTab.add(label2, gbc);
+        final JLabel label3 = new JLabel();
+        label3.setHorizontalAlignment(0);
+        label3.setText("Label");
+        gbc = new GridBagConstraints();
+        gbc.gridx = 1;
+        gbc.gridy = 0;
+        gbc.weighty = 1.0;
+        gbc.fill = GridBagConstraints.BOTH;
+        compareTab.add(label3, gbc);
         wattTab = new JPanel();
         wattTab.setLayout(new GridBagLayout());
         mainTabbedPanel.addTab("Watt Usage", wattTab);
@@ -567,6 +594,7 @@ public class GUI
         gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.gridy = 1;
+        gbc.gridwidth = 2;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         wattTab.add(calculateButton, gbc);
         wattResults = new JTextArea();
@@ -576,9 +604,21 @@ public class GUI
         gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.gridy = 2;
+        gbc.gridwidth = 2;
         gbc.weighty = 0.5;
         gbc.fill = GridBagConstraints.BOTH;
         wattTab.add(wattResults, gbc);
+        final JLabel label4 = new JLabel();
+        label4.setBackground(new Color(-1));
+        label4.setHorizontalAlignment(0);
+        label4.setIcon(new ImageIcon(getClass().getResource("/resources/wattUsageIcon.png")));
+        label4.setOpaque(true);
+        label4.setText("");
+        gbc = new GridBagConstraints();
+        gbc.gridx = 1;
+        gbc.gridy = 0;
+        gbc.fill = GridBagConstraints.BOTH;
+        wattTab.add(label4, gbc);
         compatibilityTab = new JPanel();
         compatibilityTab.setLayout(new GridBagLayout());
         mainTabbedPanel.addTab("Compatibility Check", compatibilityTab);
@@ -599,6 +639,7 @@ public class GUI
         gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.gridy = 1;
+        gbc.gridwidth = 2;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         compatibilityTab.add(compatibilityButton, gbc);
         compatibilityResults = new JTextArea();
@@ -608,9 +649,21 @@ public class GUI
         gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.gridy = 2;
+        gbc.gridwidth = 2;
         gbc.weighty = 0.5;
         gbc.fill = GridBagConstraints.BOTH;
         compatibilityTab.add(compatibilityResults, gbc);
+        final JLabel label5 = new JLabel();
+        label5.setBackground(new Color(-1));
+        label5.setHorizontalAlignment(0);
+        label5.setIcon(new ImageIcon(getClass().getResource("/resources/compatibilityCheckIcon.png")));
+        label5.setOpaque(true);
+        label5.setText("");
+        gbc = new GridBagConstraints();
+        gbc.gridx = 1;
+        gbc.gridy = 0;
+        gbc.fill = GridBagConstraints.BOTH;
+        compatibilityTab.add(label5, gbc);
         exportTab = new JPanel();
         exportTab.setLayout(new GridBagLayout());
         mainTabbedPanel.addTab("Export Configuration", exportTab);
@@ -631,6 +684,7 @@ public class GUI
         gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.gridy = 1;
+        gbc.gridwidth = 2;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         exportTab.add(exportButton, gbc);
         exportResults = new JTextArea();
@@ -640,9 +694,21 @@ public class GUI
         gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.gridy = 2;
+        gbc.gridwidth = 2;
         gbc.weighty = 0.5;
         gbc.fill = GridBagConstraints.BOTH;
         exportTab.add(exportResults, gbc);
+        final JLabel label6 = new JLabel();
+        label6.setBackground(new Color(-1));
+        label6.setHorizontalAlignment(0);
+        label6.setIcon(new ImageIcon(getClass().getResource("/resources/exportIcon.jpg")));
+        label6.setOpaque(true);
+        label6.setText("");
+        gbc = new GridBagConstraints();
+        gbc.gridx = 1;
+        gbc.gridy = 0;
+        gbc.fill = GridBagConstraints.BOTH;
+        exportTab.add(label6, gbc);
         userCfgList = new JList();
         userCfgList.setFont(new Font("Segoe UI", Font.BOLD, userCfgList.getFont().getSize()));
         userCfgList.setOpaque(true);
