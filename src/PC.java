@@ -7,16 +7,16 @@ public class PC
 {
     public ArrayList<Component> userCfg;
     public String notCompatible;
-    private float totWattUsage;
-    private boolean check;
+    public float totWattUsage;
+    public boolean check;
     private int amount;
 
     public PC()
     {
         userCfg = new ArrayList<>();
         this.notCompatible = notCompatible;
-        this.totWattUsage = totWattUsage;
-        this.check = check;
+        totWattUsage = 0;
+        check = false;
         this.amount = amount;
 
     }
@@ -188,6 +188,8 @@ public class PC
 
                 if (!duplicate)
                 {
+                    totWattUsage = 0;
+                    check = false;
                     userCfg.add(component);
                 }
                 System.out.println("Duplicate: " + duplicate);
@@ -213,6 +215,8 @@ public class PC
             }
         }
 
+        totWattUsage = 0;
+        check = false;
         userCfg.remove(removeIndex);
     }
 

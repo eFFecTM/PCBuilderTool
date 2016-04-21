@@ -33,55 +33,81 @@ public class PCBuilderEngine
 
     public boolean makeOfferFile()
     {
+
+
         if (!PCBuilder.loginName.equals(""))
         {
             try
             {
-                PrintWriter writer = new PrintWriter("Offer_" + PCBuilder.loginName + ".txt", "UTF-8");
-                writer.println("--------------------------------------------------");
-                float totalWatt = myPc.calculateWattUsage();
-                boolean check = myPc.checkCompatibility();
-
-                if (totalWatt != 0 && check)
+                if (!myPc.check || myPc.totWattUsage == 0)
                 {
-                    writer.println("| User: " + PCBuilder.loginName.toUpperCase());
-                    writer.println("--------------------------------------------------");
-                    writer.println("| List of components");
-                    String textComponent = "";
-                    for (Component component : PCBuilder.PCBE.myPc.userCfg)
+                    if (PCBuilder.gui.setOfferFileVerification())
                     {
-                        textComponent += "--------------------------------------------------\n| " + component.getGroupComponent() + ": " + component.getBrandComponent() + " " + component.getNameComponent() + "\n";
-                    }
-                    writer.println(textComponent + "--------------------------------------------------");
-                    writer.println("| Total watt usage: " + totalWatt + " Watt");
-                    writer.println("--------------------------------------------------");
-                    writer.println("| Compatibility check: SUCCESS");
-                    writer.println("--------------------------------------------------");
+                        PrintWriter writer = new PrintWriter("Offer_" + PCBuilder.loginName + ".txt", "UTF-8");
+                        writer.println("--------------------------------------------------");
+                        writer.println("| User: " + PCBuilder.loginName.toUpperCase());
+                        writer.println("--------------------------------------------------");
+                        writer.println("| List of components");
+                        String textComponent = "";
+                        for (Component component : PCBuilder.PCBE.myPc.userCfg)
+                        {
+                            textComponent += "--------------------------------------------------\n| " + component.getGroupComponent() + ": " + component.getBrandComponent() + " " + component.getNameComponent() + "\n";
+                        }
+                        writer.println(textComponent + "--------------------------------------------------");
 
-                    writer.close();
-                    return true;
-                } else if (!check && PCBuilder.gui.setCompCheckVerification())
-                {
-                    writer.println("| User: " + PCBuilder.loginName.toUpperCase());
-                    writer.println("--------------------------------------------------");
-                    writer.println("| List of components");
-                    String textComponent = "";
-                    for (Component component : PCBuilder.PCBE.myPc.userCfg)
+                        if (myPc.totWattUsage != 0)
+                        {
+                            writer.println("| Total watt usage: " + myPc.totWattUsage + " Watt");
+                            writer.println("--------------------------------------------------");
+                        } else
+                        {
+                            writer.println("| Watt usage was not calculated!");
+                            writer.println("--------------------------------------------------");
+                        }
+
+                        if (myPc.check)
+                        {
+                            writer.println("| Compatibility check: SUCCESS");
+                            writer.println("--------------------------------------------------");
+                        } else
+                        {
+                            writer.println("| Compatibility check: FAILURE");
+                            writer.println("--------------------------------------------------");
+                        }
+                        writer.close();
+                        return true;
+                    } else
                     {
-                        textComponent += "--------------------------------------------------\n| " + component.getGroupComponent() + ": " + component.getBrandComponent() + " " + component.getNameComponent() + "\n";
+                        return false;
                     }
-                    writer.println(textComponent + "--------------------------------------------------");
-                    writer.println("| Total watt usage: " + totalWatt + " Watt");
-                    writer.println("--------------------------------------------------");
-                    writer.println("| Compatibility check: FAILURE");
-                    writer.println("--------------------------------------------------");
 
-                    writer.close();
-                    return true;
                 } else
                 {
+                    PrintWriter writer = new PrintWriter("Offer_" + PCBuilder.loginName + ".txt", "UTF-8");
+                    writer.println("--------------------------------------------------");
+                    writer.println("| User: " + PCBuilder.loginName.toUpperCase());
+                    writer.println("--------------------------------------------------");
+                    writer.println("| List of components");
+                    String textComponent = "";
+                    for (Component component : PCBuilder.PCBE.myPc.userCfg)
+                    {
+                        textComponent += "--------------------------------------------------\n| " + component.getGroupComponent() + ": " + component.getBrandComponent() + " " + component.getNameComponent() + "\n";
+                    }
+                    writer.println(textComponent + "--------------------------------------------------");
+                    writer.println("| Total watt usage: " + myPc.totWattUsage + " Watt");
+                    writer.println("--------------------------------------------------");
+
+                    if (myPc.check)
+                    {
+                        writer.println("| Compatibility check: SUCCESS");
+                        writer.println("--------------------------------------------------");
+                    } else
+                    {
+                        writer.println("| Compatibility check: FAILURE");
+                        writer.println("--------------------------------------------------");
+                    }
                     writer.close();
-                    return false;
+                    return true;
                 }
 
             } catch (FileNotFoundException e)
@@ -96,6 +122,7 @@ public class PCBuilderEngine
 
         } else
         {
+            PCBuilder.gui.setErrorPanel("You are not logged in!");
             return false;
         }
 
@@ -103,6 +130,9 @@ public class PCBuilderEngine
 
     public void getUserCfg(String name)
     {
+        myPc.totWattUsage = 0;
+        myPc.check = false;
+
         try
         {
             FileInputStream file = new FileInputStream(new File("userCfg.xlsx"));
@@ -217,6 +247,16 @@ public class PCBuilderEngine
             if (sheetFound)
             {
                 XSSFSheet sheet = workbook.getSheetAt(sheetFoundIndex);
+
+                //clearing sheet
+                String sheetName = sheet.getSheetName();
+                workbook.removeSheetAt(sheetFoundIndex);
+                workbook.createSheet(sheetName);
+                //new sheet is placed at the last spot
+                sheet = workbook.getSheetAt(workbook.getNumberOfSheets() - 1);
+
+
+
                 System.out.println("sheetindex " + sheetFoundIndex);
                 row = sheet.createRow(rowNum++);
                 cell = row.createCell(0);

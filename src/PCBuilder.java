@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -31,6 +32,36 @@ public class PCBuilder
 
     public static void main(String[] args) throws IOException
     {
+        //extracting excel files in directory
+        try
+        {
+            java.util.jar.JarFile jar = new java.util.jar.JarFile("PCBuilderTool.jar");
+            java.util.Enumeration enumEntries = jar.entries();
+            while (enumEntries.hasMoreElements())
+            {
+
+                java.util.jar.JarEntry file = (java.util.jar.JarEntry) enumEntries.nextElement();
+
+                if (file.getName().contains(".xlsx"))
+                {
+                    java.io.File f = new java.io.File(file.getName());
+                    java.io.InputStream is = jar.getInputStream(file); // get the input stream
+                    System.out.println(file.getName());
+
+                    java.io.FileOutputStream fos = new java.io.FileOutputStream(f);
+                    while (is.available() > 0)
+                    {  // write contents of 'is' to 'fos'
+                        fos.write(is.read());
+                    }
+
+                    fos.close();
+                    is.close();
+                }
+            }
+        } catch (FileNotFoundException e)
+        {
+            System.out.println("This is only needed if a jar file is made.");
+        }
 
         PCBE = new PCBuilderEngine();
         gui = new GUI();
@@ -69,7 +100,7 @@ public class PCBuilder
                 if (!loginName.equals(""))
                 {
                     float totWattUsage = PCBE.myPc.calculateWattUsage();
-                    gui.wattResults.setText("Total amount of watt usage of the current configuration: " + totWattUsage + " Watt");
+                    gui.wattResults.setText("Total amount of watt usage of the current configuration: " + totWattUsage + " Watt\n");
                 } else
                 {
                     gui.setErrorPanel("No user logged in: No configuration found !");
@@ -323,6 +354,9 @@ public class PCBuilder
                         selectedComponent = componentList.get(selectComponentIndex);
                         textComponent = selectedComponent.getDetailedDetails();
                         gui.detailsTextArea.setText(textComponent);
+                        gui.componentIcon.setIcon(new ImageIcon(getClass().getResource("/resources/" + selectedComponent.getNameComponent() + ".jpeg")));
+                        //gui.componentIcon.setIcon(icon); <--werkt niet!
+                        //gui.componentIcon.setText("Hallo");
                     }
                 }
             }
@@ -366,6 +400,7 @@ public class PCBuilder
                             compareName = selectedComponent.getNameComponent();
                             String textComponent = selectedComponent.getDetailedDetails();
                             gui.compareArea1.setText(textComponent);
+                            gui.compareIcon1.setIcon(new ImageIcon(getClass().getResource("/resources/" + selectedComponent.getNameComponent() + ".jpeg")));
                             clearCompare++;
                         }
                         break;
@@ -379,6 +414,7 @@ public class PCBuilder
                             {
                                 String textComponent = selectedComponent.getDetailedDetails();
                                 gui.compareArea2.setText(textComponent);
+                                gui.compareIcon2.setIcon(new ImageIcon(getClass().getResource("/resources/" + selectedComponent.getNameComponent() + ".jpeg")));
                                 clearCompare++;
                             } else
                             {
@@ -393,7 +429,9 @@ public class PCBuilder
                         clearCompare = 0;
                         System.out.println("Compare tab has been cleared");
                         gui.compareArea1.setText("");
+                        gui.compareIcon1.setIcon(null);
                         gui.compareArea2.setText("");
+                        gui.compareIcon2.setIcon(null);
 
                 }
 
