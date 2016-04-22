@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class Catalogue
 {
 
-    public ArrayList<Component> list;
+    public ArrayList<Component> allComponentList;
     private ArrayList<Component> componentList;
     private ArrayList<Component> searchList;
     private ArrayList<Component> compareList;
@@ -15,7 +15,7 @@ public class Catalogue
 
     public Catalogue()
     {
-        list = new ArrayList<>();
+        allComponentList = new ArrayList<>();
         componentList = new ArrayList<>();
         searchList = new ArrayList<>();
         compareList = new ArrayList<>();
@@ -28,27 +28,16 @@ public class Catalogue
             }
 
         }
-        // Mag later ook weg
-        //show();
     }
 
     public void addComponent(Component component)
     {
-        list.add(component);
+        allComponentList.add(component);
     }
-
-    // Mag later ook weg
-    public void show()
+    
+    ArrayList<Component> filterGroupComponent(int index)
     {
-        for(Component component: list)
-        {
-            component.display();
-        }
-    }
-
-    public ArrayList<Component> filterGroupComponent(int index)
-    {
-        for (Component component : list)
+        for (Component component : allComponentList)
         {
             switch (index)
             {
@@ -113,6 +102,11 @@ public class Catalogue
 
     }
 
+    public ArrayList<Component> getSpecificComponentList()
+    {
+        return null;
+    }
+
     public ArrayList<Component> search(String name)
     {
         for (Component component : componentList)
@@ -123,14 +117,6 @@ public class Catalogue
             }
         }
 
-        // To check: mag later weg
-        /*
-        for (Component component : searchList)
-        {
-            System.out.println("---------------------------------------");
-            System.out.println("Group: " + component.getGroupComponent() + "\nName: " + component.getNameComponent() + "\nBrand: " + component.getBrandComponent() + "\nDetails: " + component.getOtherDetails() + "\n");
-        }
-        */
         return searchList;
     }
 

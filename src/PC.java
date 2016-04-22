@@ -18,7 +18,6 @@ public class PC
         totWattUsage = 0;
         check = false;
         this.amount = amount;
-
     }
 
     public boolean checkCompatibility()

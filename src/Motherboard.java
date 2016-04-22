@@ -40,22 +40,22 @@ public class Motherboard extends Component
         return wattUsage;
     }
 
-    public String getSocketMB()
+    String getSocketMB()
     {
         return socket;
     }
 
-    public String getRAMSlots()
+    String getRAMSlots()
     {
         return ramSlots;
     }
 
-    public String getMaxRAM()
+    String getMaxRAM()
     {
         return maxRam;
     }
 
-    public String getRamType()
+    String getRamType()
     {
         return ramType;
     }
@@ -64,16 +64,4 @@ public class Motherboard extends Component
     {
         return super.toString() + "\nWatt Usage: " + wattUsage + " Watt\nSocket: " + socket + "\nRAM Slots: " + ramSlots + "\nMax Amount of RAM: " + maxRam + " GB\nType of RAM: " + ramType + "\n";
     }
-
-    public void display()
-    {
-        System.out.println(toString());
-    }
-    /*public String getDetailedDetails()
-    {
-
-        return super.getDetailedDetails() + "\nSocket: " + socket + "\nRAM Slots: " + ramSlots + "\nMax Amount of RAM: " + maxRam + " GB\n" + ramType + "\n";
-
-    }
-    */
 }

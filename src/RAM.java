@@ -38,18 +38,17 @@ public class RAM extends Component
         return wattUsage;
     }
 
-
-    public String getTypeRAM()
+    String getTypeRAM()
     {
         return type;
     }
 
-    public String getAmountGB()
+    String getAmountGB()
     {
         return amountGB;
     }
 
-    public String getAmountSticks()
+    String getAmountSticks()
     {
         return amountSticks;
     }

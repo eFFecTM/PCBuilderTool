@@ -15,14 +15,12 @@ import java.util.Iterator;
 
 class Component
 {
-
-
     private String groupComponent;
     private String nameComponent;
     private String brandComponent;
     private String otherDetails;
 
-
+    //Clean
     public Component(String groupComponent, String nameComponent, String brandComponent, String otherDetails)
     {
         this.groupComponent = groupComponent;
@@ -31,7 +29,10 @@ class Component
         this.otherDetails = otherDetails;
     }
 
-    public Component makeComponent(String groupComponent, String nameComponent, String brandComponent,String wattUsage, String otherDetails, int sheetNr, String socket, String type, String maxWattage, String ramSlots, String amountGB, String maxRam, String amountSticks, String ramType)
+    //Clean
+    private Component makeComponent(String groupComponent, String nameComponent, String brandComponent, String wattUsage, String otherDetails,
+                                    int sheetNr, String socket, String type, String maxWattage, String ramSlots,
+                                    String amountGB, String maxRam, String amountSticks, String ramType)
     {
         switch(sheetNr)
         {
@@ -57,7 +58,8 @@ class Component
         return null;
     }
 
-    public Component getDetails(int sheetNr,int rij)
+    //Clean
+    Component getDetails(int sheetNr, int rij)
     {
         String wattUsage = "";
         String socket = "";
@@ -188,17 +190,18 @@ class Component
         return otherDetails;
     }
 
+    public String getWattUsage()
+    {
+        return "";
+    }
+
     public String toString()
     {
         String alles = "\nGroup: " + getGroupComponent() + "\nName: " + getNameComponent() + "\nBrand: " + getBrandComponent() + "\nOther Details: " + getOtherDetails();
         return alles;
     }
 
-    public String getWattUsage()
-    {
-        String alles = "";
-        return alles;
-    }
+
 
     public void display()
     {

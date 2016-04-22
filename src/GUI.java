@@ -220,7 +220,11 @@ public class GUI
         String textComponent = "Your configuration:\n";
         for (Component component : PCBuilder.PCBE.myPc.userCfg)
         {
-            textComponent += "\n" + component.getGroupComponent() + ": " + component.getBrandComponent() + " " + component.getNameComponent() + "\nIndividual Watt Usage: " + component.getWattUsage() + " Watt\n";
+            textComponent += "\n" + component.getGroupComponent() + ": " + component.getBrandComponent() + " " + component.getNameComponent() + "\n";
+            if(!component.getGroupComponent().equals("PSU"))
+            {
+                textComponent += "Individual Watt Usage: " + component.getWattUsage() + " Watt\n";
+            }
         }
         wattInfo.setText(textComponent);
     }
@@ -266,13 +270,15 @@ public class GUI
         return result == JOptionPane.YES_OPTION;
     }
 
+
+    //Moet gefixt worden: verplaatsen naar catalogue
     public void updateSpecificComponentList(String searchText)
     {
         ArrayList<Component> tempList = new ArrayList<>();
-        int size = PCBuilder.componentNameList.size();
+
         if (!searchText.equals(""))
         {
-            for (int i = 0; i < size; i++)
+            for (int i = 0; i < PCBuilder.componentNameList.size(); i++)
             {
                 for (Component component : PCBuilder.componentList)
                 {

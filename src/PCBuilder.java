@@ -267,6 +267,7 @@ public class PCBuilder
         });
 
         // Search listener
+        // Moet gefixt worden zie gui.setSearchActionListener(new ActionListener()
         gui.setSearchActionListener(new ActionListener()
         {
             @Override
@@ -275,14 +276,29 @@ public class PCBuilder
                 String searchText = gui.searchText.getText();
                 DLM.clear();
                 componentNameList.clear();
-                for (Component component : componentList)
+                if(searchText.equals(""))
                 {
-                    if ((component.getBrandComponent() + " " + component.getNameComponent()).toLowerCase().contains(searchText.toLowerCase()))
+                    for (Component component : componentList)
                     {
-                            componentNameList.add(component.getBrandComponent() + " " + component.getNameComponent());
-                            DLM.addElement(component.getBrandComponent() + " " + component.getNameComponent());
+
+                        System.out.println(component.getBrandComponent() + " " + component.getNameComponent() +"\n");
+                        componentNameList.add(component.getBrandComponent() + " " + component.getNameComponent());
+                        DLM.addElement(component.getBrandComponent() + " " + component.getNameComponent());
+
                     }
                 }
+                else
+                {
+                    for (Component component : componentList)
+                    {
+                        if ((component.getBrandComponent() + " " + component.getNameComponent()).toLowerCase().contains(searchText.toLowerCase()))
+                        {
+                            componentNameList.add(component.getBrandComponent() + " " + component.getNameComponent());
+                            DLM.addElement(component.getBrandComponent() + " " + component.getNameComponent());
+                        }
+                    }
+                }
+
                 gui.updateSpecificComponentList(searchText);
                 gui.specificComponentList.setModel(DLM);
             }

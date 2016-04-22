@@ -21,15 +21,7 @@ public class PCBuilderEngine
     {
         catalogue = new Catalogue();
         myPc = new PC();
-        //catalogue.search("M");
-        //System.out.println("Totale WattUsage: " + myPc.calculateWattUsage(ArrayList<Component> userCfg));
     }
-/*
-    public ArrayList<Component> selectComponentGroup(int index)
-    {
-        return componentList = catalogue.filterGroupComponent(index);
-    }
-    */
 
     public boolean makeOfferFile()
     {
@@ -174,7 +166,7 @@ public class PCBuilderEngine
                                 break;
                             case 1:
                                 nameComponent = cell.getStringCellValue();
-                                for (Component component : catalogue.list)
+                                for (Component component : catalogue.allComponentList)
                                 {
                                     if (component.getNameComponent().equals(nameComponent)) //Vergelijken van database met componenten in de excel file
                                     {
