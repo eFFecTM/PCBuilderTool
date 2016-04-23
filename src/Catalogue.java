@@ -12,7 +12,7 @@ public class Catalogue
     private ArrayList<Component> searchList;
     private ArrayList<Component> compareList;
     private Component component;
-
+    private boolean checkRows;
     public Catalogue()
     {
         allComponentList = new ArrayList<>();
@@ -22,6 +22,15 @@ public class Catalogue
         component = new Component("", "", "", "");
         for(int sheetNr=0;sheetNr<6;sheetNr++)
         {
+//            int i = 0;
+//            checkRows = true;
+//            do
+//            {
+//                addComponent(component.getDetails(sheetNr, i));
+//                i++;
+//            } while (checkRows);
+//
+//            checkRows = true;
             for(int i=0;i<5;i++)
             {
                 addComponent(component.getDetails(sheetNr, i));
