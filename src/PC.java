@@ -232,7 +232,7 @@ public class PC
                     totWattUsage += Float.parseFloat(component.getWattUsage());
                 }
             }
-        } else if (PCBuilder.gui.setCalcWattVerification())
+        } else if (PCBuilder.gui.setVerification("Are you sure you want to continue with less than 6 components ?"))
         {
             for (Component component : userCfg)
             {

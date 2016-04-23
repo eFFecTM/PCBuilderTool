@@ -19,11 +19,15 @@ public class PCBuilder
     static PCBuilderEngine PCBE;
     static GUI gui;
     static String loginName = "";
-    static String compareGroup = "";
-    static String compareName = "";
+    static String compareGroup1 = "";
+    static String compareName1 = "";
+    static String compareGroup2 = "";
+    static String compareName2 = "";
     static int selectComponentGroupIndex; //dient voor de case switch om te weten welke knop was ingedrukt
     static int selectComponentIndex; //dient om te weten welk component is geselecteerd
-    static int clearCompare = 0;
+    static boolean checkCompare1 = false;
+    static boolean checkCompare2 = false;
+    static boolean saveCheck = false;
     static Component selectedComponent;
     static ArrayList<Component> componentList; //specifieke weer te geven arraylist
     static DefaultListModel<String> DLM;
@@ -89,6 +93,26 @@ public class PCBuilder
                 gui.updateWattTab();
                 gui.updateCheckCompatibilityTab();
                 gui.updateExportTab();
+                saveCheck = false;
+            }
+        });
+
+        gui.frame.addWindowListener(new java.awt.event.WindowAdapter()
+        {
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent windowEvent)
+            {
+                if (!PCBuilder.loginName.equals("") && !saveCheck)
+                {
+                    if (gui.setVerification("Are you sure to close this window without saving ?"))
+                    {
+                        System.exit(0);
+                    }
+                } else
+                {
+                    System.exit(0);
+                }
+
             }
         });
 
@@ -400,58 +424,57 @@ public class PCBuilder
             }
         });
 
+        //Clean
         gui.setAddToCompareActionListener(new ActionListener()
         {
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                switch (clearCompare)
+                if (!checkCompare1 || !checkCompare2)
                 {
-                    case 0:
+                    if (!checkCompare1)
+                    {
                         selectComponentIndex = gui.specificComponentList.getSelectedIndex();
                         if (selectComponentIndex >= 0)
                         {
                             selectedComponent = componentList.get(selectComponentIndex);
-                            compareGroup = selectedComponent.getGroupComponent();
-                            compareName = selectedComponent.getNameComponent();
-                            String textComponent = selectedComponent.getDetailedDetails();
-                            gui.compareArea1.setText(textComponent);
-                            gui.compareIcon1.setIcon(new ImageIcon(getClass().getResource("/resources/" + selectedComponent.getNameComponent() + ".jpeg")));
-                            clearCompare++;
+                            if ((!checkCompare1 && !checkCompare2) || (checkCompare2 && compareGroup2.equals(selectedComponent.getGroupComponent()) && !compareName2.equals(selectedComponent.getNameComponent())))
+                            {
+                                String textComponent = selectedComponent.getDetailedDetails();
+                                gui.compareArea1.setText(textComponent);
+                                gui.compareIcon1.setIcon(new ImageIcon(getClass().getResource("/resources/" + selectedComponent.getNameComponent() + ".jpeg")));
+                                checkCompare1 = true;
+                                compareGroup1 = selectedComponent.getGroupComponent();
+                                compareName1 = selectedComponent.getNameComponent();
+                            } else
+                            {
+                                gui.setErrorPanel("Comparing same component or different component group !");
+                            }
                         }
-                        break;
-
-                    case 1:
+                    } else
+                    {
                         selectComponentIndex = gui.specificComponentList.getSelectedIndex();
                         if (selectComponentIndex >= 0)
                         {
                             selectedComponent = componentList.get(selectComponentIndex);
-                            if (compareGroup.equals(selectedComponent.getGroupComponent()) && !compareName.equals(selectedComponent.getNameComponent()))
+                            if (checkCompare1 && compareGroup1.equals(selectedComponent.getGroupComponent()) && !compareName1.equals(selectedComponent.getNameComponent()))
                             {
                                 String textComponent = selectedComponent.getDetailedDetails();
                                 gui.compareArea2.setText(textComponent);
                                 gui.compareIcon2.setIcon(new ImageIcon(getClass().getResource("/resources/" + selectedComponent.getNameComponent() + ".jpeg")));
-                                clearCompare++;
+                                checkCompare2 = true;
+                                compareGroup2 = selectedComponent.getGroupComponent();
+                                compareName2 = selectedComponent.getNameComponent();
                             } else
                             {
-                                gui.setErrorPanel("Comparing same component or component group !");
+                                gui.setErrorPanel("Comparing same component or different component group !");
                             }
-
                         }
-                        break;
-
-                    case 2:
-                        gui.setErrorPanel("Compare is full, clearing...");
-                        clearCompare = 0;
-                        System.out.println("Compare tab has been cleared");
-                        gui.compareArea1.setText("");
-                        gui.compareIcon1.setIcon(null);
-                        gui.compareArea2.setText("");
-                        gui.compareIcon2.setIcon(null);
-
+                    }
+                } else
+                {
+                    gui.setErrorPanel("Compare is full, please remove a component to continue !");
                 }
-
-
             }
         });
 
@@ -460,9 +483,32 @@ public class PCBuilder
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                PCBE.saveUserCfg(loginName);
+                saveCheck = PCBE.saveUserCfg(loginName);
             }
         });
+
+        gui.setRemoveCompare1ActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                gui.compareArea1.setText("");
+                gui.compareIcon1.setIcon(null);
+                checkCompare1 = false;
+            }
+        });
+
+        gui.setRemoveCompare2ActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                gui.compareArea2.setText("");
+                gui.compareIcon2.setIcon(null);
+                checkCompare2 = false;
+            }
+        });
+
 
         // Selecting usercfgList elements an deleting elements with mouseclick = 2
 
@@ -475,7 +521,8 @@ public class PCBuilder
                     System.out.println(gui.userCfgList.locationToIndex(evt.getPoint()));
                     int index = gui.userCfgList.locationToIndex(evt.getPoint());
                     Component removeComponent = PCBE.myPc.userCfg.get(index);
-                    if (gui.setRemoveComponentVerification())
+                    if (gui.setVerification("Are you sure you want " +
+                            "to remove selected component from your configuration ?"))
                     {
                         PCBE.myPc.removeComponent(removeComponent);
                         userCfgDLM.clear();

@@ -33,7 +33,8 @@ public class PCBuilderEngine
             {
                 if (!myPc.check || myPc.totWattUsage == 0)
                 {
-                    if (PCBuilder.gui.setOfferFileVerification())
+                    if (PCBuilder.gui.setVerification("Are you sure you want " +
+                            "to continue without doing a Watt Usage and/or a compatibility check ?"))
                     {
                         PrintWriter writer = new PrintWriter("Offer_" + PCBuilder.loginName + ".txt", "UTF-8");
                         writer.println("--------------------------------------------------");
@@ -184,8 +185,7 @@ public class PCBuilderEngine
             } else
             {
                 //Vragen voor input van de user: ja of nee?
-                boolean verification = PCBuilder.gui.setLoginVerification();
-                if (verification)
+                if (PCBuilder.gui.setVerification("User not found. Are you sure you wish to make a new user ?"))
                 {
                     XSSFSheet sheet = workbook.createSheet(name.toLowerCase());
                     FileOutputStream out = new FileOutputStream(new File("userCfg.xlsx"));
@@ -209,7 +209,7 @@ public class PCBuilderEngine
 
     }
 
-    public void saveUserCfg(String name)
+    public boolean saveUserCfg(String name)
     {
         try
         {
@@ -283,6 +283,7 @@ public class PCBuilderEngine
                 workbook.write(out);
                 out.close();
                 System.out.println("userCfg.xlsx written successfully on disk.");
+                return true;
             }
 
 
@@ -294,6 +295,7 @@ public class PCBuilderEngine
             e.printStackTrace();
         }
 
+        return false;
     }
 
 }

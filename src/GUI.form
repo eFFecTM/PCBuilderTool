@@ -298,7 +298,7 @@
                   <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="50"/>
                   </grid>
-                  <gridbag top="0" left="0" bottom="30" right="5" weightx="50.0" weighty="1.0"/>
+                  <gridbag top="0" left="0" bottom="0" right="5" weightx="50.0" weighty="1.0"/>
                 </constraints>
                 <properties>
                   <editable value="false"/>
@@ -312,7 +312,7 @@
                   <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="50"/>
                   </grid>
-                  <gridbag top="0" left="5" bottom="30" right="0" weightx="50.0" weighty="1.0"/>
+                  <gridbag top="0" left="5" bottom="0" right="0" weightx="50.0" weighty="1.0"/>
                 </constraints>
                 <properties>
                   <editable value="false"/>
@@ -324,11 +324,11 @@
               <component id="3423c" class="javax.swing.JLabel" binding="compareIcon1">
                 <constraints>
                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-                  <gridbag top="30" left="0" bottom="0" right="5" weightx="0.0" weighty="1.0"/>
+                  <gridbag top="30" left="0" bottom="0" right="5" weightx="50.0" weighty="1.0"/>
                 </constraints>
                 <properties>
                   <background color="-1"/>
-                  <horizontalAlignment value="0"/>
+                  <horizontalAlignment value="2"/>
                   <opaque value="true"/>
                   <text value=""/>
                 </properties>
@@ -336,13 +336,35 @@
               <component id="eef2a" class="javax.swing.JLabel" binding="compareIcon2">
                 <constraints>
                   <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-                  <gridbag top="30" left="5" bottom="0" right="0" weightx="0.0" weighty="1.0"/>
+                  <gridbag top="30" left="5" bottom="0" right="0" weightx="50.0" weighty="1.0"/>
                 </constraints>
                 <properties>
                   <background color="-1"/>
-                  <horizontalAlignment value="0"/>
+                  <horizontalAlignment value="2"/>
                   <opaque value="true"/>
                   <text value=""/>
+                </properties>
+              </component>
+              <component id="70bd9" class="javax.swing.JButton" binding="removeComponentButton2">
+                <constraints>
+                  <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <text value="Remove component"/>
+                  <verticalAlignment value="1"/>
+                  <verticalTextPosition value="1"/>
+                </properties>
+              </component>
+              <component id="b6d96" class="javax.swing.JButton" binding="removeComponentButton1">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.05"/>
+                </constraints>
+                <properties>
+                  <text value="Remove component"/>
+                  <verticalAlignment value="1"/>
+                  <verticalTextPosition value="1"/>
                 </properties>
               </component>
             </children>
@@ -561,8 +583,8 @@
       </component>
       <component id="2ad09" class="javax.swing.JButton" binding="saveUserCfg">
         <constraints>
-          <grid row="4" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-          <gridbag weightx="0.0" weighty="0.0"/>
+          <grid row="4" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="0.015"/>
         </constraints>
         <properties>
           <font name="Segoe UI"/>

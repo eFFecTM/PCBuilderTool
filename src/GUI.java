@@ -10,9 +10,14 @@ import java.util.ArrayList;
 public class GUI
 {
 
+    //Frame
+
+    public JFrame frame;
+
     //Main Pane
     public JPanel mainPanel;
     public JTextField loginText;
+    public JProgressBar progressBar;
 
     //catalogue Tab
     public JTextArea detailsTextArea;
@@ -33,19 +38,19 @@ public class GUI
     public JTextArea compareArea2;
     public JLabel compareIcon1;
     public JLabel compareIcon2;
-    public JProgressBar progressBar;
-
-
     //Compatibility Check Tab
     public JTextArea compatibilityInfo;
     public JTextArea compatibilityResults;
     public JTextArea exportResults;
+    private JButton removeComponentButton1;
+    private JButton removeComponentButton2;
     private JButton sortZA;
     private JButton sortAZ;
     private JTextArea welcomeTitle;
     private JTextArea userCfgTitle;
     //public String input;
     private JLabel PCBuilderIcon;
+
     //Main Tabbed Panes
     private JPanel catalogueTab;
     private JPanel compareTab;
@@ -67,32 +72,20 @@ public class GUI
     //Export (offer file) Tab
     private JTextArea exportInfo;
     private JButton exportButton;
+
     //Error message plane
     private JPanel errorPanel;
     private JOptionPane loginPane;
 
     public GUI()
     {
-        JFrame frame = new JFrame("PCBuilder Tool");
+        frame = new JFrame("PCBuilder Tool");
         $$$setupUI$$$();
         frame.setContentPane(mainPanel);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         frame.pack();
         frame.setLocation(200, 200);
         frame.setVisible(true);
-
-        JPanel panel = new JPanel();
-
-        /*
-        loginText.addActionListener(new ActionListener()
-        {
-            public void actionPerformed(ActionEvent e)
-            {
-                input = loginText.getText();
-                System.out.println("Login name: " + input);
-            }
-        });
-        */
 
     }
 
@@ -178,6 +171,16 @@ public class GUI
         saveUserCfg.addActionListener(al);
     }
 
+    public void setRemoveCompare1ActionListener(ActionListener al)
+    {
+        removeComponentButton1.addActionListener(al);
+    }
+
+    public void setRemoveCompare2ActionListener(ActionListener al)
+    {
+        removeComponentButton2.addActionListener(al);
+    }
+
     public void setErrorPanel(String error)
     {
         JOptionPane.showMessageDialog(errorPanel, error, "ERROR!", JOptionPane.ERROR_MESSAGE);
@@ -208,10 +211,9 @@ public class GUI
         }
     }
 
-    public boolean setLoginVerification()
+    public boolean setVerification(String message)
     {
-        int result = JOptionPane.showConfirmDialog(null,
-                "User not found. Are you sure you wish to make a new user ?", null, JOptionPane.YES_NO_OPTION);
+        int result = JOptionPane.showConfirmDialog(null, message, null, JOptionPane.YES_NO_OPTION);
         return result == JOptionPane.YES_OPTION;
     }
 
@@ -221,7 +223,7 @@ public class GUI
         for (Component component : PCBuilder.PCBE.myPc.userCfg)
         {
             textComponent += "\n" + component.getGroupComponent() + ": " + component.getBrandComponent() + " " + component.getNameComponent() + "\n";
-            if(!component.getGroupComponent().equals("PSU"))
+            if (!component.getGroupComponent().equals("PSU"))
             {
                 textComponent += "Individual Watt Usage: " + component.getWattUsage() + " Watt\n";
             }
@@ -248,28 +250,6 @@ public class GUI
         }
         exportInfo.setText(textComponent);
     }
-
-    public boolean setCalcWattVerification()
-    {
-        int result = JOptionPane.showConfirmDialog(null,
-                "Are you sure you want to continue with less than 6 components ?", null, JOptionPane.YES_NO_OPTION);
-        return result == JOptionPane.YES_OPTION;
-    }
-
-    public boolean setCompCheckVerification()
-    {
-        int result = JOptionPane.showConfirmDialog(null,
-                "Are you sure you want to continue with a configuration that isn't compatible ?", null, JOptionPane.YES_NO_OPTION);
-        return result == JOptionPane.YES_OPTION;
-    }
-
-    public boolean setOfferFileVerification()
-    {
-        int result = JOptionPane.showConfirmDialog(null,
-                "Are you sure you want to continue without doing a Watt Usage and/or a compatibility check ?", null, JOptionPane.YES_NO_OPTION);
-        return result == JOptionPane.YES_OPTION;
-    }
-
 
     //Moet gefixt worden: verplaatsen naar catalogue
     public void updateSpecificComponentList(String searchText)
@@ -304,13 +284,6 @@ public class GUI
             }
             specificComponentList.setModel(PCBuilder.DLM);
         }
-    }
-
-    public boolean setRemoveComponentVerification()
-    {
-        int result = JOptionPane.showConfirmDialog(null,
-                "Are you sure you want to remove selected component from your configuration ?", null, JOptionPane.YES_NO_OPTION);
-        return result == JOptionPane.YES_OPTION;
     }
 
     /**
@@ -569,7 +542,7 @@ public class GUI
         gbc.weightx = 50.0;
         gbc.weighty = 1.0;
         gbc.fill = GridBagConstraints.BOTH;
-        gbc.insets = new Insets(0, 0, 30, 5);
+        gbc.insets = new Insets(0, 0, 0, 5);
         compareTab.add(compareArea1, gbc);
         compareArea2 = new JTextArea();
         compareArea2.setEditable(false);
@@ -582,7 +555,7 @@ public class GUI
         gbc.weightx = 50.0;
         gbc.weighty = 1.0;
         gbc.fill = GridBagConstraints.BOTH;
-        gbc.insets = new Insets(0, 5, 30, 0);
+        gbc.insets = new Insets(0, 5, 0, 0);
         compareTab.add(compareArea2, gbc);
         compareIcon1 = new JLabel();
         compareIcon1.setBackground(new Color(-1));
@@ -592,6 +565,7 @@ public class GUI
         gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.gridy = 0;
+        gbc.weightx = 50.0;
         gbc.weighty = 1.0;
         gbc.fill = GridBagConstraints.BOTH;
         gbc.insets = new Insets(30, 0, 0, 5);
@@ -604,10 +578,32 @@ public class GUI
         gbc = new GridBagConstraints();
         gbc.gridx = 1;
         gbc.gridy = 0;
+        gbc.weightx = 50.0;
         gbc.weighty = 1.0;
         gbc.fill = GridBagConstraints.BOTH;
         gbc.insets = new Insets(30, 5, 0, 0);
         compareTab.add(compareIcon2, gbc);
+        removeComponentButton2 = new JButton();
+        removeComponentButton2.setText("Remove component");
+        removeComponentButton2.setVerticalAlignment(1);
+        removeComponentButton2.setVerticalTextPosition(1);
+        gbc = new GridBagConstraints();
+        gbc.gridx = 1;
+        gbc.gridy = 2;
+        gbc.anchor = GridBagConstraints.NORTH;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        compareTab.add(removeComponentButton2, gbc);
+        removeComponentButton1 = new JButton();
+        removeComponentButton1.setText("Remove component");
+        removeComponentButton1.setVerticalAlignment(1);
+        removeComponentButton1.setVerticalTextPosition(1);
+        gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 2;
+        gbc.weighty = 0.05;
+        gbc.anchor = GridBagConstraints.NORTH;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        compareTab.add(removeComponentButton1, gbc);
         wattTab = new JPanel();
         wattTab.setLayout(new GridBagLayout());
         wattTab.setBackground(new Color(-3613198));
@@ -783,6 +779,8 @@ public class GUI
         gbc = new GridBagConstraints();
         gbc.gridx = 3;
         gbc.gridy = 4;
+        gbc.weighty = 0.015;
+        gbc.anchor = GridBagConstraints.NORTH;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         mainPanel.add(saveUserCfg, gbc);
         welcomeTitle = new JTextArea();
