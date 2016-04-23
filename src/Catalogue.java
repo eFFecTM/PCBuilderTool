@@ -8,15 +8,15 @@ public class Catalogue
 {
 
     public ArrayList<Component> allComponentList;
-    private ArrayList<Component> componentList;
-    private ArrayList<Component> searchList;
+    public ArrayList<Component> searchList;
+    private ArrayList<Component> groupComponentList;
     private ArrayList<Component> compareList;
     private Component component;
     private boolean checkRows;
     public Catalogue()
     {
         allComponentList = new ArrayList<>();
-        componentList = new ArrayList<>();
+        groupComponentList = new ArrayList<>();
         searchList = new ArrayList<>();
         compareList = new ArrayList<>();
         component = new Component("", "", "", "");
@@ -53,52 +53,44 @@ public class Catalogue
                 case 0:
                     if (component.getGroupComponent().equals("Motherboard"))
                     {
-                        componentList.add(component);
+                        groupComponentList.add(component);
                     }
                     break;
                 case 1:
                     if (component.getGroupComponent().equals("CPU"))
                     {
-                        componentList.add(component);
+                        groupComponentList.add(component);
                     }
                     break;
                 case 2:
                     if (component.getGroupComponent().equals("RAM"))
                     {
-                        componentList.add(component);
+                        groupComponentList.add(component);
                     }
                     break;
                 case 3:
                     if (component.getGroupComponent().equals("GPU"))
                     {
-                        componentList.add(component);
+                        groupComponentList.add(component);
                     }
                     break;
                 case 4:
                     if (component.getGroupComponent().equals("PSU"))
                     {
-                        componentList.add(component);
+                        groupComponentList.add(component);
                     }
                     break;
                 case 5:
                     if (component.getGroupComponent().equals("Drive"))
                     {
-                        componentList.add(component);
+                        groupComponentList.add(component);
                     }
                     break;
             }
-
         }
 
-        /*
-        //Mag later weg
-        for (Component component : componentList)
-        {
-            System.out.println("++++++++++++++++++++++++++++++++++++++++++++");
-            System.out.println("Group: " + component.getGroupComponent() + "\nName: " + component.getNameComponent() + "\nBrand: " + component.getBrandComponent() + "\nDetails: " + component.getOtherDetails() + "\n");
-        }
-        */
-        return componentList;
+        search("");
+        return groupComponentList;
     }
 
     public void sort()
@@ -111,21 +103,16 @@ public class Catalogue
 
     }
 
-    public ArrayList<Component> getSpecificComponentList()
+    public ArrayList<Component> search(String searchText)
     {
-        return null;
-    }
-
-    public ArrayList<Component> search(String name)
-    {
-        for (Component component : componentList)
+        searchList.clear();
+        for (Component component : groupComponentList)
         {
-            if (component.getNameComponent().contains(name))
+            if ((component.getBrandComponent() + " " + component.getNameComponent()).toLowerCase().contains(searchText.toLowerCase()))
             {
                 searchList.add(component);
             }
         }
-
         return searchList;
     }
 

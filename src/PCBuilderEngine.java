@@ -247,9 +247,6 @@ public class PCBuilderEngine
                 //new sheet is placed at the last spot
                 sheet = workbook.getSheetAt(workbook.getNumberOfSheets() - 1);
 
-
-
-                System.out.println("sheetindex " + sheetFoundIndex);
                 row = sheet.createRow(rowNum++);
                 cell = row.createCell(0);
                 cell.setCellValue("groupComponent");
@@ -259,21 +256,17 @@ public class PCBuilderEngine
                 for (Component component : myPc.userCfg)
                 {
                     row = sheet.createRow(rowNum++);
-                    System.out.println("Row num: " + rowNum);
 
                     for (int cellNum = 0; cellNum < 2; cellNum++)
                     {
                         cell = row.createCell(cellNum);
-                        System.out.println("Cell num: " + cellNum);
                         switch (cellNum)
                         {
                             case 0:
                                 cell.setCellValue(component.getGroupComponent());
-                                System.out.println(component.getGroupComponent());
                                 break;
                             case 1:
                                 cell.setCellValue(component.getNameComponent());
-                                System.out.println(component.getNameComponent());
                                 break;
                         }
                     }

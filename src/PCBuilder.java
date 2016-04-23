@@ -50,7 +50,6 @@ public class PCBuilder
                 {
                     java.io.File f = new java.io.File(file.getName());
                     java.io.InputStream is = jar.getInputStream(file); // get the input stream
-                    System.out.println(file.getName());
 
                     java.io.FileOutputStream fos = new java.io.FileOutputStream(f);
                     while (is.available() > 0)
@@ -97,6 +96,7 @@ public class PCBuilder
             }
         });
 
+        //Clean
         gui.frame.addWindowListener(new java.awt.event.WindowAdapter()
         {
             @Override
@@ -298,32 +298,17 @@ public class PCBuilder
             public void actionPerformed(ActionEvent e)
             {
                 String searchText = gui.searchText.getText();
+                ArrayList<Component> searchList = PCBE.catalogue.search(searchText);
                 DLM.clear();
                 componentNameList.clear();
-                if(searchText.equals(""))
-                {
-                    for (Component component : componentList)
-                    {
 
-                        System.out.println(component.getBrandComponent() + " " + component.getNameComponent() +"\n");
-                        componentNameList.add(component.getBrandComponent() + " " + component.getNameComponent());
-                        DLM.addElement(component.getBrandComponent() + " " + component.getNameComponent());
-
-                    }
-                }
-                else
+                for (Component component : searchList)
                 {
-                    for (Component component : componentList)
-                    {
-                        if ((component.getBrandComponent() + " " + component.getNameComponent()).toLowerCase().contains(searchText.toLowerCase()))
-                        {
-                            componentNameList.add(component.getBrandComponent() + " " + component.getNameComponent());
-                            DLM.addElement(component.getBrandComponent() + " " + component.getNameComponent());
-                        }
-                    }
+                    componentNameList.add(component.getBrandComponent() + " " + component.getNameComponent());
+                    DLM.addElement(component.getBrandComponent() + " " + component.getNameComponent());
+
                 }
 
-                gui.updateSpecificComponentList(searchText);
                 gui.specificComponentList.setModel(DLM);
             }
         });
@@ -334,7 +319,7 @@ public class PCBuilder
             public void actionPerformed(ActionEvent e)
             {
                 componentNameList.clear();
-                for (Component component : componentList)
+                for (Component component : PCBE.catalogue.searchList)
                 {
                     componentNameList.add(component.getBrandComponent() + " " + component.getNameComponent());
                 }
@@ -346,7 +331,7 @@ public class PCBuilder
                 {
                     DLM.addElement(string);
                 }
-                gui.updateSpecificComponentList("a");
+                gui.updateSpecificComponentList();
                 gui.specificComponentList.setModel(DLM);
 
             }
@@ -359,7 +344,7 @@ public class PCBuilder
             {
 
                 componentNameList.clear();
-                for (Component component : componentList)
+                for (Component component : PCBE.catalogue.searchList)
                 {
                     componentNameList.add(component.getBrandComponent() + " " + component.getNameComponent());
                 }
@@ -372,7 +357,7 @@ public class PCBuilder
                     DLM.addElement(string);
                 }
 
-                gui.updateSpecificComponentList("a");
+                gui.updateSpecificComponentList();
                 gui.specificComponentList.setModel(DLM);
             }
         });
@@ -391,7 +376,7 @@ public class PCBuilder
                     selectComponentIndex = gui.specificComponentList.getSelectedIndex();
                     if (selectComponentIndex >= 0)
                     {
-                        selectedComponent = componentList.get(selectComponentIndex);
+                        selectedComponent = PCBE.catalogue.searchList.get(selectComponentIndex);
                         textComponent = selectedComponent.getDetailedDetails();
                         gui.detailsTextArea.setText(textComponent);
                         gui.componentIcon.setIcon(new ImageIcon(getClass().getResource("/resources/" + selectedComponent.getNameComponent() + ".jpeg")));
@@ -437,7 +422,7 @@ public class PCBuilder
                         selectComponentIndex = gui.specificComponentList.getSelectedIndex();
                         if (selectComponentIndex >= 0)
                         {
-                            selectedComponent = componentList.get(selectComponentIndex);
+                            selectedComponent = PCBE.catalogue.searchList.get(selectComponentIndex);
                             if ((!checkCompare1 && !checkCompare2) || (checkCompare2 && compareGroup2.equals(selectedComponent.getGroupComponent()) && !compareName2.equals(selectedComponent.getNameComponent())))
                             {
                                 String textComponent = selectedComponent.getDetailedDetails();
@@ -456,7 +441,7 @@ public class PCBuilder
                         selectComponentIndex = gui.specificComponentList.getSelectedIndex();
                         if (selectComponentIndex >= 0)
                         {
-                            selectedComponent = componentList.get(selectComponentIndex);
+                            selectedComponent = PCBE.catalogue.searchList.get(selectComponentIndex);
                             if (checkCompare1 && compareGroup1.equals(selectedComponent.getGroupComponent()) && !compareName1.equals(selectedComponent.getNameComponent()))
                             {
                                 String textComponent = selectedComponent.getDetailedDetails();
@@ -478,6 +463,7 @@ public class PCBuilder
             }
         });
 
+        //clean
         gui.setSaveUserCfgActionListener(new ActionListener()
         {
             @Override
@@ -487,6 +473,7 @@ public class PCBuilder
             }
         });
 
+        //clean
         gui.setRemoveCompare1ActionListener(new ActionListener()
         {
             @Override
@@ -498,6 +485,7 @@ public class PCBuilder
             }
         });
 
+        //clean
         gui.setRemoveCompare2ActionListener(new ActionListener()
         {
             @Override
@@ -518,7 +506,6 @@ public class PCBuilder
             {
                 if (evt.getClickCount() == 2)
                 {
-                    System.out.println(gui.userCfgList.locationToIndex(evt.getPoint()));
                     int index = gui.userCfgList.locationToIndex(evt.getPoint());
                     Component removeComponent = PCBE.myPc.userCfg.get(index);
                     if (gui.setVerification("Are you sure you want " +

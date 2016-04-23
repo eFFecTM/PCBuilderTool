@@ -252,15 +252,13 @@ public class GUI
     }
 
     //Moet gefixt worden: verplaatsen naar catalogue
-    public void updateSpecificComponentList(String searchText)
+    public void updateSpecificComponentList()
     {
         ArrayList<Component> tempList = new ArrayList<>();
 
-        if (!searchText.equals(""))
-        {
             for (int i = 0; i < PCBuilder.componentNameList.size(); i++)
             {
-                for (Component component : PCBuilder.componentList)
+                for (Component component : PCBuilder.PCBE.catalogue.searchList)
                 {
                     if ((component.getBrandComponent() + " " + component.getNameComponent()).equals(PCBuilder.componentNameList.get(i)))
                     {
@@ -269,21 +267,21 @@ public class GUI
                 }
             }
 
-            PCBuilder.componentList.clear();
+        PCBuilder.PCBE.catalogue.searchList.clear();
+
             for (Component component : tempList)
             {
-                PCBuilder.componentList.add(component);
+                PCBuilder.PCBE.catalogue.searchList.add(component);
             }
-        } else
-        {
+
             PCBuilder.DLM.clear();
 
-            for (Component component : PCBuilder.componentList)
+        for (Component component : PCBuilder.PCBE.catalogue.searchList)
             {
                 PCBuilder.DLM.addElement(component.getBrandComponent() + " " + component.getNameComponent());
             }
             specificComponentList.setModel(PCBuilder.DLM);
-        }
+
     }
 
     /**
