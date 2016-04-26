@@ -201,13 +201,6 @@ class Component
         return alles;
     }
 
-
-
-    public void display()
-    {
-        System.out.println(toString());
-    }
-
     public String getDetailedDetails()
     {
         return toString();

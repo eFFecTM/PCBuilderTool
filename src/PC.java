@@ -20,7 +20,7 @@ public class PC
         this.amount = amount;
     }
 
-    public boolean checkCompatibility()
+    boolean checkCompatibility()
     {
         // Info from Motherboard
         String socketMB = "", ramSlotsMB = "", maxRamMB = "", ramTypeMB = "";

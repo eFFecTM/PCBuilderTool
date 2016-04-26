@@ -19,24 +19,25 @@ public class PCBuilder
     static PCBuilderEngine PCBE;
     static GUI gui;
     static String loginName = "";
-    static String compareGroup1 = "";
-    static String compareName1 = "";
-    static String compareGroup2 = "";
-    static String compareName2 = "";
-    static int selectComponentGroupIndex; //dient voor de case switch om te weten welke knop was ingedrukt
-    static int selectComponentIndex; //dient om te weten welk component is geselecteerd
-    static boolean checkCompare1 = false;
-    static boolean checkCompare2 = false;
-    static boolean saveCheck = false;
-    static Component selectedComponent;
-    static ArrayList<Component> componentList; //specifieke weer te geven arraylist
+    private static String compareGroup1 = "";
+    private static String compareName1 = "";
+    private static String compareGroup2 = "";
+    private static String compareName2 = "";
+    private static int selectComponentGroupIndex; //dient voor de case switch om te weten welke knop was ingedrukt
+    private static int selectComponentIndex; //dient om te weten welk component is geselecteerd
+    private static boolean checkCompare1 = false;
+    private static boolean checkCompare2 = false;
+    private static boolean saveCheck = false;
+    private static Component selectedComponent;
+    private static ArrayList<Component> componentList; //specifieke weer te geven arraylist
     static DefaultListModel<String> DLM;
-    static DefaultListModel<String> userCfgDLM;
+    private static DefaultListModel<String> userCfgDLM;
     static ArrayList<String> componentNameList;
 
     public static void main(String[] args) throws IOException
     {
-        //extracting excel files in directory
+        //Extracting excel files in directory
+        //Clean
         try
         {
             java.util.jar.JarFile jar = new java.util.jar.JarFile("PCBuilderTool.jar");
@@ -73,6 +74,28 @@ public class PCBuilder
         componentList = new ArrayList<>();
         componentNameList = new ArrayList<>();
 
+        //Save check before closing program
+        //Clean
+        gui.frame.addWindowListener(new java.awt.event.WindowAdapter()
+        {
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent windowEvent)
+            {
+                if (!PCBuilder.loginName.equals("") && !saveCheck)
+                {
+                    if (gui.setVerification("Are you sure to close this window without saving ?"))
+                    {
+                        System.exit(0);
+                    }
+                } else
+                {
+                    System.exit(0);
+                }
+
+            }
+        });
+
+        //Clean
         gui.setLoginActionListener(new ActionListener()
         {
             @Override
@@ -97,25 +120,6 @@ public class PCBuilder
         });
 
         //Clean
-        gui.frame.addWindowListener(new java.awt.event.WindowAdapter()
-        {
-            @Override
-            public void windowClosing(java.awt.event.WindowEvent windowEvent)
-            {
-                if (!PCBuilder.loginName.equals("") && !saveCheck)
-                {
-                    if (gui.setVerification("Are you sure to close this window without saving ?"))
-                    {
-                        System.exit(0);
-                    }
-                } else
-                {
-                    System.exit(0);
-                }
-
-            }
-        });
-
         gui.setCalculateWattButtonActionListener(new ActionListener()
         {
             @Override
@@ -127,11 +131,12 @@ public class PCBuilder
                     gui.wattResults.setText("Total amount of watt usage of the current configuration: " + totWattUsage + " Watt\n");
                 } else
                 {
-                    gui.setErrorPanel("No user logged in: No configuration found !");
+                    gui.setErrorPanel("No user logged in ! (No configuration found)");
                 }
             }
         });
 
+        //Clean
         gui.setExportButtonActionListener(new ActionListener()
         {
             @Override
@@ -140,7 +145,7 @@ public class PCBuilder
                 boolean success = PCBE.makeOfferFile();
                 if (success)
                 {
-                    gui.exportResults.setText("Your offer has been written succesfully to the file: Offer_" + PCBuilder.loginName + ".txt");
+                    gui.exportResults.setText("Your offer has been written successfully to the file: Offer_" + loginName + ".txt");
                 } else
                 {
                     gui.exportResults.setText("The writing of your offer file has failed or has been canceled!");
@@ -148,7 +153,8 @@ public class PCBuilder
             }
         });
 
-        // Compatibility tab button
+        //Compatibility tab button
+        //Clean
         gui.setCompatibilityCheckActionListener(new ActionListener()
         {
             @Override
@@ -166,10 +172,10 @@ public class PCBuilder
                 {
                     gui.compatibilityResults.setText("Some parts are incompatible with each other: \n\n" + PCBE.myPc.notCompatible);
                 }
-
             }
         });
 
+        //Clean
         gui.setSelectMotherboardActionListener(new ActionListener()
         {
             @Override
@@ -181,7 +187,6 @@ public class PCBuilder
                 //reset JList specificComponentList
                 DLM.clear();
                 componentList = PCBE.catalogue.filterGroupComponent(selectComponentGroupIndex);
-
                 for(Component component : componentList)
                 {
                     DLM.addElement(component.getBrandComponent() + " " + component.getNameComponent());
@@ -190,6 +195,7 @@ public class PCBuilder
             }
         });
 
+        //Clean
         gui.setSelectCPUActionListener(new ActionListener()
         {
             @Override
@@ -201,7 +207,6 @@ public class PCBuilder
                 //reset JList specificComponentList
                 DLM.clear();
                 componentList = PCBE.catalogue.filterGroupComponent(selectComponentGroupIndex);
-
                 for(Component component : componentList)
                 {
                     DLM.addElement(component.getBrandComponent() + " " + component.getNameComponent());
@@ -210,6 +215,7 @@ public class PCBuilder
             }
         });
 
+        //Clean
         gui.setSelectRAMActionListener(new ActionListener()
         {
             @Override
@@ -221,7 +227,6 @@ public class PCBuilder
                 //reset JList specificComponentList
                 DLM.clear();
                 componentList = PCBE.catalogue.filterGroupComponent(selectComponentGroupIndex);
-
                 for(Component component : componentList)
                 {
                     DLM.addElement(component.getBrandComponent() + " " + component.getNameComponent());
@@ -230,6 +235,7 @@ public class PCBuilder
             }
         });
 
+        //Clean
         gui.setSelectGPUActionListener(new ActionListener()
         {
             @Override
@@ -241,7 +247,6 @@ public class PCBuilder
                 //reset JList specificComponentList
                 DLM.clear();
                 componentList = PCBE.catalogue.filterGroupComponent(selectComponentGroupIndex);
-
                 for(Component component : componentList)
                 {
                     DLM.addElement(component.getBrandComponent() + " " + component.getNameComponent());
@@ -250,6 +255,7 @@ public class PCBuilder
             }
         });
 
+        //Clean
         gui.setSelectPSUActionListener(new ActionListener()
         {
             @Override
@@ -261,7 +267,6 @@ public class PCBuilder
                 //reset JList specificComponentList
                 DLM.clear();
                 componentList = PCBE.catalogue.filterGroupComponent(selectComponentGroupIndex);
-
                 for(Component component : componentList)
                 {
                     DLM.addElement(component.getBrandComponent() + " " + component.getNameComponent());
@@ -270,6 +275,7 @@ public class PCBuilder
             }
         });
 
+        //Clean
         gui.setSelectDriveActionListener(new ActionListener()
         {
             @Override
@@ -281,7 +287,6 @@ public class PCBuilder
                 //reset JList specificComponentList
                 DLM.clear();
                 componentList = PCBE.catalogue.filterGroupComponent(selectComponentGroupIndex);
-
                 for(Component component : componentList)
                 {
                     DLM.addElement(component.getBrandComponent() + " " + component.getNameComponent());
@@ -290,8 +295,8 @@ public class PCBuilder
             }
         });
 
-        // Search listener
-        // Moet gefixt worden zie gui.setSearchActionListener(new ActionListener()
+        //Search listener
+        //Clean
         gui.setSearchActionListener(new ActionListener()
         {
             @Override
@@ -308,11 +313,11 @@ public class PCBuilder
                     DLM.addElement(component.getBrandComponent() + " " + component.getNameComponent());
 
                 }
-
                 gui.specificComponentList.setModel(DLM);
             }
         });
 
+        //Clean
         gui.setSortAZActionListener(new ActionListener()
         {
             @Override
@@ -333,10 +338,10 @@ public class PCBuilder
                 }
                 gui.updateSpecificComponentList();
                 gui.specificComponentList.setModel(DLM);
-
             }
         });
 
+        //Clean
         gui.setSortZAActionListener(new ActionListener()
         {
             @Override
@@ -356,13 +361,13 @@ public class PCBuilder
                 {
                     DLM.addElement(string);
                 }
-
                 gui.updateSpecificComponentList();
                 gui.specificComponentList.setModel(DLM);
             }
         });
 
-        // Component in detail weergeven
+        //Component in detail weergeven
+        //Clean
         gui.specificComponentList.addListSelectionListener(new ListSelectionListener()
         {
             @Override
@@ -372,7 +377,6 @@ public class PCBuilder
                 String textComponent = "";
                 if (!adjust)
                 {
-                    //gui.specificComponentList = (JList) listSelectionEvent.getSource();
                     selectComponentIndex = gui.specificComponentList.getSelectedIndex();
                     if (selectComponentIndex >= 0)
                     {
@@ -380,13 +384,12 @@ public class PCBuilder
                         textComponent = selectedComponent.getDetailedDetails();
                         gui.detailsTextArea.setText(textComponent);
                         gui.componentIcon.setIcon(new ImageIcon(getClass().getResource("/resources/" + selectedComponent.getNameComponent() + ".jpeg")));
-                        //gui.componentIcon.setIcon(icon); <--werkt niet!
-                        //gui.componentIcon.setText("Hallo");
                     }
                 }
             }
         });
 
+        //Clean
         gui.setAddComponentActionListener(new ActionListener()
         {
             @Override
@@ -463,7 +466,7 @@ public class PCBuilder
             }
         });
 
-        //clean
+        //Clean
         gui.setSaveUserCfgActionListener(new ActionListener()
         {
             @Override
@@ -473,7 +476,7 @@ public class PCBuilder
             }
         });
 
-        //clean
+        //Clean
         gui.setRemoveCompare1ActionListener(new ActionListener()
         {
             @Override
@@ -485,7 +488,7 @@ public class PCBuilder
             }
         });
 
-        //clean
+        //Clean
         gui.setRemoveCompare2ActionListener(new ActionListener()
         {
             @Override
@@ -498,8 +501,8 @@ public class PCBuilder
         });
 
 
-        // Selecting usercfgList elements an deleting elements with mouseclick = 2
-
+        //Selecting userCfgList elements an deleting elements with double mouseclick
+        //Clean
         gui.userCfgList.addMouseListener(new MouseAdapter()
         {
             public void mouseClicked(MouseEvent evt)
@@ -522,10 +525,8 @@ public class PCBuilder
                         gui.updateWattTab();
                         gui.updateCheckCompatibilityTab();
                         gui.updateExportTab();
-
                     }
                 }
-
             }
         });
 
