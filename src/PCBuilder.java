@@ -393,9 +393,8 @@ public class PCBuilder
                             gui.componentIcon.setIcon(new ImageIcon(getClass().getResource("/resources/" + selectedComponent.getNameComponent() + ".jpeg")));
                         } catch (NullPointerException e)
                         {
-
+                            gui.componentIcon.setIcon(new ImageIcon(getClass().getResource("/resources/NotAvailable.jpeg")));
                             e.printStackTrace();
-                            gui.componentIcon.setIcon(null);
                         }
 
                     }
@@ -450,8 +449,8 @@ public class PCBuilder
                                     gui.compareIcon1.setIcon(new ImageIcon(getClass().getResource("/resources/" + selectedComponent.getNameComponent() + ".jpeg")));
                                 } catch (NullPointerException en)
                                 {
+                                    gui.compareIcon1.setIcon(new ImageIcon(getClass().getResource("/resources/NotAvailable.jpeg")));
                                     en.printStackTrace();
-                                    gui.compareIcon1.setIcon(null);
                                 }
                                 checkCompare1 = true;
                                 compareGroup1 = selectedComponent.getGroupComponent();
@@ -476,8 +475,9 @@ public class PCBuilder
                                     gui.compareIcon2.setIcon(new ImageIcon(getClass().getResource("/resources/" + selectedComponent.getNameComponent() + ".jpeg")));
                                 } catch (NullPointerException en)
                                 {
+                                    gui.compareIcon2.setIcon(new ImageIcon(getClass().getResource("/resources/NotAvailable.jpeg")));
                                     en.printStackTrace();
-                                    gui.compareIcon2.setIcon(null);
+
                                 }
                                 checkCompare2 = true;
                                 compareGroup2 = selectedComponent.getGroupComponent();

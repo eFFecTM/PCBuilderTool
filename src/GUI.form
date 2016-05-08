@@ -32,7 +32,8 @@
           <editable value="false"/>
           <font name="Segoe UI" style="1"/>
           <opaque value="false"/>
-          <selectionColor color="-1"/>
+          <selectedTextColor color="-16645630"/>
+          <selectionColor color="-1513240"/>
           <text value="Current PC configuration:"/>
         </properties>
       </component>
@@ -96,7 +97,8 @@
                   <minimumSize width="238" height="32"/>
                   <opaque value="false"/>
                   <preferredSize width="238" height="32"/>
-                  <selectionColor color="-1"/>
+                  <selectedTextColor color="-16645630"/>
+                  <selectionColor color="-3613198"/>
                   <text value="Details of the selected component:"/>
                 </properties>
               </component>
@@ -199,7 +201,8 @@
                   <font name="Segoe UI" style="1"/>
                   <margin top="0" left="0" bottom="0" right="5"/>
                   <opaque value="false"/>
-                  <selectionColor color="-1"/>
+                  <selectedTextColor color="-16645630"/>
+                  <selectionColor color="-3613198"/>
                   <text value="Search:"/>
                 </properties>
               </component>
@@ -604,7 +607,8 @@
           <font name="Segoe UI" style="1"/>
           <margin top="0" left="0" bottom="0" right="10"/>
           <opaque value="false"/>
-          <selectionColor color="-1"/>
+          <selectedTextColor color="-16645630"/>
+          <selectionColor color="-1513240"/>
           <text value="Please enter your name here:"/>
         </properties>
       </component>
@@ -621,7 +625,9 @@
           <font name="Segoe UI" style="1"/>
           <margin top="0" left="10" bottom="0" right="0"/>
           <opaque value="false"/>
-          <selectionColor color="-1"/>
+          <requestFocusEnabled value="true"/>
+          <selectedTextColor color="-16645630"/>
+          <selectionColor color="-1513240"/>
           <text value="Welcome to the PCBuilder Tool!"/>
         </properties>
       </component>
@@ -652,7 +658,8 @@
           <font name="Segoe UI" style="1"/>
           <margin top="0" left="0" bottom="0" right="0"/>
           <opaque value="false"/>
-          <selectionColor color="-1"/>
+          <selectedTextColor color="-16645630"/>
+          <selectionColor color="-1513240"/>
           <text value="Tip: Double-click to remove a component"/>
         </properties>
       </component>

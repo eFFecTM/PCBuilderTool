@@ -296,7 +296,8 @@ public class GUI
         userCfgTitle.setEditable(false);
         userCfgTitle.setFont(new Font("Segoe UI", Font.BOLD, userCfgTitle.getFont().getSize()));
         userCfgTitle.setOpaque(false);
-        userCfgTitle.setSelectionColor(new Color(-1));
+        userCfgTitle.setSelectedTextColor(new Color(-16645630));
+        userCfgTitle.setSelectionColor(new Color(-1513240));
         userCfgTitle.setText("Current PC configuration:");
         gbc = new GridBagConstraints();
         gbc.gridx = 3;
@@ -349,7 +350,8 @@ public class GUI
         detailsTitleTextArea.setMinimumSize(new Dimension(238, 32));
         detailsTitleTextArea.setOpaque(false);
         detailsTitleTextArea.setPreferredSize(new Dimension(238, 32));
-        detailsTitleTextArea.setSelectionColor(new Color(-1));
+        detailsTitleTextArea.setSelectedTextColor(new Color(-16645630));
+        detailsTitleTextArea.setSelectionColor(new Color(-3613198));
         detailsTitleTextArea.setText("Details of the selected component:");
         gbc = new GridBagConstraints();
         gbc.gridx = 0;
@@ -433,7 +435,8 @@ public class GUI
         specificComponentTitle.setFont(new Font("Segoe UI", Font.BOLD, specificComponentTitle.getFont().getSize()));
         specificComponentTitle.setMargin(new Insets(0, 0, 0, 5));
         specificComponentTitle.setOpaque(false);
-        specificComponentTitle.setSelectionColor(new Color(-1));
+        specificComponentTitle.setSelectedTextColor(new Color(-16645630));
+        specificComponentTitle.setSelectionColor(new Color(-3613198));
         specificComponentTitle.setText("Search:");
         gbc = new GridBagConstraints();
         gbc.gridx = 1;
@@ -771,7 +774,8 @@ public class GUI
         welcomeTitle.setFont(new Font("Segoe UI", Font.BOLD, welcomeTitle.getFont().getSize()));
         welcomeTitle.setMargin(new Insets(0, 0, 0, 10));
         welcomeTitle.setOpaque(false);
-        welcomeTitle.setSelectionColor(new Color(-1));
+        welcomeTitle.setSelectedTextColor(new Color(-16645630));
+        welcomeTitle.setSelectionColor(new Color(-1513240));
         welcomeTitle.setText("Please enter your name here:");
         gbc = new GridBagConstraints();
         gbc.gridx = 2;
@@ -784,7 +788,9 @@ public class GUI
         textArea1.setFont(new Font("Segoe UI", Font.BOLD, textArea1.getFont().getSize()));
         textArea1.setMargin(new Insets(0, 10, 0, 0));
         textArea1.setOpaque(false);
-        textArea1.setSelectionColor(new Color(-1));
+        textArea1.setRequestFocusEnabled(true);
+        textArea1.setSelectedTextColor(new Color(-16645630));
+        textArea1.setSelectionColor(new Color(-1513240));
         textArea1.setText("Welcome to the PCBuilder Tool!");
         gbc = new GridBagConstraints();
         gbc.gridx = 1;
@@ -809,7 +815,8 @@ public class GUI
         textArea2.setFont(new Font("Segoe UI", Font.BOLD, textArea2.getFont().getSize()));
         textArea2.setMargin(new Insets(0, 0, 0, 0));
         textArea2.setOpaque(false);
-        textArea2.setSelectionColor(new Color(-1));
+        textArea2.setSelectedTextColor(new Color(-16645630));
+        textArea2.setSelectionColor(new Color(-1513240));
         textArea2.setText("Tip: Double-click to remove a component");
         gbc = new GridBagConstraints();
         gbc.gridx = 3;
