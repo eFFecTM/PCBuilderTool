@@ -19,24 +19,24 @@ public class PCBuilder
     static PCBuilderEngine PCBE;
     static GUI gui;
     static String loginName = "";
-    static String compareGroup1 = "";
-    static String compareName1 = "";
-    static String compareGroup2 = "";
-    static String compareName2 = "";
-    static int selectComponentGroupIndex; //dient voor de case switch om te weten welke knop was ingedrukt
-    static int selectComponentIndex; //dient om te weten welk component is geselecteerd
-    static boolean checkCompare1 = false;
-    static boolean checkCompare2 = false;
-    static boolean saveCheck = false;
-    static Component selectedComponent;
-    static ArrayList<Component> componentList; //specifieke weer te geven arraylist
     static DefaultListModel<String> DLM;
-    static DefaultListModel<String> userCfgDLM;
     static ArrayList<String> componentNameList;
+    private static String compareGroup1 = "";
+    private static String compareName1 = "";
+    private static String compareGroup2 = "";
+    private static String compareName2 = "";
+    private static int selectComponentGroupIndex; //Purpose: case switch to know what button was pressed
+    private static int selectComponentIndex; //Purpose: which component was selected
+    private static boolean checkCompare1 = false;
+    private static boolean checkCompare2 = false;
+    private static boolean saveCheck = false;
+    private static Component selectedComponent;
+    private static ArrayList<Component> componentList; //Specific array to be shown
+    private static DefaultListModel<String> userCfgDLM;
 
     public static void main(String[] args) throws IOException
     {
-        //extracting excel files in directory
+        //Extracting excel files in directory
         try
         {
             java.util.jar.JarFile jar = new java.util.jar.JarFile("PCBuilderTool.jar");
@@ -66,13 +66,15 @@ public class PCBuilder
             System.out.println("This is only needed if a jar file is made.");
         }
 
+
         PCBE = new PCBuilderEngine();
         gui = new GUI();
-        DLM = new DefaultListModel();
-        userCfgDLM = new DefaultListModel();
+        DLM = new DefaultListModel<>();
+        userCfgDLM = new DefaultListModel<>();
         componentList = new ArrayList<>();
         componentNameList = new ArrayList<>();
 
+        // When logging in, it displays the usercfg and refreshes all the tabs
         gui.setLoginActionListener(new ActionListener()
         {
             @Override
@@ -92,11 +94,11 @@ public class PCBuilder
                 gui.updateWattTab();
                 gui.updateCheckCompatibilityTab();
                 gui.updateExportTab();
-                saveCheck = false;
+                saveCheck = true;
             }
         });
 
-        //Clean
+        // When closing the window
         gui.frame.addWindowListener(new java.awt.event.WindowAdapter()
         {
             @Override
@@ -116,6 +118,7 @@ public class PCBuilder
             }
         });
 
+        // Calculate watt usage when pressed on watt button
         gui.setCalculateWattButtonActionListener(new ActionListener()
         {
             @Override
@@ -132,6 +135,7 @@ public class PCBuilder
             }
         });
 
+        // Exporting current usercfg to text file when pressed on export button
         gui.setExportButtonActionListener(new ActionListener()
         {
             @Override
@@ -148,7 +152,7 @@ public class PCBuilder
             }
         });
 
-        // Compatibility tab button
+        // Checking compatibility when pressed on compatibility button
         gui.setCompatibilityCheckActionListener(new ActionListener()
         {
             @Override
@@ -159,7 +163,7 @@ public class PCBuilder
                 if (check)
                 {
                     gui.compatibilityResults.setText("Congratulations !! Your PC is fully compatible. All components are compatible.\n\nYou can export your PC to an offer file from within the 'Export Configuration' tab. Happy Gaming !!");
-                } else if (!check && PCBE.myPc.notCompatible == null)
+                } else if (PCBE.myPc.notCompatible == null)
                 {
                     gui.compatibilityResults.setText("Not enough components selected to do a compatibility check !");
                 } else
@@ -170,6 +174,7 @@ public class PCBuilder
             }
         });
 
+        // Selecting component group and displaying the possible components to chose
         gui.setSelectMotherboardActionListener(new ActionListener()
         {
             @Override
@@ -190,6 +195,7 @@ public class PCBuilder
             }
         });
 
+        // Selecting component group and displaying the possible components to chose
         gui.setSelectCPUActionListener(new ActionListener()
         {
             @Override
@@ -210,6 +216,7 @@ public class PCBuilder
             }
         });
 
+        // Selecting component group and displaying the possible components to chose
         gui.setSelectRAMActionListener(new ActionListener()
         {
             @Override
@@ -230,6 +237,7 @@ public class PCBuilder
             }
         });
 
+        // Selecting component group and displaying the possible components to chose
         gui.setSelectGPUActionListener(new ActionListener()
         {
             @Override
@@ -250,6 +258,7 @@ public class PCBuilder
             }
         });
 
+        // Selecting component group and displaying the possible components to chose
         gui.setSelectPSUActionListener(new ActionListener()
         {
             @Override
@@ -270,6 +279,7 @@ public class PCBuilder
             }
         });
 
+        // Selecting component group and displaying the possible components to chose
         gui.setSelectDriveActionListener(new ActionListener()
         {
             @Override
@@ -290,8 +300,7 @@ public class PCBuilder
             }
         });
 
-        // Search listener
-        // Moet gefixt worden zie gui.setSearchActionListener(new ActionListener()
+        // Searching on input
         gui.setSearchActionListener(new ActionListener()
         {
             @Override
@@ -313,6 +322,7 @@ public class PCBuilder
             }
         });
 
+        // Sorting on alphabetical order
         gui.setSortAZActionListener(new ActionListener()
         {
             @Override
@@ -337,6 +347,7 @@ public class PCBuilder
             }
         });
 
+        // Sorting on inverse alphabetical order
         gui.setSortZAActionListener(new ActionListener()
         {
             @Override
@@ -362,22 +373,20 @@ public class PCBuilder
             }
         });
 
-        // Component in detail weergeven
+        // Showing details and picture of selected component
         gui.specificComponentList.addListSelectionListener(new ListSelectionListener()
         {
             @Override
             public void valueChanged(ListSelectionEvent listSelectionEvent)
             {
                 boolean adjust = listSelectionEvent.getValueIsAdjusting();
-                String textComponent = "";
                 if (!adjust)
                 {
-                    //gui.specificComponentList = (JList) listSelectionEvent.getSource();
                     selectComponentIndex = gui.specificComponentList.getSelectedIndex();
                     if (selectComponentIndex >= 0)
                     {
                         selectedComponent = PCBE.catalogue.searchList.get(selectComponentIndex);
-                        textComponent = selectedComponent.toString();
+                        String textComponent = selectedComponent.toString();
                         gui.detailsTextArea.setText(textComponent);
                         try
                         {
@@ -394,6 +403,7 @@ public class PCBuilder
             }
         });
 
+        // Adding a component to the current usercfg
         gui.setAddComponentActionListener(new ActionListener()
         {
             @Override
@@ -405,6 +415,7 @@ public class PCBuilder
                 {
                     userCfgDLM.addElement(selectedComponent.getGroupComponent() + ": " + selectedComponent.getBrandComponent() + " " + selectedComponent.getNameComponent());
                     gui.setProgressBar();
+                    saveCheck = false;
                 } else
                 {
                     gui.setErrorPanel("You already have a " + selectedComponent.getGroupComponent() + " in your configuration. Please delete if you want to continue.");
@@ -416,7 +427,7 @@ public class PCBuilder
             }
         });
 
-        //Clean
+        // The possibility to add 2 components to the compare tab
         gui.setAddToCompareActionListener(new ActionListener()
         {
             @Override
@@ -484,7 +495,7 @@ public class PCBuilder
             }
         });
 
-        //clean
+        // Saving current usercfg when pressed on save usercfg button
         gui.setSaveUserCfgActionListener(new ActionListener()
         {
             @Override
@@ -494,7 +505,7 @@ public class PCBuilder
             }
         });
 
-        //clean
+        // Removing the first component from the compare tab
         gui.setRemoveCompare1ActionListener(new ActionListener()
         {
             @Override
@@ -506,7 +517,7 @@ public class PCBuilder
             }
         });
 
-        //clean
+        // Removing the second component from the compare tab
         gui.setRemoveCompare2ActionListener(new ActionListener()
         {
             @Override
@@ -518,9 +529,8 @@ public class PCBuilder
             }
         });
 
-
-        // Selecting usercfgList elements an deleting elements with mouseclick = 2
-
+        // Selecting usercfgList elements and deleting elements with mouseclick = 2
+        // Removing a component from the current usercfg
         gui.userCfgList.addMouseListener(new MouseAdapter()
         {
             public void mouseClicked(MouseEvent evt)
@@ -533,6 +543,7 @@ public class PCBuilder
                             "to remove selected component from your configuration ?"))
                     {
                         PCBE.myPc.removeComponent(removeComponent);
+                        saveCheck = false;
                         userCfgDLM.clear();
                         for (Component component : PCBE.myPc.userCfg)
                         {
@@ -543,12 +554,11 @@ public class PCBuilder
                         gui.updateWattTab();
                         gui.updateCheckCompatibilityTab();
                         gui.updateExportTab();
-
                     }
                 }
-
             }
         });
 
     }
+
 }

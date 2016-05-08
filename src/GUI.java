@@ -1,38 +1,30 @@
+/**
+ * Created by students UA:FTI-EI De Laet Jan & Yigit Yunus Emre.
+ */
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-
-/**
- * Created by students UA:FTI-EI De Laet Jan & Yigit Yunus Emre on 17/03/2016.
- */
 public class GUI
 {
-
-    //Frame
-
-    public JFrame frame;
-
     //Main Pane
     public JPanel mainPanel;
     public JTextField loginText;
     public JProgressBar progressBar;
-
     //catalogue Tab
     public JTextArea detailsTextArea;
     public JLabel componentIcon;
-    public JList specificComponentList;
-    public JList userCfgList;
-    public JButton calculateButton;
+    public JList<String> specificComponentList;
+    public JList<String> userCfgList;
+    public JButton addCompare;
     public JTabbedPane mainTabbedPanel;
     public JTextField searchText;
-
     //Watt Usage Tab
     public JTextArea wattInfo;
     public JTextArea wattResults;
-    public JButton addCompare;
-
+    public JButton calculateButton;
     //Compare Tab
     public JTextArea compareArea1;
     public JTextArea compareArea2;
@@ -42,21 +34,18 @@ public class GUI
     public JTextArea compatibilityInfo;
     public JTextArea compatibilityResults;
     public JTextArea exportResults;
-    private JButton removeComponentButton1;
-    private JButton removeComponentButton2;
-    private JButton sortZA;
-    private JButton sortAZ;
-    private JTextArea welcomeTitle;
-    private JTextArea userCfgTitle;
-    //public String input;
+    //Frame
+    JFrame frame;
     private JLabel PCBuilderIcon;
-
-    //Main Tabbed Panes
     private JPanel catalogueTab;
     private JPanel compareTab;
     private JPanel wattTab;
     private JPanel compatibilityTab;
     private JPanel exportTab;
+    private JTextArea welcomeTitle;
+    private JTextArea userCfgTitle;
+    private JButton sortZA;
+    private JButton sortAZ;
     private JTextArea detailsTitleTextArea;
     private JTextArea specificComponentTitle;
     private JScrollPane specificComponentScrollPane;
@@ -68,16 +57,16 @@ public class GUI
     private JButton drivesButton;
     private JButton addComponent;
     private JButton saveUserCfg;
+    private JButton removeComponentButton1;
+    private JButton removeComponentButton2;
     private JButton compatibilityButton;
+
     //Export (offer file) Tab
     private JTextArea exportInfo;
     private JButton exportButton;
 
-    //Error message plane
-    private JPanel errorPanel;
-    private JOptionPane loginPane;
 
-    public GUI()
+    GUI()
     {
         frame = new JFrame("PCBuilder Tool");
         $$$setupUI$$$();
@@ -86,107 +75,104 @@ public class GUI
         frame.pack();
         frame.setLocation(200, 200);
         frame.setVisible(true);
-
     }
 
-    public void setLoginActionListener(ActionListener al)
+    void setLoginActionListener(ActionListener al)
     {
         loginText.addActionListener(al);
     }
 
-    public void setCalculateWattButtonActionListener(ActionListener al)
+    void setCalculateWattButtonActionListener(ActionListener al)
     {
         calculateButton.addActionListener(al);
     }
 
-    public void setCompatibilityCheckActionListener(ActionListener al)
+    void setCompatibilityCheckActionListener(ActionListener al)
     {
         compatibilityButton.addActionListener(al);
     }
 
-    public void setExportButtonActionListener(ActionListener al)
+    void setExportButtonActionListener(ActionListener al)
     {
         exportButton.addActionListener(al);
     }
 
-    public void setSelectMotherboardActionListener(ActionListener al)
+    void setSelectMotherboardActionListener(ActionListener al)
     {
         motherboardButton.addActionListener(al);
     }
 
-    public void setSelectCPUActionListener(ActionListener al)
+    void setSelectCPUActionListener(ActionListener al)
     {
         CPUButton.addActionListener(al);
     }
 
-    public void setSelectRAMActionListener(ActionListener al)
+    void setSelectRAMActionListener(ActionListener al)
     {
         RAMButton.addActionListener(al);
     }
 
-    public void setSelectGPUActionListener(ActionListener al)
+    void setSelectGPUActionListener(ActionListener al)
     {
         GPUButton.addActionListener(al);
     }
 
-    public void setSelectPSUActionListener(ActionListener al)
+    void setSelectPSUActionListener(ActionListener al)
     {
         PSUButton.addActionListener(al);
     }
 
-    public void setSelectDriveActionListener(ActionListener al)
+    void setSelectDriveActionListener(ActionListener al)
     {
         drivesButton.addActionListener(al);
     }
 
-    // Compare Button in Component Catalogue tab
-
-    public void setSearchActionListener(ActionListener al)
+    void setSearchActionListener(ActionListener al)
     {
         searchText.addActionListener(al);
     }
 
-    public void setSortAZActionListener(ActionListener al)
+    void setSortAZActionListener(ActionListener al)
     {
         sortAZ.addActionListener(al);
     }
 
-    public void setSortZAActionListener(ActionListener al)
+    void setSortZAActionListener(ActionListener al)
     {
         sortZA.addActionListener(al);
     }
 
-    public void setAddComponentActionListener(ActionListener al)
+    void setAddComponentActionListener(ActionListener al)
     {
         addComponent.addActionListener(al);
     }
 
-    public void setAddToCompareActionListener(ActionListener al)
+    void setAddToCompareActionListener(ActionListener al)
     {
         addCompare.addActionListener(al);
     }
 
-    public void setSaveUserCfgActionListener(ActionListener al)
+    void setSaveUserCfgActionListener(ActionListener al)
     {
         saveUserCfg.addActionListener(al);
     }
 
-    public void setRemoveCompare1ActionListener(ActionListener al)
+    void setRemoveCompare1ActionListener(ActionListener al)
     {
         removeComponentButton1.addActionListener(al);
     }
 
-    public void setRemoveCompare2ActionListener(ActionListener al)
+    void setRemoveCompare2ActionListener(ActionListener al)
     {
         removeComponentButton2.addActionListener(al);
     }
 
-    public void setErrorPanel(String error)
+    void setErrorPanel(String error)
     {
-        JOptionPane.showMessageDialog(errorPanel, error, "ERROR!", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(new JPanel(), error, "ERROR!", JOptionPane.ERROR_MESSAGE);
     }
 
-    public void setProgressBar()
+    void setProgressBar()
     {
         switch (PCBuilder.PCBE.myPc.userCfg.size())
         {
@@ -211,13 +197,13 @@ public class GUI
         }
     }
 
-    public boolean setVerification(String message)
+    boolean setVerification(String message)
     {
         int result = JOptionPane.showConfirmDialog(null, message, null, JOptionPane.YES_NO_OPTION);
         return result == JOptionPane.YES_OPTION;
     }
 
-    public void updateWattTab()
+    void updateWattTab()
     {
         String textComponent = "Your configuration:\n";
         for (Component component : PCBuilder.PCBE.myPc.userCfg)
@@ -231,7 +217,7 @@ public class GUI
         wattInfo.setText(textComponent);
     }
 
-    public void updateCheckCompatibilityTab()
+    void updateCheckCompatibilityTab()
     {
         String textComponent = "Your configuration:\n";
         for (Component component : PCBuilder.PCBE.myPc.userCfg)
@@ -241,7 +227,7 @@ public class GUI
         compatibilityInfo.setText(textComponent);
     }
 
-    public void updateExportTab()
+    void updateExportTab()
     {
         String textComponent = "Your configuration:\n";
         for (Component component : PCBuilder.PCBE.myPc.userCfg)
@@ -251,8 +237,7 @@ public class GUI
         exportInfo.setText(textComponent);
     }
 
-    //Moet gefixt worden: verplaatsen naar catalogue
-    public void updateSpecificComponentList()
+    void updateSpecificComponentList()
     {
         ArrayList<Component> tempList = new ArrayList<>();
 
