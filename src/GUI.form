@@ -38,7 +38,7 @@
       </component>
       <tabbedpane id="68b2f" binding="mainTabbedPanel">
         <constraints>
-          <grid row="1" column="0" row-span="4" col-span="3" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+          <grid row="1" column="0" row-span="5" col-span="3" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
             <preferred-size width="200" height="200"/>
           </grid>
           <gridbag weightx="100.0" weighty="1.0"/>
@@ -583,11 +583,11 @@
       </component>
       <component id="2ad09" class="javax.swing.JButton" binding="saveUserCfg">
         <constraints>
-          <grid row="4" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="5" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
           <gridbag weightx="0.0" weighty="0.015"/>
         </constraints>
         <properties>
-          <font name="Segoe UI"/>
+          <font name="Segoe UI" size="18"/>
           <text value="Save your user configuration"/>
         </properties>
       </component>
@@ -637,6 +637,23 @@
           <icon value="resources/PCBuilderIcon.png"/>
           <opaque value="false"/>
           <text value=""/>
+        </properties>
+      </component>
+      <component id="94760" class="javax.swing.JTextArea">
+        <constraints>
+          <grid row="4" column="3" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="50"/>
+          </grid>
+          <gridbag top="0" left="3" bottom="0" right="0" weightx="0.0" weighty="0.0"/>
+        </constraints>
+        <properties>
+          <editable value="false"/>
+          <enabled value="true"/>
+          <font name="Segoe UI" style="1"/>
+          <margin top="0" left="0" bottom="0" right="0"/>
+          <opaque value="false"/>
+          <selectionColor color="-1"/>
+          <text value="Tip: Double-click to remove a component"/>
         </properties>
       </component>
     </children>

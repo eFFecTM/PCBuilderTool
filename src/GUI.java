@@ -256,31 +256,31 @@ public class GUI
     {
         ArrayList<Component> tempList = new ArrayList<>();
 
-            for (int i = 0; i < PCBuilder.componentNameList.size(); i++)
+        for (int i = 0; i < PCBuilder.componentNameList.size(); i++)
+        {
+            for (Component component : PCBuilder.PCBE.catalogue.searchList)
             {
-                for (Component component : PCBuilder.PCBE.catalogue.searchList)
+                if ((component.getBrandComponent() + " " + component.getNameComponent()).equals(PCBuilder.componentNameList.get(i)))
                 {
-                    if ((component.getBrandComponent() + " " + component.getNameComponent()).equals(PCBuilder.componentNameList.get(i)))
-                    {
-                        tempList.add(component);
-                    }
+                    tempList.add(component);
                 }
             }
+        }
 
         PCBuilder.PCBE.catalogue.searchList.clear();
 
-            for (Component component : tempList)
-            {
-                PCBuilder.PCBE.catalogue.searchList.add(component);
-            }
+        for (Component component : tempList)
+        {
+            PCBuilder.PCBE.catalogue.searchList.add(component);
+        }
 
-            PCBuilder.DLM.clear();
+        PCBuilder.DLM.clear();
 
         for (Component component : PCBuilder.PCBE.catalogue.searchList)
-            {
-                PCBuilder.DLM.addElement(component.getBrandComponent() + " " + component.getNameComponent());
-            }
-            specificComponentList.setModel(PCBuilder.DLM);
+        {
+            PCBuilder.DLM.addElement(component.getBrandComponent() + " " + component.getNameComponent());
+        }
+        specificComponentList.setModel(PCBuilder.DLM);
 
     }
 
@@ -327,7 +327,7 @@ public class GUI
         gbc.gridx = 0;
         gbc.gridy = 1;
         gbc.gridwidth = 3;
-        gbc.gridheight = 4;
+        gbc.gridheight = 5;
         gbc.weightx = 100.0;
         gbc.weighty = 1.0;
         gbc.fill = GridBagConstraints.BOTH;
@@ -772,14 +772,13 @@ public class GUI
         gbc.fill = GridBagConstraints.HORIZONTAL;
         mainPanel.add(progressBar, gbc);
         saveUserCfg = new JButton();
-        saveUserCfg.setFont(new Font("Segoe UI", saveUserCfg.getFont().getStyle(), saveUserCfg.getFont().getSize()));
+        saveUserCfg.setFont(new Font("Segoe UI", saveUserCfg.getFont().getStyle(), 18));
         saveUserCfg.setText("Save your user configuration");
         gbc = new GridBagConstraints();
         gbc.gridx = 3;
-        gbc.gridy = 4;
+        gbc.gridy = 5;
         gbc.weighty = 0.015;
-        gbc.anchor = GridBagConstraints.NORTH;
-        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.fill = GridBagConstraints.BOTH;
         mainPanel.add(saveUserCfg, gbc);
         welcomeTitle = new JTextArea();
         welcomeTitle.setEditable(false);
@@ -819,6 +818,19 @@ public class GUI
         gbc.gridy = 0;
         gbc.fill = GridBagConstraints.VERTICAL;
         mainPanel.add(PCBuilderIcon, gbc);
+        final JTextArea textArea2 = new JTextArea();
+        textArea2.setEditable(false);
+        textArea2.setEnabled(true);
+        textArea2.setFont(new Font("Segoe UI", Font.BOLD, textArea2.getFont().getSize()));
+        textArea2.setMargin(new Insets(0, 0, 0, 0));
+        textArea2.setOpaque(false);
+        textArea2.setSelectionColor(new Color(-1));
+        textArea2.setText("Tip: Double-click to remove a component");
+        gbc = new GridBagConstraints();
+        gbc.gridx = 3;
+        gbc.gridy = 4;
+        gbc.insets = new Insets(0, 3, 0, 0);
+        mainPanel.add(textArea2, gbc);
     }
 
     /**

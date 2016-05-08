@@ -9,7 +9,6 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Iterator;
 
@@ -20,7 +19,7 @@ class Component
     private String brandComponent;
     private String otherDetails;
 
-    //Clean
+
     public Component(String groupComponent, String nameComponent, String brandComponent, String otherDetails)
     {
         this.groupComponent = groupComponent;
@@ -29,7 +28,7 @@ class Component
         this.otherDetails = otherDetails;
     }
 
-    //Clean
+    // Create a component and return it to the catalogue
     private Component makeComponent(String groupComponent, String nameComponent, String brandComponent, String wattUsage, String otherDetails,
                                     int sheetNr, String socket, String type, String maxWattage, String ramSlots,
                                     String amountGB, String maxRam, String amountSticks, String ramType)
@@ -58,7 +57,7 @@ class Component
         return null;
     }
 
-    //Clean
+    // Gets component details from excel file and calls the method makeComponent() to create a component object
     Component getDetails(int sheetNr, int rij)
     {
         String wattUsage = "";
@@ -157,17 +156,12 @@ class Component
 
             file.close();
 
-        } catch (FileNotFoundException e)
-        {
-            e.printStackTrace();
-
         } catch (IOException e)
         {
             e.printStackTrace();
         }
 
-        Component comp = makeComponent(groupComponent, nameComponent, brandComponent,wattUsage, otherDetails, sheetNr, socket, type, maxWattage, ramSlots, amountGB, maxRam, amountSticks, ramType);
-        return comp;
+        return makeComponent(groupComponent, nameComponent, brandComponent, wattUsage, otherDetails, sheetNr, socket, type, maxWattage, ramSlots, amountGB, maxRam, amountSticks, ramType);
     }
 
     public String getGroupComponent()
@@ -185,11 +179,6 @@ class Component
         return brandComponent;
     }
 
-    public String getOtherDetails()
-    {
-        return otherDetails;
-    }
-
     public String getWattUsage()
     {
         return "";
@@ -197,19 +186,7 @@ class Component
 
     public String toString()
     {
-        String alles = "\nGroup: " + getGroupComponent() + "\nName: " + getNameComponent() + "\nBrand: " + getBrandComponent() + "\nOther Details: " + getOtherDetails();
-        return alles;
+        return "\nGroup: " + getGroupComponent() + "\nName: " + getNameComponent() + "\nBrand: " + getBrandComponent() + "\nOther Details: " + otherDetails;
     }
 
-
-
-    public void display()
-    {
-        System.out.println(toString());
-    }
-
-    public String getDetailedDetails()
-    {
-        return toString();
-    }
 }

@@ -1,45 +1,69 @@
-import java.util.ArrayList;
-
 /**
  * Created by students UA:FTI-EI De Laet Jan & Yigit Yunus Emre.
  */
 
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
+
 public class Catalogue
 {
 
-    public ArrayList<Component> allComponentList;
-    public ArrayList<Component> searchList;
+    ArrayList<Component> allComponentList;
+    ArrayList<Component> searchList;
     private ArrayList<Component> groupComponentList;
-    private ArrayList<Component> compareList;
-    private Component component;
-    private boolean checkRows;
-    public Catalogue()
+
+    public Catalogue() throws IOException
     {
         allComponentList = new ArrayList<>();
         groupComponentList = new ArrayList<>();
         searchList = new ArrayList<>();
-        compareList = new ArrayList<>();
-        component = new Component("", "", "", "");
+
+        Component component = new Component("", "", "", "");
         for(int sheetNr=0;sheetNr<6;sheetNr++)
         {
-//            int i = 0;
-//            checkRows = true;
-//            do
-//            {
-//                addComponent(component.getDetails(sheetNr, i));
-//                i++;
-//            } while (checkRows);
-//
-//            checkRows = true;
-            for(int i=0;i<5;i++)
+            int maxRow = getAmountRowsExcelSheet(sheetNr);
+            for (int i = 0; i < maxRow; i++)
             {
                 addComponent(component.getDetails(sheetNr, i));
             }
-
         }
     }
 
-    public void addComponent(Component component)
+    private int getAmountRowsExcelSheet(int sheetNr) throws IOException
+    {
+        FileInputStream file = new FileInputStream(new File("Catalogue.xlsx"));
+
+        //Create Workbook instance holding reference to .xlsx file
+        XSSFWorkbook workbook = new XSSFWorkbook(file);
+
+        //Get first/desired sheet from the workbook
+        XSSFSheet sheet = workbook.getSheetAt(sheetNr);
+
+        //Iterate through each rows one by one
+        Iterator<Row> rowIterator = sheet.iterator();
+
+        rowIterator.next();
+        int maxRow = 0;
+
+        while (rowIterator.hasNext())
+        {
+            rowIterator.next();
+            maxRow++;
+        }
+
+        file.close();
+        return maxRow;
+
+    }
+
+    private void addComponent(Component component)
     {
         allComponentList.add(component);
     }
@@ -93,17 +117,7 @@ public class Catalogue
         return groupComponentList;
     }
 
-    public void sort()
-    {
-
-    }
-
-    public void compare()
-    {
-
-    }
-
-    public ArrayList<Component> search(String searchText)
+    ArrayList<Component> search(String searchText)
     {
         searchList.clear();
         for (Component component : groupComponentList)

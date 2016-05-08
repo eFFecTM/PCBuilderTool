@@ -1,3 +1,7 @@
+/**
+ * Created by students UA:FTI-EI De Laet Jan & Yigit Yunus Emre.
+ */
+
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -7,23 +11,20 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-/**
- * Created by IMac-Windows on 27/03/2016.
- */
-public class PCBuilderEngine
+class PCBuilderEngine
 {
     Catalogue catalogue;
     PC myPc;
     ArrayList<Component> componentList;
 
 
-    public PCBuilderEngine()
+    PCBuilderEngine() throws IOException
     {
         catalogue = new Catalogue();
         myPc = new PC();
     }
 
-    public boolean makeOfferFile()
+    boolean makeOfferFile()
     {
 
 
@@ -121,7 +122,7 @@ public class PCBuilderEngine
 
     }
 
-    public void getUserCfg(String name)
+    void getUserCfg(String name)
     {
         myPc.totWattUsage = 0;
         myPc.check = false;
@@ -209,7 +210,7 @@ public class PCBuilderEngine
 
     }
 
-    public boolean saveUserCfg(String name)
+    boolean saveUserCfg(String name)
     {
         try
         {
@@ -280,9 +281,6 @@ public class PCBuilderEngine
             }
 
 
-        } catch (FileNotFoundException e)
-        {
-            e.printStackTrace();
         } catch (IOException e)
         {
             e.printStackTrace();
