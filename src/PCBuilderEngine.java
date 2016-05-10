@@ -1,32 +1,28 @@
+/**
+ * Created by students UA:FTI-EI De Laet Jan & Yigit Yunus Emre.
+ */
+
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.*;
-import java.util.ArrayList;
 import java.util.Iterator;
 
-/**
- * Created by IMac-Windows on 27/03/2016.
- */
-public class PCBuilderEngine
+class PCBuilderEngine
 {
     Catalogue catalogue;
     PC myPc;
-    ArrayList<Component> componentList;
 
-
-    public PCBuilderEngine()
+    PCBuilderEngine() throws IOException
     {
         catalogue = new Catalogue();
         myPc = new PC();
     }
 
-    public boolean makeOfferFile()
+    boolean makeOfferFile()
     {
-
-
         if (!PCBuilder.loginName.equals(""))
         {
             try
@@ -121,7 +117,7 @@ public class PCBuilderEngine
 
     }
 
-    public void getUserCfg(String name)
+    void getUserCfg(String name)
     {
         myPc.totWattUsage = 0;
         myPc.check = false;
@@ -134,7 +130,6 @@ public class PCBuilderEngine
             int i = 0;
             int sheetFoundIndex = 0;
             boolean sheetFound = false;
-            String groupComponent;
             String nameComponent;
 
             while (i < amountSheet && !sheetFound)
@@ -150,33 +145,25 @@ public class PCBuilderEngine
             if (sheetFound)
             {
                 XSSFSheet sheet = workbook.getSheetAt(sheetFoundIndex);
-                Iterator<Row> rowIterator = sheet.iterator();
 
-                while (rowIterator.hasNext())
+                for (Row row : sheet)
                 {
-                    Row row = rowIterator.next();
                     Iterator<Cell> cellIterator = row.cellIterator();
 
                     while (cellIterator.hasNext())
                     {
                         Cell cell = cellIterator.next();
-                        switch (cell.getColumnIndex())
+                        if (cell.getColumnIndex() == 1)
                         {
-                            case 0:
-                                groupComponent = cell.getStringCellValue();
-                                break;
-                            case 1:
-                                nameComponent = cell.getStringCellValue();
-                                for (Component component : catalogue.allComponentList)
+                            nameComponent = cell.getStringCellValue();
+                            for (Component component : catalogue.allComponentList)
+                            {
+                                if (component.getNameComponent().equals(nameComponent)) //Vergelijken van database met componenten in de excel file
                                 {
-                                    if (component.getNameComponent().equals(nameComponent)) //Vergelijken van database met componenten in de excel file
-                                    {
-                                        myPc.userCfg.add(component);
-                                    }
+                                    myPc.userCfg.add(component);
                                 }
-                                break;
+                            }
                         }
-
                     }
 
                 }
@@ -187,20 +174,13 @@ public class PCBuilderEngine
                 //Vragen voor input van de user: ja of nee?
                 if (PCBuilder.gui.setVerification("User not found. Are you sure you wish to make a new user ?"))
                 {
-                    XSSFSheet sheet = workbook.createSheet(name.toLowerCase());
+                    workbook.createSheet(name.toLowerCase());
                     FileOutputStream out = new FileOutputStream(new File("userCfg.xlsx"));
                     workbook.write(out);
                     out.close();
-                    System.out.println("User: " + name.toLowerCase() + " written successfully on userCfg.xlsx.");
-                } else
-                {
-                    System.out.println("No new user is made");
                 }
             }
 
-        } catch (FileNotFoundException e)
-        {
-            e.printStackTrace();
         } catch (IOException e)
         {
             e.printStackTrace();
@@ -209,7 +189,7 @@ public class PCBuilderEngine
 
     }
 
-    public boolean saveUserCfg(String name)
+    boolean saveUserCfg(String name)
     {
         try
         {
@@ -275,14 +255,10 @@ public class PCBuilderEngine
                 FileOutputStream out = new FileOutputStream(new File("userCfg.xlsx"));
                 workbook.write(out);
                 out.close();
-                System.out.println("userCfg.xlsx written successfully on disk.");
                 return true;
             }
 
 
-        } catch (FileNotFoundException e)
-        {
-            e.printStackTrace();
         } catch (IOException e)
         {
             e.printStackTrace();

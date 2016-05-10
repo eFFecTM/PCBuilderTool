@@ -1,25 +1,25 @@
+/**
+ * Created by students UA:FTI-EI De Laet Jan & Yigit Yunus Emre.
+ */
+
 import java.util.ArrayList;
 
-/**
- * Created by IMac-Windows on 27/03/2016.
- */
 public class PC
 {
-    public ArrayList<Component> userCfg;
-    public String notCompatible;
-    public float totWattUsage;
-    public boolean check;
-    private int amount;
+    ArrayList<Component> userCfg;
+    String notCompatible;
+    float totWattUsage;
+    boolean check;
 
     public PC()
     {
         userCfg = new ArrayList<>();
-        this.notCompatible = notCompatible;
+        notCompatible = null;
         totWattUsage = 0;
         check = false;
-        this.amount = amount;
     }
 
+    // Checks the compatibility of the imported/current User Configuration
     boolean checkCompatibility()
     {
         // Info from Motherboard
@@ -169,7 +169,8 @@ public class PC
         }
     }
 
-    public boolean addComponent(Component component, String name)
+    // Add a selected component to the UserCfg
+    boolean addComponent(Component component, String name)
     {
         if (!name.equals(""))
         {
@@ -181,7 +182,6 @@ public class PC
                     if (component.getGroupComponent().equals(comp.getGroupComponent()))
                     {
                         duplicate = true;
-                        System.out.println("Duplicate element found : " + component.getGroupComponent());
                     }
                 }
 
@@ -191,22 +191,20 @@ public class PC
                     check = false;
                     userCfg.add(component);
                 }
-                System.out.println("Duplicate: " + duplicate);
                 return duplicate;
             }
         }
         return true;
     }
 
-    // connect with button
-    public void removeComponent(Component component)
+    // Remove the selected component from the UserCfg
+    void removeComponent(Component component)
     {
         int removeIndex = 100;
         String componentName = component.getNameComponent();
 
         for (int i = 0; i < userCfg.size(); i++)
         {
-
             component = userCfg.get(i);
             if (componentName.equals(component.getNameComponent()))
             {
@@ -214,15 +212,17 @@ public class PC
             }
         }
 
+        // Set to zero because a component is removed
         totWattUsage = 0;
+        // Compatibility check needs to be set to false
         check = false;
         userCfg.remove(removeIndex);
     }
 
-    public float calculateWattUsage()
+    // Calculate the total watt usage of the current UserCfg
+    float calculateWattUsage()
     {
         totWattUsage = 0;
-        System.out.println("calcwatt");
         if(userCfg.size() == 6)
         {
             for(Component component : userCfg)
@@ -242,7 +242,6 @@ public class PC
                 }
             }
         }
-        System.out.println("Tot Watt Usage: " + totWattUsage);
         return totWattUsage;
     }
 
