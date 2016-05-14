@@ -567,6 +567,18 @@ public class PCBuilder
             }
         });
 
+        //Easter Egg
+        gui.UCLIcon.addMouseListener(new MouseAdapter()
+        {
+            public void mouseClicked(MouseEvent evt)
+            {
+                if (evt.getClickCount() == 2)
+                {
+                    gui.UCLIcon.setIcon(new ImageIcon(getClass().getResource("/resources/gamingPc1.jpg")));
+                }
+            }
+        });
+
     }
 
 }

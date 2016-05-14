@@ -13,6 +13,7 @@ public class GUI
     public JPanel mainPanel;
     public JTextField loginText;
     public JProgressBar progressBar;
+    public JLabel UCLIcon;
     //catalogue Tab
     public JTextArea detailsTextArea;
     public JLabel componentIcon;
@@ -806,19 +807,19 @@ public class GUI
         gbc.gridy = 0;
         gbc.fill = GridBagConstraints.VERTICAL;
         mainPanel.add(PCBuilderIcon, gbc);
-        final JLabel label4 = new JLabel();
-        label4.setBackground(new Color(-1));
-        label4.setHorizontalAlignment(0);
-        label4.setIcon(new ImageIcon(getClass().getResource("/resources/gamingPc1.jpg")));
-        label4.setOpaque(true);
-        label4.setText("");
-        label4.setVerticalAlignment(0);
+        UCLIcon = new JLabel();
+        UCLIcon.setBackground(new Color(-1));
+        UCLIcon.setHorizontalAlignment(0);
+        UCLIcon.setIcon(new ImageIcon(getClass().getResource("/resources/gamingPc3.jpg")));
+        UCLIcon.setOpaque(true);
+        UCLIcon.setText("");
+        UCLIcon.setVerticalAlignment(0);
         gbc = new GridBagConstraints();
         gbc.gridx = 3;
         gbc.gridy = 5;
         gbc.weighty = 0.15;
         gbc.fill = GridBagConstraints.BOTH;
-        mainPanel.add(label4, gbc);
+        mainPanel.add(UCLIcon, gbc);
         saveUserCfg = new JButton();
         saveUserCfg.setFont(new Font("Segoe UI", saveUserCfg.getFont().getStyle(), 18));
         saveUserCfg.setText("Save your user configuration");

@@ -640,7 +640,7 @@
           <text value=""/>
         </properties>
       </component>
-      <component id="22225" class="javax.swing.JLabel">
+      <component id="22225" class="javax.swing.JLabel" binding="UCLIcon">
         <constraints>
           <grid row="5" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
           <gridbag weightx="0.0" weighty="0.15"/>
@@ -648,7 +648,7 @@
         <properties>
           <background color="-1"/>
           <horizontalAlignment value="0"/>
-          <icon value="resources/gamingPc1.jpg"/>
+          <icon value="resources/gamingPc3.jpg"/>
           <opaque value="true"/>
           <text value=""/>
           <verticalAlignment value="0"/>
