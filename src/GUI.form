@@ -648,7 +648,7 @@
         <properties>
           <background color="-1"/>
           <horizontalAlignment value="0"/>
-          <icon value="resources/gamingPc3.jpg"/>
+          <icon value="resources/gamingPc2.jpg"/>
           <opaque value="true"/>
           <text value=""/>
           <verticalAlignment value="0"/>
