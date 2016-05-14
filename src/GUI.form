@@ -39,7 +39,7 @@
       </component>
       <tabbedpane id="68b2f" binding="mainTabbedPanel">
         <constraints>
-          <grid row="1" column="0" row-span="5" col-span="3" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+          <grid row="1" column="0" row-span="6" col-span="3" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
             <preferred-size width="200" height="200"/>
           </grid>
           <gridbag weightx="100.0" weighty="1.0"/>
@@ -67,12 +67,12 @@
                   <grid row="8" column="0" row-span="1" col-span="2" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
                     <preferred-size width="843" height="50"/>
                   </grid>
-                  <gridbag weightx="0.0" weighty="0.5"/>
+                  <gridbag weightx="1.0" weighty="0.5"/>
                 </constraints>
                 <properties>
                   <editable value="false"/>
                   <focusCycleRoot value="false"/>
-                  <font name="Segoe UI" size="16" style="1"/>
+                  <font name="Segoe UI" size="14" style="1"/>
                   <margin top="0" left="10" bottom="0" right="0"/>
                   <minimumSize width="0" height="10"/>
                   <opaque value="true"/>
@@ -251,7 +251,7 @@
               </component>
               <component id="c2b8b" class="javax.swing.JTextField" binding="searchText">
                 <constraints>
-                  <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
+                  <grid row="0" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
                   </grid>
                   <gridbag weightx="0.5" weighty="0.0"/>
@@ -566,11 +566,15 @@
           <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="6" hsize-policy="2" anchor="0" fill="3" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="50"/>
           </grid>
-          <gridbag weightx="0.0" weighty="0.5"/>
+          <gridbag weightx="0.0" weighty="0.0"/>
         </constraints>
         <properties>
           <font name="Segoe UI" size="14" style="1"/>
+          <maximumSize width="250" height="175"/>
+          <minimumSize width="250" height="175"/>
           <opaque value="true"/>
+          <preferredSize width="250" height="175"/>
+          <requestFocusEnabled value="true"/>
           <selectionBackground color="-1"/>
         </properties>
       </component>
@@ -583,16 +587,6 @@
           <foreground color="-16655360"/>
           <maximum value="120"/>
           <value value="0"/>
-        </properties>
-      </component>
-      <component id="2ad09" class="javax.swing.JButton" binding="saveUserCfg">
-        <constraints>
-          <grid row="5" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-          <gridbag weightx="0.0" weighty="0.015"/>
-        </constraints>
-        <properties>
-          <font name="Segoe UI" size="18"/>
-          <text value="Save your user configuration"/>
         </properties>
       </component>
       <component id="6c702" class="javax.swing.JTextArea" binding="welcomeTitle">
@@ -644,6 +638,30 @@
           <icon value="resources/PCBuilderIcon.png"/>
           <opaque value="false"/>
           <text value=""/>
+        </properties>
+      </component>
+      <component id="22225" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="5" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="0.15"/>
+        </constraints>
+        <properties>
+          <background color="-1"/>
+          <horizontalAlignment value="0"/>
+          <icon value="resources/gamingPc1.jpg"/>
+          <opaque value="true"/>
+          <text value=""/>
+          <verticalAlignment value="0"/>
+        </properties>
+      </component>
+      <component id="2ad09" class="javax.swing.JButton" binding="saveUserCfg">
+        <constraints>
+          <grid row="6" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="0.0"/>
+        </constraints>
+        <properties>
+          <font name="Segoe UI" size="18"/>
+          <text value="Save your user configuration"/>
         </properties>
       </component>
       <component id="94760" class="javax.swing.JTextArea">

@@ -7,7 +7,8 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-public class GUI {
+public class GUI
+{
     //Main Pane
     public JPanel mainPanel;
     public JTextField loginText;
@@ -65,7 +66,8 @@ public class GUI {
     private JButton exportButton;
 
 
-    GUI() {
+    GUI()
+    {
         frame = new JFrame("PCBuilder Tool");
         $$$setupUI$$$();
         frame.setContentPane(mainPanel);
@@ -75,84 +77,105 @@ public class GUI {
         frame.setVisible(true);
     }
 
-    void setLoginActionListener(ActionListener al) {
+    void setLoginActionListener(ActionListener al)
+    {
         loginText.addActionListener(al);
     }
 
-    void setCalculateWattButtonActionListener(ActionListener al) {
+    void setCalculateWattButtonActionListener(ActionListener al)
+    {
         calculateButton.addActionListener(al);
     }
 
-    void setCompatibilityCheckActionListener(ActionListener al) {
+    void setCompatibilityCheckActionListener(ActionListener al)
+    {
         compatibilityButton.addActionListener(al);
     }
 
-    void setExportButtonActionListener(ActionListener al) {
+    void setExportButtonActionListener(ActionListener al)
+    {
         exportButton.addActionListener(al);
     }
 
-    void setSelectMotherboardActionListener(ActionListener al) {
+    void setSelectMotherboardActionListener(ActionListener al)
+    {
         motherboardButton.addActionListener(al);
     }
 
-    void setSelectCPUActionListener(ActionListener al) {
+    void setSelectCPUActionListener(ActionListener al)
+    {
         CPUButton.addActionListener(al);
     }
 
-    void setSelectRAMActionListener(ActionListener al) {
+    void setSelectRAMActionListener(ActionListener al)
+    {
         RAMButton.addActionListener(al);
     }
 
-    void setSelectGPUActionListener(ActionListener al) {
+    void setSelectGPUActionListener(ActionListener al)
+    {
         GPUButton.addActionListener(al);
     }
 
-    void setSelectPSUActionListener(ActionListener al) {
+    void setSelectPSUActionListener(ActionListener al)
+    {
         PSUButton.addActionListener(al);
     }
 
-    void setSelectDriveActionListener(ActionListener al) {
+    void setSelectDriveActionListener(ActionListener al)
+    {
         drivesButton.addActionListener(al);
     }
 
-    void setSearchActionListener(ActionListener al) {
+    void setSearchActionListener(ActionListener al)
+    {
         searchText.addActionListener(al);
     }
 
-    void setSortAZActionListener(ActionListener al) {
+    void setSortAZActionListener(ActionListener al)
+    {
         sortAZ.addActionListener(al);
     }
 
-    void setSortZAActionListener(ActionListener al) {
+    void setSortZAActionListener(ActionListener al)
+    {
         sortZA.addActionListener(al);
     }
 
-    void setAddComponentActionListener(ActionListener al) {
+    void setAddComponentActionListener(ActionListener al)
+    {
         addComponent.addActionListener(al);
     }
 
-    void setAddToCompareActionListener(ActionListener al) {
+    void setAddToCompareActionListener(ActionListener al)
+    {
         addCompare.addActionListener(al);
     }
 
-    void setSaveUserCfgActionListener(ActionListener al) {
+    void setSaveUserCfgActionListener(ActionListener al)
+    {
         saveUserCfg.addActionListener(al);
     }
 
-    void setRemoveCompare1ActionListener(ActionListener al) {
+    void setRemoveCompare1ActionListener(ActionListener al)
+    {
         removeComponentButton1.addActionListener(al);
     }
 
-    void setRemoveCompare2ActionListener(ActionListener al) {
+    void setRemoveCompare2ActionListener(ActionListener al)
+    {
         removeComponentButton2.addActionListener(al);
     }
 
-    void setErrorPanel(String error) {
+    void setErrorPanel(String error)
+    {
         JOptionPane.showMessageDialog(new JPanel(), error, "ERROR!", JOptionPane.ERROR_MESSAGE);
     }
 
-    void setProgressBar() {
-        switch (PCBuilder.PCBE.myPc.userCfg.size()) {
+    void setProgressBar()
+    {
+        switch (PCBuilder.PCBE.myPc.userCfg.size())
+        {
             case 1:
                 progressBar.setValue(20);
                 break;
@@ -174,44 +197,56 @@ public class GUI {
         }
     }
 
-    boolean setVerification(String message) {
+    boolean setVerification(String message)
+    {
         int result = JOptionPane.showConfirmDialog(null, message, null, JOptionPane.YES_NO_OPTION);
         return result == JOptionPane.YES_OPTION;
     }
 
-    void updateWattTab() {
+    void updateWattTab()
+    {
         String textComponent = "Your configuration:\n";
-        for (Component component : PCBuilder.PCBE.myPc.userCfg) {
+        for (Component component : PCBuilder.PCBE.myPc.userCfg)
+        {
             textComponent += "\n" + component.getGroupComponent() + ": " + component.getBrandComponent() + " " + component.getNameComponent() + "\n";
-            if (!component.getGroupComponent().equals("PSU")) {
+            if (!component.getGroupComponent().equals("PSU"))
+            {
                 textComponent += "Individual Watt Usage: " + component.getWattUsage() + " Watt\n";
             }
         }
         wattInfo.setText(textComponent);
     }
 
-    void updateCheckCompatibilityTab() {
+    void updateCheckCompatibilityTab()
+    {
         String textComponent = "Your configuration:\n";
-        for (Component component : PCBuilder.PCBE.myPc.userCfg) {
+        for (Component component : PCBuilder.PCBE.myPc.userCfg)
+        {
             textComponent += "\n" + component.getGroupComponent() + ": " + component.getBrandComponent() + " " + component.getNameComponent() + "\n";
         }
         compatibilityInfo.setText(textComponent);
     }
 
-    void updateExportTab() {
+    void updateExportTab()
+    {
         String textComponent = "Your configuration:\n";
-        for (Component component : PCBuilder.PCBE.myPc.userCfg) {
+        for (Component component : PCBuilder.PCBE.myPc.userCfg)
+        {
             textComponent += "\n" + component.getGroupComponent() + ": " + component.getBrandComponent() + " " + component.getNameComponent() + "\n";
         }
         exportInfo.setText(textComponent);
     }
 
-    void updateSpecificComponentList() {
+    void updateSpecificComponentList()
+    {
         ArrayList<Component> tempList = new ArrayList<>();
 
-        for (int i = 0; i < PCBuilder.componentNameList.size(); i++) {
-            for (Component component : PCBuilder.PCBE.catalogue.searchList) {
-                if ((component.getBrandComponent() + " " + component.getNameComponent()).equals(PCBuilder.componentNameList.get(i))) {
+        for (int i = 0; i < PCBuilder.componentNameList.size(); i++)
+        {
+            for (Component component : PCBuilder.PCBE.catalogue.searchList)
+            {
+                if ((component.getBrandComponent() + " " + component.getNameComponent()).equals(PCBuilder.componentNameList.get(i)))
+                {
                     tempList.add(component);
                 }
             }
@@ -219,13 +254,15 @@ public class GUI {
 
         PCBuilder.PCBE.catalogue.searchList.clear();
 
-        for (Component component : tempList) {
+        for (Component component : tempList)
+        {
             PCBuilder.PCBE.catalogue.searchList.add(component);
         }
 
         PCBuilder.DLM.clear();
 
-        for (Component component : PCBuilder.PCBE.catalogue.searchList) {
+        for (Component component : PCBuilder.PCBE.catalogue.searchList)
+        {
             PCBuilder.DLM.addElement(component.getBrandComponent() + " " + component.getNameComponent());
         }
         specificComponentList.setModel(PCBuilder.DLM);
@@ -239,7 +276,8 @@ public class GUI {
      *
      * @noinspection ALL
      */
-    private void $$$setupUI$$$() {
+    private void $$$setupUI$$$()
+    {
         mainPanel = new JPanel();
         mainPanel.setLayout(new GridBagLayout());
         mainPanel.setBackground(new Color(-1513240));
@@ -275,7 +313,7 @@ public class GUI {
         gbc.gridx = 0;
         gbc.gridy = 1;
         gbc.gridwidth = 3;
-        gbc.gridheight = 5;
+        gbc.gridheight = 6;
         gbc.weightx = 100.0;
         gbc.weighty = 1.0;
         gbc.fill = GridBagConstraints.BOTH;
@@ -289,7 +327,7 @@ public class GUI {
         detailsTextArea = new JTextArea();
         detailsTextArea.setEditable(false);
         detailsTextArea.setFocusCycleRoot(false);
-        detailsTextArea.setFont(new Font("Segoe UI", Font.BOLD, 16));
+        detailsTextArea.setFont(new Font("Segoe UI", Font.BOLD, 14));
         detailsTextArea.setMargin(new Insets(0, 10, 0, 0));
         detailsTextArea.setMinimumSize(new Dimension(0, 10));
         detailsTextArea.setOpaque(true);
@@ -299,6 +337,7 @@ public class GUI {
         gbc.gridx = 0;
         gbc.gridy = 8;
         gbc.gridwidth = 2;
+        gbc.weightx = 1.0;
         gbc.weighty = 0.5;
         gbc.fill = GridBagConstraints.BOTH;
         catalogueTab.add(detailsTextArea, gbc);
@@ -448,6 +487,7 @@ public class GUI {
         gbc = new GridBagConstraints();
         gbc.gridx = 2;
         gbc.gridy = 0;
+        gbc.gridwidth = 2;
         gbc.weightx = 0.5;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         catalogueTab.add(searchText, gbc);
@@ -705,12 +745,15 @@ public class GUI {
         exportTab.add(exportInfo, gbc);
         userCfgList = new JList();
         userCfgList.setFont(new Font("Segoe UI", Font.BOLD, 14));
+        userCfgList.setMaximumSize(new Dimension(250, 175));
+        userCfgList.setMinimumSize(new Dimension(250, 175));
         userCfgList.setOpaque(true);
+        userCfgList.setPreferredSize(new Dimension(250, 175));
+        userCfgList.setRequestFocusEnabled(true);
         userCfgList.setSelectionBackground(new Color(-1));
         gbc = new GridBagConstraints();
         gbc.gridx = 3;
         gbc.gridy = 3;
-        gbc.weighty = 0.5;
         gbc.fill = GridBagConstraints.BOTH;
         mainPanel.add(userCfgList, gbc);
         progressBar = new JProgressBar();
@@ -722,15 +765,6 @@ public class GUI {
         gbc.gridy = 1;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         mainPanel.add(progressBar, gbc);
-        saveUserCfg = new JButton();
-        saveUserCfg.setFont(new Font("Segoe UI", saveUserCfg.getFont().getStyle(), 18));
-        saveUserCfg.setText("Save your user configuration");
-        gbc = new GridBagConstraints();
-        gbc.gridx = 3;
-        gbc.gridy = 5;
-        gbc.weighty = 0.015;
-        gbc.fill = GridBagConstraints.BOTH;
-        mainPanel.add(saveUserCfg, gbc);
         welcomeTitle = new JTextArea();
         welcomeTitle.setEditable(false);
         welcomeTitle.setEnabled(true);
@@ -772,6 +806,27 @@ public class GUI {
         gbc.gridy = 0;
         gbc.fill = GridBagConstraints.VERTICAL;
         mainPanel.add(PCBuilderIcon, gbc);
+        final JLabel label4 = new JLabel();
+        label4.setBackground(new Color(-1));
+        label4.setHorizontalAlignment(0);
+        label4.setIcon(new ImageIcon(getClass().getResource("/resources/gamingPc1.jpg")));
+        label4.setOpaque(true);
+        label4.setText("");
+        label4.setVerticalAlignment(0);
+        gbc = new GridBagConstraints();
+        gbc.gridx = 3;
+        gbc.gridy = 5;
+        gbc.weighty = 0.15;
+        gbc.fill = GridBagConstraints.BOTH;
+        mainPanel.add(label4, gbc);
+        saveUserCfg = new JButton();
+        saveUserCfg.setFont(new Font("Segoe UI", saveUserCfg.getFont().getStyle(), 18));
+        saveUserCfg.setText("Save your user configuration");
+        gbc = new GridBagConstraints();
+        gbc.gridx = 3;
+        gbc.gridy = 6;
+        gbc.fill = GridBagConstraints.BOTH;
+        mainPanel.add(saveUserCfg, gbc);
         final JTextArea textArea2 = new JTextArea();
         textArea2.setEditable(false);
         textArea2.setEnabled(true);
@@ -791,7 +846,8 @@ public class GUI {
     /**
      * @noinspection ALL
      */
-    public JComponent $$$getRootComponent$$$() {
+    public JComponent $$$getRootComponent$$$()
+    {
         return mainPanel;
     }
 }
