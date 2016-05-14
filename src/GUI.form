@@ -71,7 +71,8 @@
                 </constraints>
                 <properties>
                   <editable value="false"/>
-                  <font name="Segoe UI" style="1"/>
+                  <focusCycleRoot value="false"/>
+                  <font name="Segoe UI" size="16" style="1"/>
                   <margin top="0" left="10" bottom="0" right="0"/>
                   <minimumSize width="0" height="10"/>
                   <opaque value="true"/>
@@ -568,7 +569,7 @@
           <gridbag weightx="0.0" weighty="0.5"/>
         </constraints>
         <properties>
-          <font name="Segoe UI" style="1"/>
+          <font name="Segoe UI" size="14" style="1"/>
           <opaque value="true"/>
           <selectionBackground color="-1"/>
         </properties>

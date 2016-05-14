@@ -386,7 +386,7 @@ public class PCBuilder
                     if (selectComponentIndex >= 0)
                     {
                         selectedComponent = PCBE.catalogue.searchList.get(selectComponentIndex);
-                        String textComponent = selectedComponent.toString();
+                        String textComponent = "\n" + selectedComponent.toString();
                         gui.detailsTextArea.setText(textComponent);
                         try
                         {
@@ -412,7 +412,7 @@ public class PCBuilder
 
                 if (!duplicate)
                 {
-                    userCfgDLM.addElement(selectedComponent.getGroupComponent() + ": " + selectedComponent.getBrandComponent() + " " + selectedComponent.getNameComponent());
+                    userCfgDLM.addElement(selectedComponent.getGroupComponent() + ":  " + selectedComponent.getBrandComponent() + " " + selectedComponent.getNameComponent());
                     gui.setProgressBar();
                     saveCheck = false;
                 } else
@@ -423,6 +423,10 @@ public class PCBuilder
                 gui.updateWattTab();
                 gui.updateCheckCompatibilityTab();
                 gui.updateExportTab();
+                //Resetting text area's
+                gui.exportResults.setText("");
+                gui.wattResults.setText("");
+                gui.compatibilityResults.setText("");
             }
         });
 
@@ -554,6 +558,10 @@ public class PCBuilder
                         gui.updateWattTab();
                         gui.updateCheckCompatibilityTab();
                         gui.updateExportTab();
+                        //Resetting text area's
+                        gui.exportResults.setText("");
+                        gui.wattResults.setText("");
+                        gui.compatibilityResults.setText("");
                     }
                 }
             }
