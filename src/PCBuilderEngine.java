@@ -23,7 +23,7 @@ class PCBuilderEngine
 
     boolean makeOfferFile()
     {
-        if (!PCBuilder.loginName.equals(""))
+        if (!PCBuilder.loginName.equals("") && (myPc.userCfg.size() >= 1))
         {
             try
             {
@@ -111,7 +111,14 @@ class PCBuilderEngine
 
         } else
         {
-            PCBuilder.gui.setErrorPanel("You are not logged in!");
+            if (myPc.userCfg.size() == 0)
+            {
+                PCBuilder.gui.setErrorPanel("You need to at least have selected one component !");
+            } else
+            {
+                PCBuilder.gui.setErrorPanel("You are not logged in!");
+            }
+
             return false;
         }
 
