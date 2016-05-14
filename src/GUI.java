@@ -810,7 +810,7 @@ public class GUI
         UCLIcon = new JLabel();
         UCLIcon.setBackground(new Color(-1));
         UCLIcon.setHorizontalAlignment(0);
-        UCLIcon.setIcon(new ImageIcon(getClass().getResource("/resources/gamingPc3.jpg")));
+        UCLIcon.setIcon(new ImageIcon(getClass().getResource("/resources/gamingPc2.jpg")));
         UCLIcon.setOpaque(true);
         UCLIcon.setText("");
         UCLIcon.setVerticalAlignment(0);
